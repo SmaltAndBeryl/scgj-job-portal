@@ -1,0 +1,5 @@
+deleteJobPost:
+ 
+ deleteJobPost: UPDATE job_postings SET active_flg=:falseFlag, updated_at = CURRENT_DATE() WHERE id=:jobId ;
+
+ checkIfAnyCandidateHasAppliedForPublishedJobPost: SELECT EXISTS(SELECT * FROM job_postings AS jp INNER JOIN job_candidate_mapping AS jcm ON jp.id=jcm.job_id WHERE jp.job_status=:publishedStatus AND jp.id=:jobId);

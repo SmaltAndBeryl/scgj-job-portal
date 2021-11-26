@@ -1,0 +1,264 @@
+<div ng-controller="manageJobApplicationsController" class="templatePartial manageJobApplications" >
+	<p class="partialheading">Manage Applications</p>
+	<div class="contentSection">
+		<div class="row margin-0 margin-top-1">
+			<div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+				<select class="standardInputBox" ng-options="jobPost as jobPost.jobId + ' | ' +  jobPost.jobTitle for jobPost in jobPostList" ng-model="jobPostInfo" ng-change="viewCandidateApplicationDetails();" required>
+					<option value="" disabled>Select Job Post</option>
+				</select>
+			</div>
+		</div>
+		<!--Error message section -->
+			<div class="row margin-0" ng-show="noApplicationsError">
+		       <div class="alert alert-danger alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{noApplicationsErrorMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="noApplicationsError=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+	</div>
+	<div class="contentSection margin-top-2" ng-show="showCandidateApplicationDetails">
+		<div class="row margin-0" ng-show="viewAllApplicationsGridSection">
+			<div ng-show="jobPostInfo.jobStatus">
+				<p class="jobStatusHeading displayInline">Job Status:</p>
+				<p class="jobStatusText jobStatusClosedText displayInline" ng-show="jobPostInfo.jobStatus == 'Closed'">Closed</p>
+				<p class="jobStatusText jobStatusPublishedText displayInline" ng-show="jobPostInfo.jobStatus == 'Published'">Published</p>
+			</div>
+			
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewCandidateApplications" id="viewCandidateApplications" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewCandidateApplicationsSmallScreen" id="viewCandidateApplicationsSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 updateApplicationStatusCheckBox" ng-show="viewCandidateApplications.data.length>0 && jobPostInfo.jobStatus == 'Published'">
+				<div class="col-md-4 col-sm-4 col-xs-12">
+					<input type="checkbox" class="form-check-input" ng-model="updateAllApplications" id="updateAllApplicationsCheckBox">
+					<label class="checkBoxLabel" for="updateAllApplicationsCheckBox">Update All Applicant's Status</label>
+				</div>
+			</div>
+			<div class="row margin-0" ng-show="updateAllApplications && viewCandidateApplications.data.length>0 && jobPostInfo.jobStatus == 'Published'">
+				<div class="col-md-3 col-sm-4 col-xs-8">
+					<select class="updateStatusGridInputBox" ng-model="updatedStatus" ng-change="updateApplicationStatus();">
+			  			<option value="" disabled>Select Status</option>
+			  			<option value="In Review">In Review</option>
+			       		<option value="Rejected">Rejected</option>
+			       		<option value="Shortlisted">Shortlisted</option>
+			       	</select>
+				</div>
+			</div>
+			
+			<!-- gif & error message -->
+			<div class="row margin-0 text-center" ng-show="updateStatusGif">
+				<img src="../images/loadingImage.gif" alt="Loading GIF" class="updateStatusLoadingGif">
+			</div>
+			
+		</div>
+		
+		<div ng-hide="viewAllApplicationsGridSection">
+			<i class="fa fa-chevron-left backChevronLeftIcon" title="Go Back" ng-click="viewApplicantsGridSection();"></i>
+			<div class="row margin-0">
+				<div class="flexContainer">
+					<div id="candidateNameDiv">
+					<p class="jobPostCardTitle margin-top-1 margin-bottom-3" title="Candidate Name: {{applicantInfo.candidateName}}">{{applicantInfo.candidateName}}
+						<span class="applicationStatusText inReviewText" ng-show="applicantInfo.applicationStatus == 'In Review'">(In Review)</span>
+						<span class="applicationStatusText rejectedText" ng-show="applicantInfo.applicationStatus == 'Rejected'">(Rejected)</span>
+						<span class="applicationStatusText shortlistedText" ng-show="applicantInfo.applicationStatus == 'Shortlisted'">(Shortlisted)</span>
+						<span class="applicationStatusText hiredText" ng-show="applicantInfo.applicationStatus == 'Hired'">(Hired)</span>
+					</p>
+				</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Job Role</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.jobRole}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Qualification</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.educationQualification}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Experience</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.professionalExperience}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">State</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.state}}</p>
+					</div>
+					
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Gender</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.gender == 'F'">Female</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.gender == 'M'">Male </p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.gender == 'O'">Other</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Ex-Army Personnel</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.defenceBackground == 'Y'">Yes</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.defenceBackground == 'N'">No</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Contact Number</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.candidateMobileNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Guardian's Contact Number</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.guardianMobileNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Aadhaar Card Number</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.adharNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Address</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.address}}</p>
+					</div>
+					<!-- 
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">CGSC Certified</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText shortlistedText" ng-show="applicantInfo.isCgscCertified =='Y' ">Yes</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText rejectedText" ng-show="applicantInfo.isCgscCertified =='N'">No</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">CGSC Certificate Number</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.cgscCertificateNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Training Partner</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.isCgscCertified =='Y'">{{applicantInfo.trainingPartner}}</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="applicantInfo.isCgscCertified =='N'">N/A</p>
+
+					</div>  -->
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Applied On</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText">{{applicantInfo.appliedOn}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-6 col-sm-6 col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-6 downloadDocumentSection">
+						<button class="btn downloadJobDescriptionButton downloadButton" ng-click="downloadResume(applicantInfo.resumePath,applicantInfo.candidateName)" ng-disabled="downloadGif"><i class="fa fa-download downloadJobDescriptionGlyphicon" aria-hidden="true"></i>Resume</button>
+						<button ng-show="applicantInfo.certificatePath" class="btn downloadJobDescriptionButton downloadButton" ng-click="downloadCertificates(applicantInfo.certificatePath,applicantInfo.candidateName)" ng-disabled="downloadGif"><i class="fa fa-download downloadJobDescriptionGlyphicon" aria-hidden="true"> </i>Certificates</button>
+						<button ng-hide="applicantInfo.certificatePath" class="btn downloadJobDescriptionButton downloadButton" disabled>Certificates N/A</button>					
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+			<!-- GIF section -->
+			<div class="row margin-0" ng-show="downloadGif">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					<img src="../images/loadingImage.gif" class="downLoadingGif" alt="Loading GIF">
+				</div>
+			</div>
+			
+			<!--Error message section -->
+			<div class="row margin-0" ng-show="error">
+		       <div class="alert alert-danger alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{errorMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="error=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+			<div class="row margin-0" ng-show="success" >
+		       <div class="alert alert-success alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{successMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="success=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade pop-up-box" id="hireCandidateModal" role="dialog">
+		<div class="modal-dialog confirmCandidateModalDialog">
+			<div class="modal-content modalContent">
+				<i class="fa fa-times closeModalButton" aria-hidden="true" data-dismiss="modal" aria-hidden="true"></i>
+				<div class="row margin-0">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="row margin-0">
+							<p class="modalHeading candidateDetailsHeading">Candidate Details</p>
+						</div>
+						<div class="candidateDetailsSection">
+							<div class="row margin-0">
+								<p class="candidateDetailsLabel">Job Title: <span class="candidateDetailsText">{{jobPostInfo.jobTitle}}</span></p>
+							</div>
+							<div class="row margin-0">
+								<p class="candidateDetailsLabel">Candidate Name: <span class="candidateDetailsText">{{candidateInfo.candidateName}}</span></p>
+							</div>
+							<div class="row margin-0">
+								<p class="candidateDetailsLabel">Mobile Number: <span class="candidateDetailsText">{{candidateInfo.candidateMobileNumber}}</span></p>
+							</div>
+							<div class="row margin-0">
+								<p class="candidateDetailsLabel">Experience: <span class="candidateDetailsText">{{candidateInfo.professionalExperience}}</span></p>
+							</div>
+							<!-- <div class="row margin-0">
+								<p class="candidateDetailsLabel">CGSC Certified: 
+									<span class="candidateDetailsText" ng-show="candidateInfo.isCgscCertified =='Y' ">Yes </span>
+									<span class="candidateDetailsText" ng-show="candidateInfo.isCgscCertified =='N'">No</span>
+								</p>
+							</div> -->
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="row margin-0">
+							<p class="modalHeading hiringInformationHeading">Hiring Information</p>
+						</div>
+						<form id="hireCandidateForm" ng-submit="hireCandidate();">
+							<div class="row margin-0">
+								<div>
+									<input class="modalInputBox" type="text" id="uploadOfferLetter" placeholder="Upload Offer Letter">
+									<input type="file" class="uploadOfferLetterInputBox" ng-disabled="modalActionButton" id ="uploadedOfferLetter" accept="application/pdf" onchange="document.getElementById('uploadOfferLetter').value = this.value.split('\\').pop(); angular.element(this).scope().readURLObj(event);" required/>
+									<button class="btn browseButton browseOfferLetterButton" type="button" onclick="$('.uploadOfferLetterInputBox').trigger( 'click' )">Browse</button>	
+								</div>
+							</div>
+							<div class="row margin-0">
+								<input class="modalInputBox" placeholder="Enter Salary Offered" ng-disabled="modalActionButton" ng-model="candidateSalary"  type="number"  min="5000" max="500000" oninput="this.value=parseInt(this.value)" required/>
+							</div>
+							<div class="row margin-0">
+								<span class="selectJoiningDateIcon">
+									<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
+								</span>
+								<input class="modalInputBox datePickerIcon" ng-disabled="modalActionButton" placeholder="Enter Joining Date" id="applicationDatePicker" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="joiningDate" required/>
+							</div>
+							<div class="row modalSubmitButtonDiv">
+								<button class="btn btn-success modalSubmitButton" ng-disabled="modalActionButton">Confirm</button>
+							</div>
+						</form>
+					
+						
+					</div>
+				
+				</div>
+				<!--Error message section -->
+				<div class="row margin-0" ng-show="modalError">
+			       <div class="alert alert-danger alert-dismissible errorMessageBox">
+			    		<div class="row margin-0">
+					   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+					   			{{modalErrorMessage}}
+					  		</div>
+					   		<div class="col-md-1 col-sm-2 col-xs-2">
+					   			<button type="button" class="close" ng-click="modalError=false">&times;</button>
+					   		</div>
+				  		</div>
+			    	</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>

@@ -1,0 +1,13 @@
+populateDropdowns: 
+
+ getAllStates: select * from states;
+ getIndustryTypes: select * from industry_type;
+ getCompanyType: select * from company_type;
+ getCompanyScale: select * from company_scale;
+ getEducationQualification: select * from education_qualification;
+ getProfessionalExperience: select * from professional_experience;
+ getJobRoles: select id, job_role from job_roles where is_active_flg=:activeFlagTrue;
+ getJobIdsWithStatus: select id, job_id, job_title from job_postings where posted_by=:employerId and job_status=:status and active_flg=:activeFlagTrue order by id desc;
+ getActiveEmployers: select id, username from users where user_role=:userRoleEmployer and is_active_flg=:activeFlagTrue and enrolment_status=:approvedFlag order by id;
+ getActiveTrainingPartners: select id, tp_name from training_partner where is_active=:activeFlagTrue;
+ getOccupationByJobRole : select id, occupation_name from occupation WHERE is_active_flg=:activeFlagTrue and job_role_id = (select id from job_roles where job_role =:jobRole);

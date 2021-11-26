@@ -1,0 +1,159 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+:root{
+	
+	--cgsc-active-orange:rgb(243,149,19);
+	--cgsc-light-grey-shade2:rgb(118,113,113);
+	--cgsc-white:rgb(256,256,256);
+	--cgsc-dark-blue:rgb(68,84,106);	
+	--text-dark-grey:rgb(59,56,56);
+	--text-white:rgb(255,255,255);
+}
+
+.margin-0{
+	margin:0%;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	color:var(--text-dark-grey);
+	font-weight:300;
+}
+.backgroundContainer{
+	width:100%;
+	min-height:100vh;
+	background: var(--cgsc-white);
+}
+.padding-0{
+	padding:0;
+}
+.cgscLogo{
+    width: 7%;
+    margin-top: 0.2%;
+    margin-left: 0.5%;
+    cursor:pointer;
+}
+.accountVerifiedImage{
+	width: 26%;
+	margin-top: 4%;
+}
+
+.accountVerifiedText{
+	font-size: 1.6em;
+    position: relative;
+    top: -1em;
+    color: var(--cgsc-light-grey-shade2);
+    margin-bottom:0%;
+}
+.linkText{
+	color: var(--cgsc-active-orange);
+    font-weight: bold;
+    border-bottom: 1px solid;
+    cursor:pointer;
+}
+.redirectToPortalText {
+    color: var(--cgsc-light-grey-shade2);
+    position: relative;
+    top: -1em;
+}
+/* ---------- FOOTER STYLES ------------------------- */
+.footerContainer{
+	width:100%;
+	position:relative;
+	bottom:0;
+	background:var(--text-white);
+}
+.footerTextDiv{
+	background: var(--cgsc-dark-blue);
+    color: var(--text-white);
+    font-size: 0.8em;
+    margin-top: 2.5%;
+    padding: 0.05%;
+}
+.termsAndConditions{
+	cursor: pointer;
+}
+
+
+/**-------------------MEDIA QUERIES --------------------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.cgscLogo {
+	    width: 12%;
+	}
+	.accountVerifiedImage {
+	    width: 30%;
+	    margin-top: 11%;
+	}
+}
+
+@media (max-width:991px) and (min-width:800px){
+	.cgscLogo {
+	    width: 12%;
+	}
+	.accountVerifiedImage {
+	    width: 30%;
+	    margin-top: 11%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.cgscLogo {
+	    width: 15%;
+	}
+	.accountVerifiedImage {
+	    width: 40%;
+	    margin-top: 20%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	.cgscLogo {
+	    width: 13%;
+	}
+	.accountVerifiedImage {
+	    width: 40%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	.cgscLogo {
+	    width: 23%;
+	    margin-top: 1%;
+	    margin-left: 1%;
+	}
+	.accountVerifiedImage {
+	    width: 60%;
+	    margin-top: 8%;
+	}
+	.accountVerifiedText {
+	    font-size: 1.2em;
+	    padding: 0% 3%;
+	}
+	.redirectToPortalText {
+	    padding: 1% 13%;
+	    margin-top: 0%;
+	    font-size: 0.9em;
+	}
+}
+
+@media (max-width:480px){
+	.cgscLogo {
+	    width: 23%;
+	    margin-top: 1%;
+	    margin-left: 1%;
+	}
+	.accountVerifiedImage {
+	    width:66%;
+	    margin-top: 14%;
+	}
+	.accountVerifiedText {
+	    font-size: 1.2em;
+	    padding: 0% 3%;
+	}
+	.redirectToPortalText {
+	    padding: 1% 13%;
+	    margin-top: 0%;
+	    font-size: 0.9em;
+	}
+}

@@ -1,0 +1,570 @@
+#viewCandidateApplications{
+	display:block;
+	height:85px;
+}
+#viewCandidateApplicationsSmallScreen{
+	display:none;
+	height:85px;
+}
+.manageJobApplications .standardInputBox{
+	margin-bottom:3%;
+}
+.applicationStatusText{
+	font-size: 0.75em;
+    font-weight: 400;
+}
+.manageJobApplications .viewJobSectionContentHeading {
+    font-weight: 400;
+    margin-top: 5%;
+    color: var(--cgsc-light-grey-shade2);
+}
+.jobStatusHeading{
+	margin-left: 1%;
+    font-weight: 400;
+}
+.manageJobApplications .jobStatusText{
+    font-size: 0.9em;
+    margin-bottom: 2%;
+}
+.downloadDocumentSection{
+	text-align:right;
+}
+.manageJobApplications .downloadButton {
+    width: 30%;
+    margin:12% 0% 3% 8%;
+}
+.downLoadingGif{
+	width:2em;
+	margin-top:3%;
+}
+.manageJobApplications input[type=checkbox] {
+    height: 0.9em;
+    width: 0.9em;
+}
+.manageJobApplications .checkBoxLabel {
+    top: 0em;
+    margin-bottom: 2%;
+}
+.flexContainer{
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-around;
+}
+
+.flexElement{
+    flex-basis: 31%;
+    margin-left: 2%;
+}
+
+#candidateNameDiv{
+	flex-basis : 96%;
+	margin-left : 2%;
+}
+.updateStatusLoadingGif{
+	width:1.8em;
+	margin-top:2%;
+}
+/** --------- UI-grid Styles ---------------**/
+.updateStatusGridInputBox{
+	width: 85%;
+    margin: 2.5% 0%;
+    border-radius: 3px;
+    padding: 2%;
+    background: var(--cgsc-white);
+    border: 1px solid var(--cgsc-light-grey-shade4);
+}
+.manageJobApplications .applicationStatusGridText{
+	margin-top:5%;
+}
+.shortlistedText{
+	color: var(--cgsc-dark-blue);
+}
+.hiredText{
+	color: var(--light-green);
+}
+.inReviewText{
+	color:var(--cgsc-active-orange);
+}
+.rejectedText{
+	color: var(--cgsc-red);
+}
+.downloadResumeGridIcon{
+	width:34%;
+	cursor: pointer;
+}
+.viewApplicantDetailsGridButton{
+	padding: 3% 15%;
+    margin-top: 2%;
+    outline: none;
+}
+
+/**--Modal Styles ---**/
+.modalContent{
+	padding:2% 0% 2% 0.6%;
+}
+.modalHeading{
+	font-size: 1.4em;
+    margin-bottom: 2%;
+    font-weight:400;
+}
+.candidateDetailsHeading{
+	color: var(--cgsc-light-green);
+	margin-bottom:6%;
+}
+.hiringInformationHeading{
+	color: var(--cgsc-dark-blue);
+	margin-bottom:6%;
+}
+.confirmCandidateModalDialog{
+	margin-top:20vh;
+	width:70vw;
+}
+.manageJobApplications .closeModalButton {
+    z-index: 200;
+}
+.modalInputBox {
+    width: 62%;
+    border-radius: 3px;
+    padding: 1.5%;
+    margin-bottom: 4%;
+    background: var(--cgsc-white);
+    border: 1px solid var(--cgsc-light-grey-shade4);
+    outline: none;
+}
+.candidateDetailsSection{
+	border-right:1px solid var(--cgsc-light-grey-shade2);
+}
+.candidateDetailsLabel{
+	font-weight: 400;
+    margin-bottom: 2%;
+}
+.candidateDetailsText{
+	font-weight: 300 !important;
+}
+.uploadOfferLetterInputBox{
+	opacity: 0;
+    position: absolute;
+    top: 20%;
+    z-index: 100;
+    width: 58%;
+    height: 13%;
+    cursor: pointer;
+}
+.modaCandidateName{
+	font-size: 1.3em;
+    font-weight: 600;
+	margin-bottom: 4%;
+    margin-top: 3%;
+}
+.modalSubmitButtonDiv{
+	margin:3% 0% 2% 0%;
+}
+.selectJoiningDateIcon {
+    position: absolute;
+    right: 41%;
+    margin-top: 1.5%;
+    background: var(--cgsc-white);
+    pointer-events: none;
+    color: var(--sems-light-grey-shade2);
+}
+.browseOfferLetterButton {
+    position: absolute;
+    right: 16%;
+    padding: 1.3%;
+    width: 5em;
+}
+.modalSubmitButton {
+    background: var(--cgsc-dark-blue);
+    font-weight: 300;
+    border-radius: 4px;
+    outline: none;
+    padding: 1.3% 5%;
+    border: none;
+    position: relative;
+    left: -16%;
+    margin-top: 5%;
+}
+
+.modalSubmitButton:focus, .modalSubmitButton:hover, .modalSubmitButton:active{
+	background: var(--cgsc-dark-blue);
+	border:none;
+}
+.modal{
+	padding-right:0% !important;
+}
+
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.downloadResumeGridIcon {
+	    width: 41%;
+	    margin-top: 5%;
+	}
+	.viewApplicantDetailsGridButton {
+	    padding: 2% 15%;
+	    margin-top: 5%;
+	    outline: none;
+	}
+	.updateStatusGridInputBox {
+	    margin: 4% 0%;
+	}
+	.manageJobApplications .downloadButton {
+    	width: 35%;
+	}
+	.manageJobApplications .applicationStatusGridText {
+	    margin-top: 7%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 30vh;
+	}
+	.modalSubmitButton {
+	    left: -22%;
+	}
+}
+
+@media (max-width:991px) and (min-width:800px){
+	#viewCandidateApplications{
+		display:none;
+	}
+	#viewCandidateApplicationsSmallScreen{
+		display:block;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 30vh;
+	}
+	.modalSubmitButton {
+	    left: -22%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	#viewCandidateApplications{
+		display:none;
+	}
+	#viewCandidateApplicationsSmallScreen{
+		display:block;
+	}
+	.manageJobApplications .checkBoxLabel {
+	    top: 0em;
+	    margin-top: 4%;
+	}
+	.downloadResumeGridIcon {
+	    width: 16%;
+	}
+	.viewApplicantDetailsGridButton {
+	    padding: 1% 15%;
+	    margin-top: 2.5%;
+	}
+	.updateStatusGridInputBox {
+    	margin: 1% 0%;
+	}
+	.manageJobApplications .applicationStatusGridText {
+	    margin-top: 3%;
+	}
+	.manageJobApplications .downloadButton {
+	    width: 40%;
+	}
+	.downloadResumeGridIcon {
+    width: 15%;
+	}
+	.flexElement{
+		flex-basis : 30%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 30vh;
+	    width: 90vw;
+	}
+	.modalSubmitButton {
+	    left: -22%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#viewCandidateApplications{
+		display:none;
+	}
+	#viewCandidateApplicationsSmallScreen{
+		display:block;
+	}
+	.downloadDocumentSection {
+	    text-align: center;
+	}
+	.manageJobApplications .downloadButton {
+	    width: 30%;
+	    margin: 12% 5% 3% 5%;
+	}
+	.updateApplicationStatusCheckBox{
+		margin-top:2%;
+	}
+	.downLoadingGif {
+	    width: 1.8em;
+	    margin-top: 4%;
+	}
+	.downloadResumeGridIcon {
+	    margin-top: 1.5%;
+    	width: 17%;
+	}
+	.viewApplicantDetailsGridButton {
+	    margin-top: 4%;
+	    padding: 1% 15%;
+	}
+	.updateStatusGridInputBox {
+		margin:1% 0%;
+	}
+	.manageJobApplications .applicationStatusGridText {
+	    margin-top: 3%;
+	}
+	.manageJobApplications .jobPostCardTitle {
+	    font-size: 1.1em;
+	}
+	.manageJobApplications .viewJobSectionContentHeading {
+	    font-size: 0.9em;
+	}
+	.manageJobApplications .checkBoxLabel {
+	    margin-top: 5%;
+	    font-size: 0.95em;
+	}
+	.manageJobApplications .jobStatusText {
+	    margin-bottom: 2.4%;
+	}
+	.flexElement{
+		flex-basis : 48%;
+		margin-left : 1%;
+	}
+	#candidateNameDiv {
+    	margin-left: 1%;
+	}
+	.browseOfferLetterButton{
+	    right: 22%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 8%;
+	    width: auto;
+	}
+	.candidateDetailsSection {
+	    border-right: none;
+	}
+	.modalSubmitButton{
+		left: 0;
+    	margin: 6% 38% 0% 37%;
+	}
+	.hiringInformationHeading {
+	    margin-bottom: 4%;
+	    margin-top: 4%;
+	}
+	.modalContent {
+	    padding: 2% 0% 2% 2%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#viewCandidateApplications{
+		display:none;
+	}
+	#viewCandidateApplicationsSmallScreen{
+		display:block;
+	}
+	.downloadDocumentSection {
+	    text-align: center;
+	}
+	.manageJobApplications .downloadButton {
+	    width: 40%;
+	    margin: 12% 3% 3% 3%;
+	}
+	.updateApplicationStatusCheckBox{
+		margin-top:2%;
+	}
+	.downLoadingGif {
+	    width: 1.5em;
+	    margin-top: 4%;
+	}
+	.downloadResumeGridIcon {
+	    margin-top: 1%;
+	    width: 27%;
+	}
+	.viewApplicantDetailsGridButton {
+	    margin-top: 3%;
+	}
+	.updateStatusGridInputBox {
+		margin:3.5% 0%;
+	}
+	.manageJobApplications .applicationStatusGridText {
+	    margin-top: 6%;
+	}
+	.manageJobApplications .jobPostCardTitle {
+	    font-size: 1.1em;
+	}
+	.manageJobApplications .viewJobSectionContentHeading {
+	    font-size: 0.9em;
+	}
+	.manageJobApplications .checkBoxLabel {
+	    margin-top: 5%;
+	    font-size: 0.95em;
+	}
+	.manageJobApplications .jobStatusText {
+	    margin-bottom: 5%;
+	}
+	.backChevronLeftIcon{
+		margin-left:2.5%;
+	}
+	.flexElement{
+		flex-basis : 48%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 27%;
+	    width: auto;
+	}
+	.candidateDetailsSection {
+	    border-right: none;
+	}
+	.modalSubmitButton{
+		left: 0;
+    	margin: 6% 38% 0% 37%;
+	}
+	.hiringInformationHeading {
+	    margin-bottom: 4%;
+	    margin-top: 4%;
+	}
+
+}
+
+@media (max-width:480px){
+	#viewCandidateApplications{
+		display:none;
+	}
+	#viewCandidateApplicationsSmallScreen{
+		display:block;
+	}
+	.downloadDocumentSection {
+	    text-align: center;
+	}
+	.manageJobApplications .downloadButton {
+	    width: 40%;
+	    margin: 12% 3% 3% 3%;
+	}
+	.updateApplicationStatusCheckBox{
+		margin-top:2%;
+	}
+	.downLoadingGif {
+	    width: 1.5em;
+	    margin-top: 4%;
+	}
+	.downloadResumeGridIcon {
+	    margin-top: 1%;
+	    width: 27%;
+	}
+	.viewApplicantDetailsGridButton {
+	    margin-top: 3%;
+	}
+	.updateStatusGridInputBox {
+		margin:3.5% 0%;
+	}
+	.manageJobApplications .applicationStatusGridText {
+	    margin-top: 6%;
+	}
+	.manageJobApplications .jobPostCardTitle {
+	    font-size: 1.1em;
+	}
+	.manageJobApplications .viewJobSectionContentHeading {
+	    font-size: 0.9em;
+	}
+	.manageJobApplications .checkBoxLabel {
+	    margin-top: 5%;
+	    font-size: 0.95em;
+	}
+	.manageJobApplications .jobStatusText {
+	    margin-bottom: 5%;
+	}
+	.backChevronLeftIcon{
+		margin-left:3.5%;
+	}
+	.flexElement{
+		flex-basis : 48%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 35%;
+	}
+	.browseOfferLetterButton{
+	    right: 12%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 27%;
+	    width: auto;
+	}
+	.candidateDetailsSection {
+	    border-right: none;
+	}
+	.modalSubmitButton{
+		left: 0;
+    	margin: 6% 38% 0% 37%;
+	}
+	.hiringInformationHeading {
+	    margin-bottom: 4%;
+	    margin-top: 4%;
+	}
+}
+
+@media (max-width:415px){
+	#viewCandidateApplications{
+		display:none;
+	}
+	#viewCandidateApplicationsSmallScreen{
+		display:block;
+	}
+	.downloadDocumentSection {
+	    text-align: center;
+	}
+	.manageJobApplications .downloadButton {
+	    width: 40%;
+	    margin: 12% 3% 3% 3%;
+	}
+	.downLoadingGif {
+	    width: 1.5em;
+	    margin-top: 4%;
+	}
+	.downloadResumeGridIcon {
+	    margin-top: 5%;
+	}
+	.viewApplicantDetailsGridButton {
+	    margin-top: 5%;
+	}
+	.updateStatusGridInputBox {
+		margin:3.5% 0%;
+	}
+	.manageJobApplications .applicationStatusGridText {
+	    margin-top: 8%;
+	}
+	.manageJobApplications .jobPostCardTitle {
+	    font-size: 1.1em;
+	}
+	.manageJobApplications .viewJobSectionContentHeading {
+	    font-size: 0.9em;
+	}
+	.manageJobApplications .checkBoxLabel {
+	    margin-top: 5%;
+	    font-size: 0.95em;
+	}
+	.manageJobApplications .jobStatusText {
+	    margin-bottom: 5%;
+	}
+	.flexElement{
+		flex-basis : 48%;
+	}
+	.confirmCandidateModalDialog {
+	    margin-top: 27%;
+	    width: auto;
+	}
+	.candidateDetailsSection {
+	    border-right: none;
+	}
+	.modalSubmitButton{
+		left: 0;
+    	margin: 6% 38% 0% 37%;
+	}
+	.hiringInformationHeading {
+	    margin-bottom: 4%;
+	    margin-top: 4%;
+	}
+}
+

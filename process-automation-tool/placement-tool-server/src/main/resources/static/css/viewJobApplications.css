@@ -1,0 +1,394 @@
+.jobStatusClosedText {
+    color: var(--cgsc-red);
+    font-size: 0.75em;
+    font-weight: 400;
+}
+.jobStatusPublishedText{
+	color:var(--cgsc-light-green);
+	font-size: 0.75em;
+    font-weight: 400;
+}
+.viewJobApplications .downloadButton {
+    width: 30%;
+    margin:12% 0% 0% 8%;
+}
+.fileTypeMenu
+{
+	cursor:pointer;
+	min-width : 28.5%;
+}
+.jobDetailSection {
+    padding-bottom: 6%;
+}
+.viewJobApplications .viewJobSectionContentHeading {
+    margin-top: 12%;
+}
+.viewJobApplications .standardInputBox{
+	margin-bottom:3%;
+}
+.jobApplicationOverviewFlexCard{
+	display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    width: 17%;
+    margin: 1% 1.5%;
+    margin-top: 3%;
+    box-shadow: 0px 0px 3px 1px var(--box-shadow-grey);
+}
+.cardImageSection{
+	text-align: center;
+    padding: 3% 0%;
+    flex: 1
+}
+.cardInfoSection{
+	flex: 2;
+    text-align: center;
+    background:var(--cgsc-white);
+}
+.totalApplicationsCard{
+	background: var(--cgsc-dark-blue);
+}
+.hiredCandidatesCard{
+	background:var(--cgsc-light-green);
+}
+.shortlistedCandidatesCard{
+	background: var(--panel-color-green);
+}
+.rejectedCandidatesCard{
+	background:var(--cgsc-red);
+}
+.inreviewCandidatesCard{
+	background:var(--cgsc-active-orange);
+}
+#totalApplicationsIcon{
+	width: 68%;
+}
+.applicationOverviewVacancyIcon{
+	width: 58%;
+    position: relative;
+}
+.hiredIcon{
+	width: 76%;
+	margin-top: 5%;
+}
+.applicationOverviewNumberStyle{
+	font-weight: bold;
+    color: var(--text-dark-grey);
+    font-size: 1.3em;
+	margin-top: 1%;
+}
+.applicationOverviewLabelStyle{
+	display: block;
+	font-weight: 400;
+	font-size:0.9em;
+	margin-bottom:3%;
+}
+.fileTypeMenu
+{
+	font-family: sans-serif;
+    font-size: smaller;
+    left:69%;
+    
+}
+.downloadApplicationsGif{
+	width: 2em;
+    margin-top: 2%;
+}
+.viewJobApplications .downloadButtonSection{
+	text-align:right;
+}
+
+.dropDownOption{
+	padding-left: 2rem;
+}
+.dropDownOption:hover
+{
+	background-color: var(--cgsc-light-grey-shade3);
+}
+.viewJobApplicationsPanel{
+	display: flex;
+	flex-flow: row wrap;
+}
+/** ------------MEDIA QUERIES------------**/
+
+@media (min-width:1250px){
+	.fileTypeMenu{
+		min-width : 28.5%;
+	}
+}
+@media (max-width:1199px) and (min-width:992px){
+	.jobApplicationOverviewFlexCard {
+	    width: 17%;
+	}
+	.applicationOverviewVacancyIcon {
+		width: 68%;
+		margin-top: 7%;
+	}
+	#totalApplicationsIcon {
+	    width: 76%;
+	}
+	.viewJobApplications .downloadButton {
+	    width: 40%;
+	}
+	.fileTypeMenu 
+	{
+	    left: 60%;
+	    min-width: 36%;
+	}
+	.hiredIcon{
+		margin-top: 17%;
+		width: 88%;
+	}
+	.applicationOverviewLabelStyle{
+		font-size: 0.8em;
+	}
+	/*.applicationOverviewNumberStyle{*/
+	/*	font-size: 0.3em;*/
+	/*}*/
+}
+
+@media (max-width:992px) and (min-width:800px){
+	.jobApplicationOverviewFlexCard {
+	    width: 17%;
+	}
+	.applicationOverviewVacancyIcon {
+		width: 66%;
+		margin-top: 4%;
+	}
+	#totalApplicationsIcon {
+	    width: 76%;
+		margin-top: 8%;
+	}
+	.viewJobApplications .downloadButton {
+	    width: 35%;
+	}
+	.fileTypeMenu {
+	    left: 64%;
+    	min-width: 32%;
+	}
+	.hiredIcon{
+		width: 87%;
+		margin-top: 10%;
+	}
+
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.jobApplicationOverviewFlexCard {
+	    width: 17%;
+	}
+	.applicationOverviewVacancyIcon {
+	    width: 64%;
+	}
+	#totalApplicationsIcon {
+	    width: 76%;
+	}
+	.viewJobApplications .downloadButton {
+	    width: 40%;
+	}
+	.fileTypeMenu {
+	    min-width: 37%;
+	    left: 59%;
+	}
+	.cardImageSection{
+		flex: 1.3;
+	}
+	.applicationOverviewNumberStyle{
+		font-size: 1.7rem;
+	}
+	.hiredIcon{
+		width: 82%;
+		margin-top: 6%;
+	}
+	.applicationOverviewLabelStyle{
+		font-size: 0.8em;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	.jobApplicationOverviewFlexCard {
+	    width: 43%;
+	    margin: 4% 3% 3.5% 3%;
+	}
+	.applicationOverviewVacancyIcon {
+		width: 45%;
+	}
+	#totalApplicationsIcon {
+	    width: 55%;
+	}
+	.cardInfoSection {
+	    padding-top: 3%;
+	}
+	.viewJobApplications .downloadButton {
+	    margin: 10% 4% 0% 4%;
+	}
+	.viewJobApplications .downloadButtonSection{
+		text-align:center;
+	}
+	.viewJobApplications .downloadJobDescriptionGlyphicon {
+	    font-size: 1em;
+	}
+	.downloadApplicationsGif {
+	    width: 1.8em;
+	    margin-top: 2%;
+	}
+	.viewJobApplications .standardInputBox {
+	    margin-bottom: 1%;
+	}
+	.fileTypeMenu {
+    	left: 54%;
+    	min-width: 28%;
+	}
+	.viewJobApplicationsPanel{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.hiredIcon{
+		width: 66%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	.jobApplicationOverviewFlexCard {
+	    width: 43%;
+	    margin: 4% 3% 3.5% 3%;
+	}
+	.applicationOverviewVacancyIcon {
+	    width: 68%;
+	}
+	#totalApplicationsIcon {
+	    width: 84%;
+	}
+	.applicationOverviewNumberStyle {
+	    font-size: 1.2em;
+	}
+	.applicationOverviewLabelStyle {
+	    font-size: 0.9em;
+	}
+	.cardInfoSection {
+	    padding-top: 3%;
+	}
+	.viewJobApplications .downloadButton {
+	    width: 40%;
+	    margin: 10% 4% 0% 4%;
+	}
+	.viewJobApplications .downloadButtonSection{
+		text-align:center;
+	}
+	.viewJobApplications .downloadJobDescriptionGlyphicon {
+	    font-size: 1em;
+	}
+	.downloadApplicationsGif {
+	    width: 1.8em;
+	    margin-top: 2%;
+	}
+	.fileTypeMenu{
+		left: 54%;
+		min-width : 37.3%;
+	}
+	.viewJobApplicationsPanel{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.hiredIcon{
+		width: 82%;
+	}
+}
+
+@media (max-width:480px){
+	.jobApplicationOverviewFlexCard {
+	    width: 42%;
+	    margin: 2% 0% 3.5% 5%;
+	}
+	.applicationOverviewVacancyIcon {
+	    width: 68%;
+	}
+	#totalApplicationsIcon {
+	    width: 84%;
+	}
+	.applicationOverviewNumberStyle {
+	    font-size: 1.2em;
+		margin-top: -1%;
+	}
+	.applicationOverviewLabelStyle {
+	    font-size: 0.9em;
+	}
+	.cardInfoSection {
+	    padding-top: 3%;
+	}
+	.viewJobApplications .downloadButton {
+	    width: 40%;
+	    margin: 10% 4% 0% 4%;
+	}
+	.viewJobApplications .downloadButtonSection{
+		text-align:center;
+	}
+	.viewJobApplications .downloadJobDescriptionGlyphicon {
+	    font-size: 1em;
+	}
+	.downloadApplicationsGif {
+	    width: 1.6em;
+	    margin-top: 2%;
+	}
+	.fileTypeMenu {
+	    min-width: 37%;
+	    left: 54%;
+	}
+	.applicationOverviewLabelStyle{
+		font-size: 0.8em;
+	}
+	.hiredIcon{
+		width: 84%;
+		margin-top: 5%;
+	}
+
+}
+
+@media (max-width:415px) {
+	viewJobApplicationsPanel {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.jobApplicationOverviewFlexCard {
+	    width: 43%;
+	    margin: 5% 0% 4% 5%;
+	}
+	.applicationOverviewVacancyIcon {
+	    width: 68%;
+	}
+	#totalApplicationsIcon {
+	    width: 84%;
+	}
+	.applicationOverviewNumberStyle {
+	    font-size: 1.1em;
+		margin-top: -1%;
+	}
+	.applicationOverviewLabelStyle {
+	    font-size: 0.75em;
+	}
+	.viewJobApplications .downloadButton {
+	    width: 40%;
+	    margin: 10% 4% 0% 4%;
+	    font-size:0.8em;
+	}
+	.viewJobApplications .downloadButtonSection{
+		text-align:center;
+	}
+	.downloadApplicationsGif {
+	    width: 1.6em;
+	    margin-top: 2%;
+	}
+	.viewJobApplications .viewJobSectionContentHeading {
+	    margin-top: 12%;
+	    font-size: 0.81em;
+	}
+	.hiredIcon{
+		width: 89%;
+		margin-top: 5%;
+	}
+	.applicationOverviewLabelStyle {
+		font-size: 0.7em;
+	}
+	
+}

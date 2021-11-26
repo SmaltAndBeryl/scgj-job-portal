@@ -1,0 +1,153 @@
+<head>
+	<link href="css/createJobPost.css" type="text/css" rel="stylesheet">
+	<link href="css/editJobPost.css" type="text/css" rel="stylesheet">
+	<link href="css/publishJobPost.css" type="text/css" rel="stylesheet">
+	<link href="css/closeJobPost.css" type="text/css" rel="stylesheet">
+	<link href="css/deleteJobPost.css" type="text/css" rel="stylesheet">
+	<link href="css/viewJobApplications.css" type="text/css" rel="stylesheet">
+	<link href="css/manageJobApplications.css" type="text/css" rel="stylesheet">
+	<link href="css/employerViewOfferLetters.css" type="text/css" rel="stylesheet">
+	<link href="css/employer.css" type="text/css" rel="stylesheet">
+</head>
+
+<div ng-cloak ng-controller="mainController">
+	<!-- Top menu bar -->
+	<div class="row margin-0 templateHeaderMenu">
+		<div class="col-md-6 col-sm-6 col-xs-6 templateLogoDiv">
+			<label class="visible-xs-inline-block  visible-sm-inline-block hamburgerMenu" ng-click="collapseNavigation()">&#9776</label>
+			<a href="#" target="_blank" id="logoLink">
+			<img src="../images/scgjLogo.png" alt="SCGJ Logo" class="templatelogo">
+			</a>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 headerMenuSection">
+			<div class="col-md-3 col-sm-4 col-xs-3  col-md-offset-6 col-sm-offset-4 col-xs-offset-6 text-right">
+				<div class="topMenuBarOptions">
+					<div id="homePageOptionText" ng-click="showHomePage()">
+						<span class="glyphicon glyphicon-home topMenuBarHomeIcon"></span>
+						<span class="topMenuBarTextStyle" >Home</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-4 col-xs-3 text-right myProfileOptionDiv">
+				<div id="profilePageOptionText" class="topMenuBarOptions selectedMenuOrange"  ng-click="showMyProfile()">
+					<span class="fa fa-user topMenuBarMyProfileIcon"></span>
+					<span class="topMenuBarTextStyle">My Profile</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<!-- Side navigation bar -->
+		<nav class="sidebar navigationOpacity" id="sideNavigationBar">
+			<div class="row margin-0 sideBarUserInfoBox">
+				<div class="col-md-4 col-sm-4 col-xs-3 userAvatar">
+					{{userNameInitials}}
+				</div>
+				<div class="col-md-8 col-sm-8 col-xs-9 userNameSection">
+					<p class="margin-0">{{loggedInUsername}}</p>
+					<div class="logoutSection" ng-click="logout()">
+						<img src="../images/logout.png" class="logoutImage" alt="Logout Icon">
+						<p class="logoutText">Logout</p>
+					</div>
+                 </div>
+			</div>
+			<!-- Navigation options -->
+			<div>
+				<ul class="list-unstyled">
+		            <li>
+	                 	<button class="navMenuDropdownBtn" ng-click="displaySublist('#sublistMenu1','dropdownSublist1'); ">
+	                        <img src="images/candidateProfileIcon.png"  class="leftNavigationIcon" alt="Job Postings Icon">&nbsp;
+	                        	Job Postings
+	                        <i class="glyphicon glyphicon-chevron-up navArrowGlyphicon" id="sublistMenu1"  ></i>
+	                    </button>
+	                    <ul class="navSubMenuContainer" id="dropdownSublist1">
+	                        <li class="activeMenu sublist navNestedMenu" id="list-item-2">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='createJobPost';addBorder('#list-item-2');collapseNavigation();">
+	                               Create
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-3">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='editJobPost';addBorder('#list-item-3');collapseNavigation();">
+	                               Edit
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-4">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='publishJobPost';addBorder('#list-item-4');collapseNavigation();">
+	                               Publish
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-5">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='closeJobPost';addBorder('#list-item-5');collapseNavigation();">
+	                               Close
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-6">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='deleteJobPost';addBorder('#list-item-6');collapseNavigation();">
+	                               Delete
+	                            </p>
+	                        </li>
+	                    </ul>
+	                </li>
+					<li class="navMenuItem sublist" id="list-item-7">
+						<p ng-click="page='manageJobApplications'; addBorder('#list-item-7'); collapseNavigation()" class="margin-0">
+							<img src="images/manageApplicationsIcon.png" alt="Manage Applications Icon" class="leftNavigationIcon ManageApplicationsIcon">&nbsp;
+							Manage Applications
+						</p>
+					</li>
+	                <li class="navMenuItem sublist" id="list-item-8">
+		               <p ng-click="page='viewJobApplications'; addBorder('#list-item-8'); collapseNavigation()" class="margin-0">
+		                  <img src="images/viewApplicationsIcon.png" alt="View Applications Icon" class="leftNavigationIcon viewApplicationsIcon">&nbsp;
+		                  View Applications
+		               </p>
+		            </li>
+		            <li class="navMenuItem sublist" id="list-item-9">
+		               <p ng-click="page='viewOfferLetter'; addBorder('#list-item-9'); collapseNavigation()" class="margin-0">
+		                  <img src="images/viewOfferLetterIcon.png" alt="View offer Letters Icon" class="leftNavigationIcon">&nbsp;
+		                  View Offer Letters
+		               </p>
+		            </li>
+				</ul>
+			</div>
+		</nav>
+		<div id="content">
+			<div ng-switch on="page">
+               <div ng-switch-default>
+					<div ng-include src="'partials/createJobPost.html'"></div>
+				</div>
+               <div ng-switch-when="createJobPost">
+					<div ng-include src="'partials/createJobPost.html'"></div>
+				</div>				
+				<div ng-switch-when="editJobPost">
+					<div ng-include src="'partials/editJobPost.html'"></div>
+				</div>
+				<div ng-switch-when="publishJobPost">
+					<div ng-include src="'partials/publishJobPost.html'"></div>
+				</div>
+				<div ng-switch-when="closeJobPost">
+					<div ng-include src="'partials/closeJobPost.html'"></div>
+				</div>
+				<div ng-switch-when="deleteJobPost">
+					<div ng-include src="'partials/deleteJobPost.html'"></div>
+				</div>
+				<div ng-switch-when="viewJobApplications">
+					<div ng-include src="'partials/viewJobApplications.html'"></div>
+				</div>
+				<div ng-switch-when="manageJobApplications">
+					<div ng-include src="'partials/manageJobApplications.html'"></div>
+				</div>
+				<div ng-switch-when="viewOfferLetter">
+					<div ng-include src="'partials/employerViewOfferLetters.html'"></div>
+				</div>
+			</div>
+        </div>
+	</div>
+	<!-- Footer -->
+	<footer class="footerContainer">
+		<div class="footerTextDiv">
+			<p class="text-center margin-0">
+				<i class="fa fa-copyright copyrightIcon"></i> <span>SCGJ - All Rights Reserved |</span>
+				<span ng-click="downloadTermsAndConditionsDocument();" class="termsAndConditions">Terms & Conditions</span>
+			</p>
+		</div>
+	</footer>
+</div>

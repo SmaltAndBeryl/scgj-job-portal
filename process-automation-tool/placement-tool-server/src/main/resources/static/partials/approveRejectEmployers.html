@@ -1,0 +1,356 @@
+<div class="templatePartial approveRejectEmployer" ng-controller="approveRejectEmployerController">
+	<p class="partialheading">Manage Employer</p>
+	
+	<!-- View all new employers section-->
+	<div class="contentSection margin-bottom-3">
+		<div class="row margin-0">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<p class="partialSubHeading" ng-show="viewInReviewEmployerGridSection">View Employers</p>
+			</div>
+		</div>
+		<div class="row margin-0 gridSection" ng-show="viewInReviewEmployerGridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="viewInReviewEmployerGrid" id="viewEmployersGrid" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		<div class="row margin-0 gridSection" ng-show="viewInReviewEmployerGridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="viewInReviewEmployerGridSmallScreen" id="viewEmployersGridSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		        <div ng-hide="viewInReviewEmployerGridSection">
+            <i class="fa fa-chevron-left backChevronLeftIcon" title="Go Back" ng-click="viewInReviewEmployerGridSection=true;"></i>
+            <div class="row margin-0">
+                <div class="col-md-10 col-sm-10 col-xs-11">
+                    <p class="jobPostCardTitle margin-top-1 margin-bottom-3"
+                        title="Company Name: {{inReviewGridEmployerInfo.companyName}}">{{inReviewGridEmployerInfo.companyName}}
+                    </p>
+                </div>
+                <div class="row margin-0">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Industry Type</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.industryType}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Company Type</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.companyType}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Company Scale</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.companyScale}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">State</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.state}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Landline Number</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.landlineNumber}}</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText" ng-hide="inReviewGridEmployerInfo.landlineNumber">N/A</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Liaising Authority</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.liaisingAuthority}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Designation</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.designation}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Mobile Number</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.mobileNumber}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Registered On</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.registeredOn}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <p class="viewJobSectionContentHeading">Email</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{inReviewGridEmployerInfo.email}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <p class="viewJobSectionContentHeading">Company Website</p>
+                        <a class="viewJobSectionContentText jobPostCardGreyText" href="{{inReviewGridEmployerInfo.employerWebsite}}" target="_blank">{{inReviewGridEmployerInfo.employerWebsite}}</a>
+                        <p class="viewJobSectionContentText jobPostCardGreyText" ng-hide="inReviewGridEmployerInfo.employerWebsite">N/A</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="viewEmployerGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="loadingGif" alt="Loading GIF">
+			</div>
+		</div>
+		
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="viewEmployerError">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{viewEmployerErrorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="viewEmployerError=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		<div class="row margin-0" ng-show="viewEmployerSuccess" >
+	       <div class="alert alert-success alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{viewEmployerSuccessMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="viewEmployerSuccess=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+	</div>
+	
+	
+	<!-- View all approved employers section-->
+	<div class="contentSection margin-bottom-3">
+		<div class="row margin-0">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<p class="partialSubHeading" ng-show="viewApprovedEmployerGridSection">Approved Employers</p>
+			</div>
+		</div>
+		<div class="row margin-0 gridSection" ng-show="viewApprovedEmployerGridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="approvedEmployersGrid" id="approvedEmployersGrid" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		<div class="row margin-0 gridSection" ng-show="viewApprovedEmployerGridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="approvedEmployersGridSmallScreen" id="approvedEmployersGridSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		
+		
+        <div ng-hide="viewApprovedEmployerGridSection">
+            <i class="fa fa-chevron-left backChevronLeftIcon" title="Go Back" ng-click="viewApprovedEmployerGridSection=true;"></i>
+            <div class="row margin-0">
+                <div class="col-md-10 col-sm-10 col-xs-11">
+                    <p class="jobPostCardTitle margin-top-1 margin-bottom-3"
+                        title="Company Name: {{approvedGridEmployerInfo.companyName}}">{{approvedGridEmployerInfo.companyName}}
+                    </p>
+                </div>
+                <div class="row margin-0">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Industry Type</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.industryType}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Company Type</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.companyType}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Company Scale</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.companyScale}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">State</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.state}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Landline Number</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.landlineNumber}}</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText" ng-hide="approvedGridEmployerInfo.landlineNumber">N/A</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Liaising Authority</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.liaisingAuthority}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Designation</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.designation}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Mobile Number</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.mobileNumber}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Registered On</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.registeredOn}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Approved On</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.enrollmentUpdatedOn}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <p class="viewJobSectionContentHeading">Email</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.email}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <p class="viewJobSectionContentHeading">Company Website</p>
+                        <a href="{{approvedGridEmployerInfo.employerWebsite}}" target="_blank" class="viewJobSectionContentText jobPostCardGreyText">{{approvedGridEmployerInfo.employerWebsite}}</a>
+                        <p class="viewJobSectionContentText jobPostCardGreyText" ng-hide="approvedGridEmployerInfo.employerWebsite">N/A</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="approvedEmployerGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="loadingGif" alt="Loading GIF">
+			</div>
+		</div>
+		
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="approvedEmployerError">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{approvedEmployerErrorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="approvedEmployerError=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		<div class="row margin-0" ng-show="approvedEmployerSuccess" >
+	       <div class="alert alert-success alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{approvedEmployerSuccessMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="approvedEmployerSuccess=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		
+	</div>
+	
+	
+	<!-- View all rejected employers section-->
+	<div class="contentSection">
+		<div class="row margin-0">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<p class="partialSubHeading" ng-show="viewRejectedEmployerGridSection">Rejected Employers</p>
+			</div>
+		</div>
+		<div class="row margin-0 gridSection" ng-show="viewRejectedEmployerGridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="rejectedEmployersGrid" id="rejectedEmployersGrid" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		<div class="row margin-0 gridSection" ng-show="viewRejectedEmployerGridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="rejectedEmployersGridSmallScreen" id="rejectedEmployersGridSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		
+		
+        <div ng-hide="viewRejectedEmployerGridSection">
+            <i class="fa fa-chevron-left backChevronLeftIcon" title="Go Back" ng-click="viewRejectedEmployerGridSection=true;"></i>
+            <div class="row margin-0">
+                <div class="col-md-10 col-sm-10 col-xs-11">
+                    <p class="jobPostCardTitle margin-top-1 margin-bottom-3"
+                        title="Company Name: {{rejectedGridEmployerInfo.companyName}}">{{rejectedGridEmployerInfo.companyName}}
+                    </p>
+                </div>
+                <div class="row margin-0">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Industry Type</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.industryType}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Company Type</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.companyType}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Company Scale</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.companyScale}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">State</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.state}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Landline Number</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.landlineNumber}}</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText" ng-hide="rejectedGridEmployerInfo.landlineNumber">N/A</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Liaising Authority</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.liaisingAuthority}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Designation</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.designation}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Mobile Number</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.mobileNumber}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Registered On</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.registeredOn}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <p class="viewJobSectionContentHeading">Rejected On</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.enrollmentUpdatedOn}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <p class="viewJobSectionContentHeading">Email</p>
+                        <p class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.email}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <p class="viewJobSectionContentHeading">Company Website</p>
+                        <a href="{{rejectedGridEmployerInfo.employerWebsite}}" target="_blank" class="viewJobSectionContentText jobPostCardGreyText">{{rejectedGridEmployerInfo.employerWebsite}}</a>
+                        <p class="viewJobSectionContentText jobPostCardGreyText" ng-hide="rejectedGridEmployerInfo.employerWebsite">N/A</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="rejectedEmployerGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="loadingGif" alt="Loading GIF">
+			</div>
+		</div>
+		
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="rejectedEmployerError">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{rejectedEmployerErrorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="rejectedEmployerError=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		<div class="row margin-0" ng-show="rejectedEmployerSuccess" >
+	       <div class="alert alert-success alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{rejectedEmployerSuccessMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="rejectedEmployerSuccess=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+	

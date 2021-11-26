@@ -1,0 +1,65 @@
+<div ng-controller="notificationsController" class="templatePartial">
+    <p class="partialheading">Post a Notification</p>
+    <div class="contentSection">
+        <form id="notificationForm" ng-submit="sendNotification()">
+            <div class="row margin-top-3">
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-11">
+                    <label for="jobRole" class="notificationLabel">Job Role</label>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-11">
+                    <select id="jobRole" ng-model="notification.jobRoleId" class="registrationInputBox"
+                            ng-options="jobRole.jobRoleId as jobRole.jobRole for jobRole in jobRolesObject" required>
+                        <option disabled selected value="">Select Job Role</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row margin-top-3">
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-11 ">
+                    <label for="Message" class="notificationLabel">Message</label>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-11 ">
+                    <textarea id="Message" ng-model="notification.message" minlength="3" class="registrationInputBox"
+                              placeholder="Enter Message Body" required>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row margin-top-3 margin-bottom-3">
+                <div class="col-lg-8 col-md-8 col-sm-11 col-xs-11 text-center">
+                    <button type="submit" class="btn btn-primary notificationFormButton margin-bottom-0"
+                            ng-disabled="disableNotificationButton">Post Message
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <!--Error/Success Message-->
+        <div>
+            <div class="row margin-0" ng-show="notificationSuccess">
+                <div class="alert alert-success alert-dismissible errorMessageBox">
+                    <div class="row margin-0">
+                        <div class="col-md-11 col-sm-10 col-xs-10 text-center">
+                            {{notificationSuccessMessage}}
+                        </div>
+                        <div class="col-md-1 col-sm-2 col-xs-2">
+                            <button type="button" class="close" ng-click="notificationSuccess=false">&times;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row margin-0" ng-show="notificationError">
+                <div class="alert alert-danger alert-dismissible errorMessageBox">
+                    <div class="row margin-0">
+                        <div class="col-md-11 col-sm-10 col-xs-10 text-center">
+                            {{notificationErrorMessage}}
+                        </div>
+                        <div class="col-md-1 col-sm-2 col-xs-2">
+                            <button type="button" class="close" ng-click="notificationError=false">&times;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

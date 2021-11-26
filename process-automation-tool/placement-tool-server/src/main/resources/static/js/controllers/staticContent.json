@@ -1,0 +1,63 @@
+[{
+"industryTypeOTher":"Others",
+"mobileNumberPrefix":"91",
+"minAge": 15,
+"maxAge" : 70,
+"zero": 0,
+"ten": 10,
+"hyphenText":"-",
+"salarySuffix":" LPA",
+"jobDescriptionDocumentName":"Job Description Document.pdf",
+"termsAndConditionDocumentName":"Terms and Conditions - Placement Portal.pdf",
+"trueFlag":"Y",
+"falseFlag":"N",
+"underScore":"_",
+"descriptionDocumentText":"description_document",
+"offerLetterText" : "offer_letter",
+"statusNotPublished":"Not Published",
+"statusPublished":"Published",
+"statusClosed":"Closed",
+"userRoleCandidate":"\"Candidate\"",
+"userRoleEmployer":"\"Employer\"",
+"userRoleAdmin":"\"Admin\"",
+
+"zipFileSize50Mb": "50",
+"pdfFileSize10Mb" : "10",
+"candidateApplicationsText":"Candidate_Applications",
+"resumeText":"Resume",
+"certificatesText":"Certificates",
+
+"approvedFlag":"A",
+"inReviewFlag":"IR",
+"rejectedFlag":"R",
+"genderMaleText":"Male",
+"genderFemaleText":"Female",
+"genderOtherText":"Other",
+"genderMale":"M",
+"genderFemale":"F",
+"genderOther":"O",
+
+"salarySuffixText":"per month",
+"applicationStatusShortlisted":"Shortlisted",
+"applicationStatusHired":"Hired",
+
+"statusActive":"Active",
+"statusInactive":"Inactive",
+"jobInReviewStatus":"In Review",
+"jobApprovedStatus":"Approved",
+"jobRejectedStatus":"Rejected",
+
+
+"candidatePlacementReportText":"Candidate_Placement_Report",
+"candidateReportText":"Candidate_Report",
+"companyReportText": "Company_Report",
+"oneMonthText":"oneMonth",
+"threeMonthText":"threeMonth",
+"sixMonthText":"sixMonth",
+"customDateText":"customDate",
+"andText": " and ",
+
+"closeJobPostPage" : "closeJobPostPage",
+"publishJobPostPage" : "publishJobPostPage"
+
+}]

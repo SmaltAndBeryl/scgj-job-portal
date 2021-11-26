@@ -1,0 +1,4 @@
+sendNotification:
+  getMobileNumbersAgainstJobRole : SELECT mobile_number FROM users as u INNER JOIN candidates as c ON u.id=c.user_id WHERE job_role_id = :jobRoleId AND u.is_active_flg=:trueFlag;
+
+  addNotificationMessageLog: INSERT INTO notifications(message,sent_on,job_role_id,sent_by) values(:message,now(),:jobRoleId,:userId);

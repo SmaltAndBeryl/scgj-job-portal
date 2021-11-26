@@ -1,0 +1,248 @@
+#viewUnpublishedJobsSmallScreen{
+	display:none;
+	height:90px;
+}
+#viewUnpublishedJobs{
+	display:block;
+	height:90px;
+}
+#viewPublishedJobsSmallScreen{
+	display:none;
+	height:90px;
+}
+#viewPublishedJobs{
+	display:block;
+	height:90px;
+}
+.gridDownloadJobDescriptionIcon{
+	width:25%;
+	cursor:pointer;
+}
+.publishJobPostButton{
+	padding: 2.5% 12%;
+    margin-top: 2%;
+}
+.viewButton{
+	background:var(--light-blue-shade2) !important;
+}
+.publishJobLoadingGif{
+	width:2.5%;
+}
+.publishJobPost .notAvailableGridText{
+	margin-top:5%;
+}
+.approvalStatusText{
+	margin-top:6%;
+}
+.approvedText{
+	color: var(--light-green);
+}
+.inReviewText{
+	color:var(--cgsc-active-orange);
+}
+.rejectedText{
+	color: var(--cgsc-red);
+}
+.downloadJobDescriptionIcon {
+    width: 3%;
+    margin-left: 0.5%;
+    margin-top: -0.5%;
+    cursor:pointer;
+}
+.downloadJobDescriptionGif{
+	width: 1.8%;
+    margin-left: 1%;
+}
+.viewJobDetailsPopup{
+	border-radius:3px;
+	border:1px solid var(--cgsc-light-grey-shade3);
+}
+
+.adminCommentText{
+	font-weight: 600;
+	margin-top : 0.2rem;
+}
+
+/** ----------- MEDIA QUERIES -------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.gridDownloadJobDescriptionIcon {
+	    margin-top: 3%;
+	}
+	.publishJobPostButton {
+	    margin-top: 5%;
+	}
+	.publishJobLoadingGif {
+	    width: 3%;
+	    margin-top: 1%;
+	}
+}
+
+@media (max-width:991px) and (min-width:800px){
+	#viewUnpublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewUnpublishedJobs{
+		display:none;
+	}
+	#viewPublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewPublishedJobs{
+		display:none;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 10%;
+	    margin-top: 1.5%;
+	}
+	.publishJobPostButton {
+	    padding: 1% 12%;
+	    margin-top: 1.5%;
+	}
+	.publishJobLoadingGif {
+	    width: 2.5%;
+	    margin-top: 1%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	#viewUnpublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewUnpublishedJobs{
+		display:none;
+	}
+	#viewPublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewPublishedJobs{
+		display:none;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 15%;
+	    margin-top: 1%;
+	}
+	.publishJobPostButton {
+	    padding: 1.5% 12%;
+	    margin-top: 2.2%;
+	}
+	.publishJobLoadingGif{
+		width:3.5%;
+		margin-top:3%;
+	}
+	.publishJobPost .notAvailableGridText {
+	    margin-top: 3%;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 3.5%;
+	    margin-left: 1.5%;
+	    margin-top: -1.5%;
+	}
+	.approvalStatusText {
+	    margin-top: 4%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#viewUnpublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewUnpublishedJobs{
+		display:none;
+	}
+	#viewPublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewPublishedJobs{
+		display:none;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 17%;
+	    margin-top: 1%;
+	}
+	.publishJobPostButton {
+	    padding: 1.5% 12%;
+	    margin-top: 2.5%;
+	}
+	.publishJobLoadingGif{
+		width:3.5%;
+		margin-top:3%;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 5%;
+	    margin-left: 3.5%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#viewUnpublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewUnpublishedJobs{
+		display:none;
+	}
+	#viewPublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewPublishedJobs{
+		display:none;
+	}
+	.gridDownloadJobDescriptionIcon{
+		margin-top:1%;
+		width:22%;
+	}
+	.publishJobLoadingGif{
+		width:5%;
+		margin-top:3%;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 8%;
+	    margin-left: 3.5%;
+	}
+}
+
+@media (max-width:480px){
+	#viewUnpublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewUnpublishedJobs{
+		display:none;
+	}
+	#viewPublishedJobsSmallScreen{
+		display:block;
+	}
+	#viewPublishedJobs{
+		display:none;
+	}
+	.gridDownloadJobDescriptionIcon{
+		margin-top:2%;
+	}
+	.publishJobPostButton {
+	    margin-top: 3%;
+	}
+	.publishJobLoadingGif{
+		width:6.5%;
+		margin-top:3%;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 7%;
+	    margin-left: 3.5%;
+	}
+}
+
+@media (max-width:375px){
+	.gridDownloadJobDescriptionIcon{
+		margin-top:7%;
+	}
+	.publishJobPostButton {
+	    margin-top: 6%;
+	    padding: 2.5% 7%;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 8%;
+	    margin-left: 3.5%;
+	}
+}
+
+.ui-grid-viewport {
+    overflow-y: auto !important;
+}

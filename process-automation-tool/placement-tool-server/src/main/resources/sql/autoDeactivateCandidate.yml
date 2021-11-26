@@ -1,0 +1,4 @@
+autoDeactivateCandidate: 
+ 
+ fetchInactiveCandidates: select cp.user_id from users as u inner join candidate_polling as cp on u.id = cp.user_id where poll_count>:maxPollCount and u.is_active_flg=:activeFlagTrue;
+ deactivateCandidates: update users set is_active_flg=:activeFlagFalse where id=:userId;

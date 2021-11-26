@@ -1,0 +1,3 @@
+viewAppliedJobs:
+
+ viewAppliedJobs: select jp.id as id, jp.job_id as jobId, jp.job_title as jobTitle, jcm.applied_on as appliedOn, jcm.status as applicationStatus, jp.job_description_path as descriptionDocumentPath, jcm.updated_on as updatedOn, u.username as postedBy, jp.published_at as publishedAt, jp.job_status as jobStatus, jcm.salary, jcm.joining_date as joiningDate, jcm.offer_letter_path as offerLetterPath from users as u inner join employer as e on u.id=e.user_id inner join job_postings as jp on e.user_id=jp.posted_by inner join job_candidate_mapping as jcm on jp.id=jcm.job_id where candidate_id=:candidateId and is_active_flg=:activeFlagTrue and active_flg=:activeFlagTrue and enrolment_status=:approvedFlag and job_status in (:statusPublished,:statusClosed);

@@ -1,0 +1,410 @@
+<div class="templatePartial candidateProfile" ng-controller="candidateProfileController">
+	<p class="partialheading">My Profile</p>
+	
+	<!-- Personal Information Section -->
+	<div class="contentSection" ng-hide="showEditPersonalInformation">
+		<div class="row margin-0">
+			<div class="col-lg-4 col-md-8 col-sm-8 col-xs-12">
+				<p class="partialSubHeading subHeadingBottomSpace">Personal Information</p>
+			</div>
+		</div>
+		<button class="btn editPencilIcon" ng-disabled="downloading" ng-click="editPersonalInformation();"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel nameLabelTopSpace">Name:</p>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.candidateName}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Mobile Number:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.mobileNumber}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Father/Mother/Guardian Name:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.guardianName}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Guardian's Mobile Number:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.guardianMobileNumber}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Gender:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText" ng-show="candidateDetails.gender == 'F'">Female</p>
+				<p class="candidateDetailsText" ng-show="candidateDetails.gender == 'M'">Male</p>
+				<p class="candidateDetailsText" ng-show="candidateDetails.gender == 'O'">Other</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Date of Birth</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.dob | date: "dd/MM/yyyy"}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Aadhaar Number:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.aadhaarNumber}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Ex-Army Personnel:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText" ng-show="candidateDetails.exArmyPersonnel== 'N'">No</p>
+				<p class="candidateDetailsText" ng-show="candidateDetails.exArmyPersonnel== 'Y'">Yes</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Address:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.address}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">State:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.state}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Pincode:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.pincode}}</p>
+			</div>
+		</div>
+		
+		<!-- Education/Professional Information Section -->
+		<div class="row educationalInformationSection">
+			<div class="col-lg-4 col-md-8 col-sm-8 col-xs-12">
+				<p class="partialSubHeading subHeadingBottomSpace">Educational/Professional Information</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Education Qualification:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.educationQualification}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Job Role:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.jobRole}}</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Professional Experience:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.professionalExperience}}</p>
+			</div>
+		</div>
+		<!-- div class="row margin-0">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">CGSC Certified:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText" ng-show="candidateDetails.isCgscCertified=='Y'">Yes</p>
+				<p class="candidateDetailsText" ng-show="candidateDetails.isCgscCertified=='N'">No</p>
+			</div>
+		</div>  -->	
+		
+		<!-- 		<div class="row margin-0" ng-hide="candidateDetails.isCgscCertified==null || candidateDetails.isCgscCertified=='N'">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Certificate Number:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText" ng-disabled="candidateDetails.isCgscCertified=='Y'">{{candidateDetails.certificateNumber}}</p>
+			</div>
+		</div>  -->
+		
+		<!-- 
+				<div class="row margin-0" ng-hide="candidateDetails.isCgscCertified==null || candidateDetails.isCgscCertified=='N'">
+			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+				<p class="candidateDetailsLabel">Training Partner:</p>
+			</div>
+			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+				<p class="candidateDetailsText">{{candidateDetails.tpName}}</p>
+			</div>
+		</div>  -->
+		<div class="row margin-0">
+			<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+				<button class="btn downloadFileButton" ng-click="downloadResume();" ng-disabled="downloading">Download Resume</button>
+				<button ng-show="candidateDetails.certificatesPath" class="btn downloadFileButton" ng-click="downloadCertificates();" ng-disabled="downloading">Download Certificates</button>
+				<button ng-hide="candidateDetails.certificatesPath" class="btn downloadFileButton" ng-click="downloadCertificates();" disabled>Certificates N/A</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- Editable Information Section -->
+	<div class="contentSection" ng-show="showEditPersonalInformation">
+		<div class="row margin-0">
+				<span ng-click="goBack()" class="glyphicon glyphicon-chevron-left backIcon" aria-hidden="true"></span>
+		</div>
+		<div class="row margin-0">
+			<div class="col-lg-4 col-md-8 col-sm-8 col-xs-12">
+				<p class="partialSubHeading subHeadingBottomSpace">Update Profile</p>
+			</div>
+		</div>
+		<form id="editCandidateProfileForm" ng-submit="updateProfileDetails();">
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Name:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter Candidate Name" class="updateProfileInputBox" pattern="[A-Za-z ]{3,50}" title="Candidate name must have 3-50 letters without numbers or any special characters" ng-model="profileDetails.candidateName" ng-disabled="disableUserAction" required/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Mobile Number:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input class="updateProfileInputBox readOnlyMobileNumberInput" ng-model="profileDetails.mobileNumber" readonly/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Father/Mother/Guardian Name:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter Father/Mother/Guardian Name" class="updateProfileInputBox" pattern="[A-Za-z ]{3,50}" title="Guardian Name must have 3-50 letters without numbers or any special characters" ng-model="profileDetails.guardianName" ng-disabled="disableUserAction" required/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Guardian's Mobile Number:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter Guardian Mobile Number" type="number" minlength="0" maxlength="10" oninput="this.value=parseInt(this.value)" class="updateProfileInputBox" ng-model="profileDetails.guardianMobileNumber" ng-disabled="disableUserAction" required/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Date of Birth:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input type="date" placeholder="Enter Date of Birth" class="updateProfileInputBox" id="dobPicker" title="Please enter date of birth" ng-model="profileDetails.dob" onfocus="(this.type='date')" onblur="(this.type='text')" ng-disabled="disableUserAction" required/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Aadhaar Number:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter Aadhaar Number" type="number" minlength="0" maxlength="12" oninput="this.value=parseInt(this.value)" class="updateProfileInputBox" ng-model="profileDetails.aadhaarNumber" ng-disabled="disableUserAction" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Education Qualification:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.educationQualification" ng-options="educationQualification for educationQualification in educationQualificationList" ng-disabled="disableUserAction" required>
+						<option value="" disabled>Select Option</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Professional Experience:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.professionalExperience" ng-options="experience for experience in professionalExperienceList" ng-disabled="disableUserAction" required> 
+						<option value="" disabled>Select Option</option>
+					</select>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Job Role:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.jobRoleDropdown" ng-options="jobRoles.jobRoleId as jobRoles.jobRole for jobRoles in jobRolesListObject" ng-disabled="disableUserAction" required>
+						<option value="" disabled>Select Job Role</option>
+					</select>
+				</div>
+			</div>
+			
+			<!--
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">CGSC Certified:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.isCgscCertified" ng-disabled="disableUserAction" required> 
+						<option value="" disabled>Select Option</option>
+						<option value="Y" ng-selected="profileDetails.isCgscCertified=='Y'">Yes</option>
+						<option value="N" ng-selected="profileDetails.isCgscCertified=='N'">No</option>
+					</select>
+				</div>	
+			</div> -->
+			
+			<!-- 
+			<div class="row margin-0" ng-show="profileDetails.isCgscCertified=='Y'">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Certificate Number:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter CGSC Certificate Number" minLength="5" maxlength="50" pattern="[A-Za-z0-9-/ ]{5,50}" title="Certificate number can contain letters, numbers, (-) and (/) only, with length between 5-50 characters" class="updateProfileInputBox" ng-model="profileDetails.certificateNumber"  ng-disabled="disableUserAction"/>
+				</div>
+			</div>
+			 -->
+			<!-- 
+			<div class="row margin-0" ng-show="profileDetails.isCgscCertified=='Y'">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Training Partner:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter Training Partner Name" class="updateProfileInputBox" ng-model="profileDetails.trainingPartner" uib-typeahead="trainingPartner as trainingPartner.trainingPartnerName for trainingPartner in trainingPartners | filter:{trainingPartnerName:$viewValue} | limitTo:8" ng-disabled="disableUserAction">
+				</div>
+			</div> -->
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Gender:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.gender" ng-disabled="disableUserAction" required>
+						<option value="" disabled selected>Select Option</option>
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+						<option value="O">Other</option>
+					</select>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Ex-Army Personnel:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.exArmyPersonnel" ng-disabled="disableUserAction" required>
+						<option value="" disabled selected>Select Option</option>
+						<option value="Y">Yes</option>
+						<option value="N">No</option>
+					</select>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Address:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<textarea placeholder="Enter Complete Address" class="registrationInputBox registrationInputBottomSpace" id="fullWidth"  minlength="3" maxlength="255" class="registrationInputBox" ng-model="profileDetails.address" required></textarea>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">State:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<select class="updateProfileInputBox" ng-model="profileDetails.state" ng-disabled="disableUserAction" ng-options="state for state in statesList" required>
+						<option value="" disabled>Select Option</option>
+					</select>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Pincode:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<input placeholder="Enter Pincode" type="number" min="0" oninput="this.value=parseInt(this.value)" class="updateProfileInputBox" ng-model="profileDetails.pincode" ng-disabled="disableUserAction" required/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Upload Resume:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<span><input class="updateProfileInputBox" id="updateProfileCandidateResume" type="text" placeholder="Upload Resume"></span>
+					<input type="file" id="candidateResumeDocument" class="uploadCandidateDocuments" accept="application/pdf" onchange="document.getElementById('updateProfileCandidateResume').value=this.value.split('\\').pop()" ng-disabled="disableUserAction"/>
+					<button class="btn browseButton browseCandidateDocuments"  type="button">Browse</button>	
+				</div>
+				
+			</div>
+			<div class="row margin-0">
+				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+					<p class="candidateDetailsLabel">Upload Certificates:</p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+					<span><input class="updateProfileInputBox" type="text" id="updateProfileCandidateCertificates" placeholder="Upload Certificates"></span>
+					<input type="file" class="uploadCandidateDocuments" id="candidateCertificateDocuments" accept=".zip" onchange="document.getElementById('updateProfileCandidateCertificates').value=this.value.split('\\').pop(); angular.element(this).scope().uploadCandidateCertificates();" ng-disabled="disableUserAction"/>
+					<button class="btn browseButton browseCandidateDocuments" type="button">Browse</button>	
+				</div>
+				<button class="btn deleteCertificatesButton" type="button" ng-click="deleteCertificates();" ng-disabled="disableUserAction"><i class="fa fa-trash" aria-hidden="true"></i></button>
+			</div>			
+			<div class="row margin-0 margin-top-2">
+				<div class="col-lg-12 col-md-12 col-sm-12 text-right">
+					<button class="btn updateProfileButton" type="submit" ng-disabled="disableUpdateButton">Update</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	
+	<!-- GIF section -->
+	<div class="row margin-0" ng-show="loadingGif">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+			<img src="../images/loadingImage.gif" class="downLoadingGif" alt="Loading GIF">
+		</div>
+	</div>
+		
+	<!-- Error/Success message section -->
+	<div class="row margin-0" ng-show="error">
+		<div class="alert alert-danger alert-dismissible errorMessageBox">
+	    	<div class="row margin-0">
+				<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+					{{updateProfileError}}
+				</div>
+				<div class="col-md-1 col-sm-2 col-xs-2">
+			   		<button type="button" class="close" ng-click="error=false">&times;</button>
+			   	</div>
+		  	</div>
+	    </div>
+	</div>
+	<div class="row margin-0" ng-show="success">
+		<div class="alert alert-success alert-dismissible errorMessageBox">
+	    	<div class="row margin-0">
+		   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+		   			{{updateProfileSuccess}}
+		  		</div>
+		   		<div class="col-md-1 col-sm-2 col-xs-2">
+		   			<button type="button" class="close" ng-click="success=false">&times;</button>
+		 		</div>
+		  	</div>
+		</div>
+	</div>
+</div>

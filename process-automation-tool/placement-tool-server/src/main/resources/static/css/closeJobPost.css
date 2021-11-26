@@ -1,0 +1,64 @@
+.closeJobPostLoadingGif{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4%;
+}
+.closeJobPostButton, .closeJobPostButton:hover, .closeJobPostButton:focus, .closeJobPostButton:active{
+    padding: 2.5% 18%;
+    margin-top: 3%;
+    background: var(--cgsc-red);
+}
+
+.closeJobPostGridSmallScreen{
+	display : none;
+	height:90px;
+}
+
+.closeJobPostGrid{
+	display : block;
+	height:90px;
+}
+
+.closedJobPostGridSmallScreen{
+	display : none;
+	height:90px;
+}
+
+.closedJobPostGrid{
+	display : block;
+	height:90px;
+}
+
+.closeJobPost .notAvailableGridText{
+	margin-top:5%;
+}
+
+/** ----------- MEDIA QUERIES -------------**/
+@media (max-width:800px) and (min-width:768px){
+	.closeJobPost .notAvailableGridText{
+		margin-top:4%;
+	}
+}
+
+@media (max-width:768px){
+	.closeJobPostLoadingGif{
+    	width: 15%;
+	}
+	.closeJobPostGridSmallScreen{
+		display : block;
+	}
+	
+	.closeJobPostGrid{
+		display : none;
+	}
+	
+	.closedJobPostGridSmallScreen{
+		display : block;
+	}
+	
+	.closedJobPostGrid{
+		display : none;
+	}
+}
+

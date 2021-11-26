@@ -1,0 +1,5 @@
+manageEmployers: 
+
+ updateEmployerEnrolmentStatus: update users set enrolment_status=:updatedStatus, enrolment_updated_on= curdate() where id=:userId;
+ viewEmployerWithEnrolmentStatus: select u.id as userId, u.username, e.company_type, e.company_scale, u.mobile_number, e.email_address, u.state, u.registered_on, u.enrolment_updated_on, e.landline_number, e.website, e.industry_type, e.liasing_authority, e.designation from users as u inner join employer as e on u.id=e.user_id where u.is_active_flg=:activeFlagTrue and enrolment_status=:enrolmentStatus;
+ viewEmployerByActiveStatus: select u.id as userId, u.username as companyName, e.company_type as companyType, e.company_scale as companyScale, u.mobile_number as mobileNumber, e.email_address as email, u.state, u.registered_on as registeredOn, u.account_status_updated_on as activationUpdatedOn, e.landline_number, e.website, e.industry_type, e.liasing_authority, e.designation from users as u inner join employer AS e ON e.user_id=u.id where is_active_flg=:activeStatus and enrolment_status=:approvedFlag and user_role =:userRoleEmployer;

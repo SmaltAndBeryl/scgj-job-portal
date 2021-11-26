@@ -1,0 +1,17 @@
+<div>
+	<div ng-show="grid.appScope.jobPostInfo.jobStatus== 'Published'" class="text-center">
+		<select id="applicantStatus{{rowRenderIndex}}" class="updateStatusGridInputBox" ng-disabled="row.entity.applicationStatus =='Hired'" ng-model="applicationStatus[row.entity.candidateId]" ng-change="grid.appScope.updateApplicationStatus(row.entity, rowRenderIndex);grid.appScope.showModal(row.entity);">
+			<option  value="" disabled default>Select Status</option>
+  			<option value="In Review" ng-disabled="row.entity.applicationStatus =='In Review'">In Review</option>
+       		<option value="Rejected" ng-disabled="row.entity.applicationStatus =='Rejected'">Rejected</option>
+       		<option value="Shortlisted" ng-disabled="row.entity.applicationStatus =='Shortlisted'">Shortlisted</option>
+       		<option value="Hired" ng-disabled="row.entity.applicationStatus =='Hired'">Hired</option>
+       	</select>
+	</div>
+		<div ng-show="grid.appScope.jobPostInfo.jobStatus != 'Published'">		
+		<div class="applicationStatusGridText text-center">
+			<p class="rejectedText">N/A</p>
+		</div>
+	
+	</div>
+</div>

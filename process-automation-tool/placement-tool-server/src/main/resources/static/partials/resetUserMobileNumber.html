@@ -1,0 +1,59 @@
+<div class="templatePartial resetMobileNumber" ng-controller="resetMobileNumberController">
+	<p class="partialheading">Reset Mobile Number</p>
+	<div class="contentSection">
+		<form id="resetMobilNumberForm" class="margin-top-2" ng-submit="populateUserDetails();">
+			<div class="row margin-0">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
+					<span class="resetMobileInputPrefix">91</span>
+					<input class="resetNumberInput" placeholder="Enter Mobile Number" ng-model="oldMobileNumber" type="number" min="0" oninput="this.value=parseInt(this.value)" required/>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+					<button class="btn searchUserInfoButton">Search</button>
+				</div>
+			</div>
+		</form>
+		<!-- ui-grid to populate user details -->
+		<div class="row margin-0 gridSection" ng-show="showUserDetails">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="viewUserDetailsGrid" id="viewUserDetailsGrid" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="viewUserDetailsGridSmallScreen" id="viewUserDetailsGridSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="loadingGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="loadingGif" alt="Loading GIF">
+			</div>
+		</div>
+		
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="error">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{errorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="error=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		<div class="row margin-0" ng-show="success" >
+	       <div class="alert alert-success alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{successMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="success=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		
+	</div>
+</div>

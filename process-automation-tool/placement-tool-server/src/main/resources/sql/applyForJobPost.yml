@@ -1,0 +1,4 @@
+applyForJobPost: 
+
+ checkJobApplicationExistence: select exists (select 1 from job_candidate_mapping where job_id=:jobId and candidate_id=:candidateId);
+ applyForJobPost: insert into job_candidate_mapping (job_id,candidate_id,applied_on,status,updated_on) values (:jobId, :candidateId,curdate(),:status,curdate());

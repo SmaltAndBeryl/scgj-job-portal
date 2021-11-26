@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="accountVerifiedModule">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SCGJ's Placement Portal</title>
+	
+	<!-- External Style Sheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link href="css/accountVerified.css" type="text/css" rel="stylesheet">
+	
+	<!-- External Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/controllers/accountVerifiedController.js"></script>
+	
+	<!-- link for google fonts api -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+	<body ng-controller="accountVerifiedModuleController">
+		<div class="backgroundContainer">
+			<div class="row margin-0">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<img class="cgscLogo" src="images/scgjLogo.png" ng-click="redirectToPlacementPortal();" alt="SCGJ Logo"/>
+				</div>
+			</div>
+			<div class="row margin-0">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+					<img class="accountVerifiedImage" src="images/accountVerifiedSuccess.png" alt="Account Verified Image"/>
+				</div>
+			</div>
+			<div class="row margin-0 text-center">
+				<p class="accountVerifiedText">Your account has been successfully verified</p>
+			</div>
+			<div class="row margin-0 text-center">
+				<p class="redirectToPortalText">Click <span class="linkText" ng-click="redirectToPlacementPortal();">here</span> to go back to CGSC's Placement Platform</p>
+			</div>
+		</div>
+		
+		<!-- Footer -->
+		<footer class="footerContainer">
+			<div class="footerTextDiv">
+				<p class="text-center margin-0">
+					<i class="fa fa-copyright copyrightIcon"></i> <span>SCGJ - All Rights Reserved |</span>
+					<span ng-click="downloadTermsAndConditionsDocument();" class="termsAndConditions">Terms & Conditions</span>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>

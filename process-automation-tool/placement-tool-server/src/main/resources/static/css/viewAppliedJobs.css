@@ -1,0 +1,196 @@
+#viewAppliedJobsSmallScreen{
+	display:none;
+	height:85px;
+}
+#viewAppliedJobs{
+	display:block;
+	height:85px;
+}
+.viewJobPostGridButton{
+	padding: 2.5% 12%;
+    margin-top: 3%;
+}
+.gridDownloadJobDescriptionIcon{
+	width:25%;
+	cursor:pointer;
+}
+.applicationStatusGridText{
+	margin-top: 5%;
+}
+.hiredText{
+	color: var(--light-green);
+	font-weight: 400;
+}
+.shortlistedText{
+	color : var(--cgsc-dark-blue);
+	font-weight: 400;
+}
+.inReviewText{
+	color:var(--cgsc-active-orange);
+	font-weight: 400;
+}
+.rejectedText{
+	color: var(--cgsc-red);
+	font-weight: 400;
+}
+.viewAppliedJobs .downLoadingGif{
+	width:2em;
+	margin-top:4%;
+}
+.jobStatusClosedText{
+	position: absolute;
+    right: 3em;
+    font-weight: 400;
+    color: var(--cgsc-red);
+}
+
+.viewAppliedJobs .notAvailableGridText{
+	margin-top:5%;
+}
+
+.viewGridButton{
+	background: var(--light-blue) !important;
+}
+
+/** ----------- MEDIA QUERIES -------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.gridDownloadJobDescriptionIcon {
+	    margin-top: 4%;
+	}
+	.viewJobPostGridButton {
+	    padding: 1.5% 12%;
+	    margin-top: 5%;
+	}
+}
+
+@media (max-width:991px) and (min-width:800px){
+	.gridDownloadJobDescriptionIcon {
+	    margin-top: 2%;
+	}
+	.viewJobPostGridButton {
+	    padding: 1.5% 12%;
+	    margin-top: 4%;
+	}
+	.viewAppliedJobs .downLoadingGif {
+	    width: 1.5em;
+	    margin-top:2%;
+	}
+	.applicationStatusGridText {
+	    margin-top: 5%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	#viewAppliedJobsSmallScreen{
+		display:block;
+	}
+	#viewAppliedJobs{
+		display:none;
+	}	
+	.gridDownloadJobDescriptionIcon {
+	    width: 14%;
+	    margin-top: 2%;
+	}
+	.viewJobPostGridButton {
+	    padding: 1% 12%;
+   		margin-top: 3%;
+	}
+	.viewAppliedJobs .downLoadingGif {
+	    width: 1.5em;
+	}
+	.viewAppliedJobs .notAvailableGridText{
+		margin-top:4%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#viewAppliedJobsSmallScreen{
+		display:block;
+	}
+	#viewAppliedJobs{
+		display:none;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 15%;
+	    cursor: pointer;
+	    margin-top: 3%;
+	}
+	.viewJobPostGridButton {
+	    padding: 1.5% 12%;
+	}
+	.viewAppliedJobs .downLoadingGif {
+	    width: 1.5em;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#viewAppliedJobsSmallScreen{
+		display:block;
+	}
+	#viewAppliedJobs{
+		display:none;
+	}
+	.viewJobPostGridButton {
+	    margin-top: 3%;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    margin-top:1%;
+	    width:22%;
+	}
+	.applicationStatusGridText {
+	    margin-top: 5%;
+	}
+	.viewAppliedJobs .downLoadingGif{
+		width:1.5em;
+	}
+}
+
+@media (max-width:480px){
+	#viewAppliedJobsSmallScreen{
+		display:block;
+	}
+	#viewAppliedJobs{
+		display:none;
+	}
+	.viewJobPostGridButton {
+	    margin-top: 4%;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    margin-top:2%;
+	}
+	.applicationStatusGridText {
+	    margin-top: 7%;
+	}
+	.viewAppliedJobs .downLoadingGif{
+		width:1.5em;
+	}
+	.cardPadding{
+		padding-right: 0;
+	}candidateViewAppliedJobs
+}
+
+@media (max-width:375px){
+	#viewAppliedJobsSmallScreen{
+		display:block;
+		font-size: 0.85em;
+	}
+	#viewAppliedJobs{
+		display:none;
+	}
+	.applicationStatusGridText {
+	    margin-top: 9%;
+	}
+	.viewJobPostGridButton {
+	    margin-top: 6%;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    margin-top:6%;
+	}
+	.viewAppliedJobs .downLoadingGif{
+		width:1.2em;
+	}
+	.cardPadding{
+		padding-right: 0;
+	}
+	
+}

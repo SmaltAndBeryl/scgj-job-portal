@@ -1,0 +1,161 @@
+<div ng-controller="dashboardController" class="templatePartial dashboardTemplate">
+
+    <!-- View information panels section-->
+    <div class="contentSection">
+        <div class="row margin-0 dashboardPanelSection">
+            <div class="col-md-3 col-sm-3 col-xs-4 informationPanelFlexBox">
+                <div class="panelImageSection" id="infoPanelImageSection1">
+                    <img src="../images/employersIcon.png" class="panelInfoIcons" id="registeredEmployersIcon"
+                         alt="Registered Employers Icon">
+                </div>
+                <div class="panelInfoSection">
+                    <p class="panelNumberStyle">{{registeredEmployersCount}}</p>
+                    <p class="panelTextStyle" id="panelOneTextColor">Registered Employers</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 informationPanelFlexBox">
+                <div class="panelImageSection" id="infoPanelImageSection2">
+                    <img src="../images/registeredCandidatesIcon.png" class="panelInfoIcons"
+                         id="registeredCandidatesIcon" alt="Active Candidates Icon">
+                </div>
+                <div class="panelInfoSection">
+                    <p class="panelNumberStyle">{{activeCandidatesCount}}</p>
+                    <p class="panelTextStyle" id="panelTwoTextColor">Active Candidates</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 informationPanelFlexBox">
+                <div class="panelImageSection" id="infoPanelImageSection3">
+                    <img src="../images/placedCandidateIcon.png" class="panelInfoIcons" id="placedCandidatesIcon"
+                         alt="Placed Candidates Icon">
+                </div>
+                <div class="panelInfoSection">
+                    <p class="panelNumberStyle">{{placedCandidatesCount}}</p>
+                    <p class="panelTextStyle" id="panelThreeTextColor">Placed Candidates</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 informationPanelFlexBox">
+                <div class="panelImageSection" id="infoPanelImageSection4">
+                    <img src="../images/jobsGeneratedIcon.png" class="panelInfoIcons" id="activeJobsIcon"
+                         alt="Jobs Generated Icon">
+                </div>
+                <div class="panelInfoSection">
+                    <p class="panelNumberStyle">{{jobsGeneratedCount}}</p>
+                    <p class="panelTextStyle" id="panelFourTextColor">Active Jobs</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Reports section-->
+        <div class="margin-0 report-padding-bottom">
+        <p class="reportsHeading">Reports</p>
+        <div class="row margin-0">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-11 padding-left-1">
+                <select class="selectDateInputBox" ng-model="selectedTimePeriod" ng-change="resetTimeperiod()"
+                        ng-disabled="disableAction" required>
+                    <option value="" disabled selected>Select Time Period</option>
+                    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+                    <option value={{staticContentArray.threeMonthText}}>3 Month</option>
+                    <option value={{staticContentArray.sixMonthText}}>6 Month</option>
+                    <option value={{staticContentArray.customDateText}}>Custom Date</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-11 padding-left-1"
+                 ng-show="selectedTimePeriod == 'customDate'">
+				<span class="openDateIcon">
+					<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
+				</span>
+                <input class="selectDateInputBox datePickerIcon" ng-disabled="disableAction" placeholder="From"
+                       onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="customStartDate"/>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-11 padding-left-1"
+                 ng-show="selectedTimePeriod == 'customDate'">
+				<span class="openDateIcon">
+					<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
+				</span>
+                <input class="selectDateInputBox datePickerIcon" ng-disabled="disableAction" placeholder="To"
+                       onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="customEndDate"/>
+            </div>
+        </div>
+        <!-- Cards for reports -->
+        <div class="row margin-0 reportContainer">
+            <div class="reportCards">
+                <div>
+                    <img src="../images/jobsGeneratedReportImage.png" class="reportCardImage"
+                         alt="Jobs Generated Report Image">
+                </div>
+                <div class="reportCardTextSection">
+                    <p class="reportNameText">Candidate Placement Report</p>
+                    <p class="reportDescriptionText">Report contains the details of all the candidates placed in
+                        different companies in a specific time duration</p>
+                    <div class="text-right">
+                        <button class="btn downloadReportButton" ng-hide="hideCandidatePlacementReportButton"
+                                ng-click="downloadCandidatePlacementReport();">Download
+                        </button>
+                        <div>
+                        <img src="../images/loadingImage.gif" ng-show="hideCandidatePlacementReportButton" class="downloadReportGif"
+                             alt="Loading GIF">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="reportCards">
+                <div>
+                    <img src="../images/placementReportImage.png" class="reportCardImage" alt="Placement Report Image">
+                </div>
+                <div class="reportCardTextSection">
+                    <p class="reportNameText">Candidate Report</p>
+                    <p class="reportDescriptionText candidateReportDescriptionText">Report contains all the details of candidates who have registered
+                        in a specific time duration</p>
+                    <div class="text-right">
+                        <button class="btn downloadReportButton" id="placementReportButton"
+                                ng-hide="hideCandidateReportButton" ng-click="downloadCandidateReport()">Download
+                        </button>
+                        <div>
+                        <img src="../images/loadingImage.gif" class="downloadReportGif" id="placementReportGif"
+                             alt="Loading GIF" ng-show="hideCandidateReportButton">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reportCards">
+                <div>
+                    <img src="../images/employerRegistrationReport.png" class="reportCardImage"
+                         alt="Employer Registration Report Image">
+                </div>
+                <div class="reportCardTextSection">
+                    <p class="reportNameText">Company Report</p>
+                    <p class="reportDescriptionText companyReportDescriptionText">Report contains employer records along with job role wise jobs
+                        posted
+                        in a specific time duration</p>
+                    <div class="text-right">
+                        <button class="btn downloadReportButton" ng-click="downloadCompanyReport()"
+                                ng-hide="hideCompanyReportButton">Download
+                        </button>
+                        <div>
+                        <img src="../images/loadingImage.gif" class="downloadReportGif" alt="Loading GIF"
+                             ng-show="hideCompanyReportButton">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Error/Success message section -->
+        <div class="row margin-0" ng-show="error">
+            <div class="alert alert-danger alert-dismissible errorMessageBox">
+                <div class="row margin-0">
+                    <div class="col-md-11 col-sm-10 col-xs-10 text-center">
+                        {{errorMessage}}
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-2">
+                        <button type="button" class="close" ng-click="error=false">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

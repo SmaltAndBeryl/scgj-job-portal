@@ -1,0 +1,138 @@
+#viewEmployersGrid{
+	display:block;
+	height:95px;
+}
+#viewEmployersGridSmallScreen{
+	display:none;
+	height:90px;
+}
+#approvedEmployersGrid{
+	display:block;
+	height:95px;
+}
+#approvedEmployersGridSmallScreen{
+	display:none;
+	height:90px;
+}
+#rejectedEmployersGrid{
+	display:block;
+	height:95px;	
+}
+#rejectedEmployersGridSmallScreen{
+	display:none;
+	height:90px;
+}
+.approveRejectEmployer .gridActionButton{
+    padding: 3% 10%;
+    margin-top: 1.5%;
+}
+.approveEmployerButton{
+	background:var(--cgsc-light-green) !important;
+}
+.rejectEmployerButton{
+	background:var(--cgsc-red) !important;
+}
+.approveRejectEmployer .loadingGif{
+	width:1.5em;
+}
+
+/** ------------MEDIA QUERIES------------**/
+
+@media (max-width:991px) and (min-width:800px){
+	.approveRejectEmployer .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.approveRejectEmployer .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#viewEmployersGrid{
+		display:none;
+	}
+	#viewEmployersGridSmallScreen{
+		display:block;
+	}
+	#approvedEmployersGrid{
+		display:none;
+	}
+	#approvedEmployersGridSmallScreen{
+		display:block;
+	}
+	#rejectedEmployersGrid{
+		display:none;
+	}
+	#rejectedEmployersGridSmallScreen{
+		display:block;
+	}
+	.approveRejectEmployer .gridActionButton {
+	    padding: 2% 10%;
+	    margin-top: 2.5%;
+	}
+	.approveRejectEmployer .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#viewEmployersGrid{
+		display:none;
+	}
+	#viewEmployersGridSmallScreen{
+		display:block;
+	}
+	#approvedEmployersGrid{
+		display:none;
+	}
+	#approvedEmployersGridSmallScreen{
+		display:block;
+	}
+	#rejectedEmployersGrid{
+		display:none;
+	}
+	#rejectedEmployersGridSmallScreen{
+		display:block;
+	}
+	.approveRejectEmployer .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:480px){
+	#viewEmployersGrid{
+		display:none;
+	}
+	#viewEmployersGridSmallScreen{
+		display:block;
+	}
+	#approvedEmployersGrid{
+		display:none;
+	}
+	#approvedEmployersGridSmallScreen{
+		display:block;
+	}
+	#rejectedEmployersGrid{
+		display:none;
+	}
+	#rejectedEmployersGridSmallScreen{
+		display:block;
+	}
+	.approveRejectEmployer .gridActionButton {
+		padding: 2% 10%;
+	    margin-top: 4%;
+	}
+	.approveRejectEmployer .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:415px){
+	.approveRejectEmployer .gridActionButton {
+	    margin-top: 5%;
+	}
+}
+

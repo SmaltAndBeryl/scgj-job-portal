@@ -1,0 +1,4 @@
+verifyCandidateStatus:
+
+ updateCandidateVerificationStatus: update candidate_polling set poll_count=:pollCountZero, polled_at=now() where user_id=:candidateId;
+ checkCandidatePollCount: select poll_count FROM candidate_polling where user_id=:candidateId;

@@ -1,0 +1,335 @@
+#reviewJobPostGrid{
+	display:block;
+	height:90px;
+}
+
+#reviewJobPostGridSmallScreen{
+	display:none;
+	height:90px;
+}
+.alertBox{
+    border: 1px solid var(--panel-color-yellow);
+    background: var(--cgsc-white);
+    padding: 1%;
+    margin-top: 3%;
+    border-radius: 3px;
+    position: fixed;
+    width: 35%;
+    right: 2.5%;
+	z-index: 1;
+	font-size: 0.95em;
+    box-shadow: 0px 1px 6px 0px var(--cgsc-light-grey-shade2);
+    bottom: 10%;
+}
+.alertMessageFlexBox {
+    display: flex;
+    align-items: center;
+}
+.refreshLinkText{
+	border-bottom: 1px solid;
+    cursor: pointer;
+    color: var(--download-report-button);
+}
+.alertText{
+	font-weight:normal;
+}
+.alertBoxImage{
+    width: 1.5em;
+    margin-left: -0.5em;
+}
+/** ------------UI GRID STYLES --------------**/
+.gridText{
+	margin-top:6%;
+}
+.inReviewText{
+	color:var(--cgsc-active-orange);
+}
+.reviewJobPostGridButton, .reviewJobPostGridButton:focus, .reviewJobPostGridButton:active, .reviewJobPostGridButton:hover{
+	padding: 3% 10%;
+    margin-top: 2%;	
+}
+.approveJobPostButton, .approveJobPostButton:focus, .approveJobPostButton:hover, .approveJobPostButton:active{
+	background: var(--cgsc-light-green);
+}
+.rejectJobPostButton, .rejectJobPostButton:hover, .rejectJobPostButton:focus, .rejectJobPostButton:active{
+	background: var(--cgsc-red);
+}
+.approvedStatus{
+	color: var(--cgsc-light-green);
+}
+.rejectedStatus{
+	color: var(--cgsc-red);
+}
+#rejectedJobPostGrid{
+	display:block;
+	height:90px;
+}
+#rejectedJobPostGridSmallScreen{
+	display:none;
+	height:90px;
+}
+#approvedJobPostGrid{
+	display:block;
+	height:90px;
+}
+#approvedJobPostGridSmallScreen{
+	display:none;
+	height:90px;
+}
+.reviewJobPost .margin-top-3{
+	margin-top: 3rem;
+}
+/** -------JOB DETAILS SECTION STYLES-------**/
+.downloadJobDescriptionIcon {
+    width: 3%;
+    margin-left: 0.5%;
+    margin-top: -0.5%;
+    cursor:pointer;
+}
+.downloadJobDescriptionGif{
+	width: 1.8%;
+    margin-left: 1%;
+}
+.viewJobDetailsPopup{
+	border-radius:3px;
+	border:1px solid var(--cgsc-light-grey-shade3);
+}
+.rejectJobPostModalDialog{
+	margin-top:28vh;
+	width:60vw;
+}
+.reviewJobPost .closeModalButton {
+    z-index: 200;
+}
+.modal{
+	padding-right:0% !important;
+}
+.modalContent{
+	padding:2% 1% 5% 2%;
+}
+.modalRejectButton, .modalRejectButton:focus, .modalRejectButton:hover{
+	background: var(--cgsc-dark-blue);
+    color: var(--text-white);
+    font-size: 0.9em;
+    font-weight: 300;
+    border-radius: 2px;
+    padding: 2% 10%;
+    outline:none;
+    margin-top:2.5em;
+}
+.adminCommentsInput {
+    width: 100%;
+    height: 7em;
+    outline: none;
+    padding: 1%;
+}
+.adminCommentText{
+	font-weight: 600;
+	margin-top : 0.2rem;
+}
+
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.modalContent {
+	    padding: 3% 1% 5% 2%;
+	}
+	.rejectJobPostModalDialog {
+	    margin-top: 30vh;
+	    width: 74vw;
+	}
+	.alertBox {
+	    width: 38%;
+	    right:3.5%;
+	}
+	.alertText {
+	    font-size: 0.9em;
+	}
+}
+
+@media (max-width:991px) and (min-width:801px){
+	.rejectJobPostModalDialog {
+	    width: 67vw;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.downloadJobDescriptionIcon {
+	    width: 3.5%;
+	    margin-left: 1.5%;
+	    margin-top: -1.5%;
+	}
+	.rejectJobPostModalDialog {
+	    margin-top: 28vh;
+	    width: 82vw;
+	}
+	.modalContent {
+	    padding: 3% 3% 6% 3%;
+	}
+	.adminCommentsInput {
+	    margin-top: 5%;
+	}
+	.modalRejectButton, .modalRejectButton:focus, .modalRejectButton:hover {
+	    margin-top: 4em;
+	}
+	.gridText{
+		margin-top:3.5%;
+	}
+	.alertText {
+	    font-weight: normal;
+	    font-size: 0.85em;
+	}
+	.alertBox {
+	    width: 85%;
+	    right:7.5%;
+	    bottom:25%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#reviewJobPostGrid{
+		display:none;
+		height:90px;
+	}
+	#reviewJobPostGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.reviewJobPostGridButton, .reviewJobPostGridButton:focus, .reviewJobPostGridButton:active, .reviewJobPostGridButton:hover {
+	    padding: 2% 10%;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 5%;
+	    margin-left: 3.5%;
+	}
+	.rejectJobPostModalDialog {
+	    margin-top: 28vh;
+	    width: auto;
+	}
+	.modalContent {
+	    padding: 3% 3% 6% 3%;
+	}
+	.adminCommentsInput {
+	    margin-top: 5%;
+	}
+	.alertText {
+	    font-weight: normal;
+	    font-size: 0.85em;
+	}
+	.alertBox {
+	    width: 85%;
+	    right:7.5%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#reviewJobPostGrid{
+		display:none;
+		height:90px;
+	}
+	
+	#reviewJobPostGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 8%;
+	    margin-left: 3.5%;
+	}
+	.rejectJobPostModalDialog {
+	    margin-top: 28vh;
+	    width: auto;
+	}
+	.modalContent {
+	    padding: 3% 3% 6% 3%;
+	}
+	.adminCommentsInput {
+	    margin-top: 5%;
+	}
+	.alertText {
+	    font-weight: normal;
+	    font-size: 0.85em;
+	}
+	.alertBox {
+	    width: 92%;
+	    right:4%;
+	}
+}
+
+@media (max-width:480px){
+	#reviewJobPostGrid{
+		display:none;
+		height:90px;
+	}
+	
+	#reviewJobPostGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 7%;
+	    margin-left: 3.5%;
+	}
+	.rejectJobPostModalDialog {
+	    margin-top: 28vh;
+	    width: auto;
+	}
+	.modalContent {
+	    padding: 3% 3% 6% 3%;
+	}
+	.adminCommentsInput {
+	    margin-top: 5%;
+	}
+	.alertText {
+	    font-weight: normal;
+	    font-size: 0.8em;
+	}
+	.alertBox {
+	    width: 94%;
+	    right:3%;
+	}
+}
+
+@media (max-width:415px){
+	.reviewJobPostGridButton{
+	    margin-top: 5% !important;
+	}
+	.downloadJobDescriptionIcon {
+	    width: 8%;
+	    margin-left: 3.5%;
+	}
+	.rejectJobPostModalDialog {
+	    margin-top: 28vh;
+	    width: auto;
+	}
+	.modalContent {
+	    padding: 3% 3% 6% 3%;
+	}
+	.adminCommentsInput {
+	    margin-top: 5%;
+	}
+	.alertText {
+	    font-weight: normal;
+	    font-size: 0.8em;
+	}
+	.alertBox {
+	    width: 94%;
+	    right:3%;
+	}
+}
+
+@media (max-width:768px) {
+	#rejectedJobPostGrid{
+		display:none;
+	}
+
+	#rejectedJobPostGridSmallScreen{
+		display:block;
+	}
+	#approvedJobPostGrid{
+		display:none;
+	}
+
+	#approvedJobPostGridSmallScreen{
+		display:block;
+	}
+}

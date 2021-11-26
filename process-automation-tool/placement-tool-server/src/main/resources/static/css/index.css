@@ -1,0 +1,1631 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+:root{
+	--box-shadow-grey: rgb(172,172,172);
+	--dark-blue-box-shadow:rgb(48,60,75);
+	--cgsc-black:rgb(0,0,0);
+	--cgsc-partial-background-grey:rgb(249,249,249);
+	--login-background-light-grey:rgb(248, 248,248);
+	--cgsc-red:rgb(229,85,22);
+	--cgsc-light-green:rgb(0,176,80);
+	--cgsc-orange:rgb(237,125,49);
+	--cgsc-dark-blue:rgb(68,84,106);
+	--cgsc-light-grey-shade1:rgb(242, 242,242);
+	--cgsc-light-grey-shade2:rgb(118,113,113);
+	--cgsc-light-grey-shade3:rgb(217,217,217);
+	--cgsc-light-grey-shade4:rgb(127,127,127);
+	--cgsc-dark-grey:rgb(89,89,89);
+	--cgsc-active-orange:rgb(243,149,19);
+	--cgsc-white:rgb(256,256,256);
+	--light-blue:rgb(0,125,254);
+	--light-green:rgb(0,176,80);
+	--cgsc-modal-background: rgba(0,0,0,0.8);
+	--panel-color-green:rgb(49,188,159);
+	--panel-color-red:rgb(248,135,129);
+	--panel-color-yellow:rgb(252,194,116);
+	--panel-color-blue:rgb(113,179,227);
+	--download-report-button:rgb(0,112,192);
+	--light-blue-shade2:rgb(91,155,213);
+	
+
+	--text-dark-grey:rgb(59,56,56);
+	--text-white:rgb(255,255,255);
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	color:var(--text-dark-grey);
+	font-weight:300;
+}
+select{
+	background:var(--cgsc-white);
+	outline:none;
+}
+option{
+	font-weight:300 !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+#loadingPage{
+	width:100%;
+	height:100vh;
+	position:fixed;
+	background: var(--cgsc-white);
+	z-index:99999;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoImagePreLoader {
+    height: 4em;
+    margin-left: 0.5%;
+}
+#landingPageWrapper {
+    height: 100vh;
+}
+.homePageSection{
+	min-height: 95vh;
+}
+/* ---------------- TOP MENU BAR STYLES -------------------------- */
+.topMenuBarStyle{
+	box-shadow: 0px 0px 4px 0px var(--box-shadow-grey);
+	padding:0%;
+}
+.topMenuBarOptions{
+	cursor:pointer;
+	font-size: 1.1em;
+}
+.homePagelogo{
+	width: auto;
+    max-height: 4.4rem;
+}
+.headerMenuSection{
+	padding:0.5% 0.5% 0% 0.5%;
+}
+.topMenuBarHomeIcon{
+	font-size: 0.7em;
+    margin-right: 3.5%;
+}
+.topMenuBarMyProfileIcon{
+	font-size: 0.8em;
+    margin-right: 3.5%;
+}
+.topMenuBarTextStyle{
+    font-weight: bold;
+    left: 0.2em;
+    font-size:0.7em;
+}
+.selectedMenuOrange{
+	color: var(--cgsc-orange);
+}
+#phoneNumberRegisterInput
+{
+    position: absolute;
+    left: 0.5em;
+    top: 0.55em;
+}
+.cgscCertifiedDropdown {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+.cgscCertifiedDropdown::-ms-expand
+{
+  display: none;
+}
+
+.uploadRegistrationDocuments{
+	display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0em;
+    height: 100%;
+    width: 90%;
+    z-index: 100;
+    cursor: pointer;
+}
+.browseFilesButton{
+    position: absolute;
+    right: 2em;
+    top: 0em;
+    width:20%;
+    border-radius:4px;
+    padding: 2.4% 3%;
+    border-radius: 2px;
+}
+.uploadFilesButton
+{
+	background-color: var(--cgsc-active-orange);
+    font-size: 0.88em;
+    right: 3.2em;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+.uploadRegistrationDocuments:disabled {
+  cursor: not-allowed;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/* ---------------- TOP MENU BAR STYLES ENDS -------------------------- */
+
+
+/* --------------- HOME PAGE STYLES -----------------------*/
+.filterJobSection{
+	flex:1;
+}
+.allJobPostSection{
+	margin: 1% 1%;
+	display:flex;
+}
+.removeFilterImage{
+	float:right;
+	width:8%;
+	cursor:pointer;
+}
+.filterSearchText{
+	display: inline-block;
+    font-weight: 400;
+}
+.clearFilterText{
+	font-weight: 400;
+	color: var(--cgsc-active-orange);
+	cursor:pointer;
+}
+.filterJobSection hr{
+	margin-top:10px;
+}
+hr {
+    border-top: 1px solid var(--cgsc-light-grey-shade3);
+}
+.filterOptionInputBox {
+    width: 100%;
+    border-radius: 1px;
+    padding: 2%;
+    margin-bottom: 10%;
+    background: var(--cgsc-white);
+    border: 1px solid var(--cgsc-light-grey-shade4);
+}
+.jobPostSection {
+    flex:4;
+    margin: 1% 2%;
+    padding-left: 2%;
+    border-left: 1px solid var(--cgsc-light-grey-shade3);
+    min-height:45vh;
+}
+.jobPostCardTitle{
+	font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom:0.6%;
+}
+.jobPostCardGreyText{
+	color: var(--cgsc-light-grey-shade4);
+    font-size: 0.9em;
+    margin-bottom: 0.5%;
+    display:inline-block;
+}
+.vacancyIcon {
+    width: 5%;
+    position: relative;
+    top: -0.1em;
+    margin-right: 3%;
+}
+.experienceIcon {
+    width: 4%;
+    position: relative;
+    top: -0.1em;
+    margin-right: 3%;
+}
+.salaryIcon{
+	width:6%;
+	margin-right: 3%;
+}
+.jobPostCardDescriptionText{
+	margin: 0.5% 0% 2% 0%;
+    font-weight: 300;
+    font-size: 0.98em;
+}
+.occupationRowInCardView{
+    margin-top: -0.5rem;
+    margin-bottom: 0.2rem;
+}
+.occupationInCardView{
+    margin: 0;
+    color: var(--text-dark-grey);
+}
+.jobPostCardButton, .jobPostCardButton:hover, .jobPostCardButton:focus{
+	padding: 0.5% 6%;
+    font-size: 0.95em;
+    color: var(--cgsc-white);
+    font-weight: 300;
+    outline:none;
+}
+.viewJobPostButton{
+	margin-right: 10%;
+	background: var(--cgsc-dark-blue);
+}
+.applyJobPostButton, .applyJobPostButton:hover {
+    background: var(--light-green);
+    font-size: 0.95em;
+}
+.loadMoreButton{
+	background: var(--cgsc-white);
+    border: 2px solid var(--cgsc-dark-blue);
+    border-radius: 26px;
+    padding: 0.2% 2%;
+    margin-bottom: 3%;
+    font-weight: bold;
+}
+.loadMoreButton:focus,.loadMoreButton:hover,.loadMorButton:active{
+	outline: none !important;
+}
+.noJobPostsError{
+	display: flex;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    color: var(--cgsc-light-grey-shade4);
+}
+
+.viewJobSectionDescriptionFlexBox{
+	display:flex;	
+}
+.viewJobSectionDescriptionLeft{
+	flex:2;
+}
+.viewJobSectionDescriptionRight {
+    flex: 0.8;
+    border-left: 1px solid var(--cgsc-light-grey-shade3);
+}
+.viewJobSectionContentHeading{
+	font-weight: 400;
+    margin-top: 2%;
+    color: var(--cgsc-light-grey-shade2);
+}
+.viewJobSectionContentText{
+	font-size:0.9em;
+}
+.preferenceListIcon{
+    font-size: 0.7em;
+    margin-right: 1%;
+    position: relative;
+    top: -0.15em;
+    color: var(--cgsc-light-grey-shade4);
+}
+.jobPostDetailsSection .errorMessageBox {
+    margin: 0%;
+}
+.downloadJobDescriptionGif {
+    width: 1.5em;
+    margin-right: 6%;
+}
+.downloadJobDescriptionButton, .downloadJobDescriptionButton:focus, .downloadJobDescriptionButton:hover{
+	padding: 0.5% 2%;
+    font-size: 0.95em;
+    color: var(--cgsc-white);
+    font-weight: 300;
+    outline: none;
+    margin-right: 4%;
+    background: var(--cgsc-dark-blue);
+}
+.downloadJobDescriptionGlyphicon{
+	margin-right: 4%;
+}
+.applyJobPostError{
+	display:none;
+}
+.viewJobPostButtonSection{
+	margin: 5% 0%;
+    text-align: right;
+}
+.fa-chevron-left{
+	cursor:pointer;
+}
+.preferencesText .jobPostCardGreyText {
+    display:block;
+}
+.postedByText{
+	display: block;
+	font-size: 0.8em;
+}
+
+/** --------------Error/success modal---------------------**/
+.modalContentContainer{
+	padding:6% 3% 7% 3%;
+}
+
+.closeModalButton{
+	position: absolute;
+    right: 0.5em;
+    cursor: pointer;
+    top: 0.5em;
+    font-size: 1.2em;
+}
+.modalErrorText{
+	margin-top: 5%;
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 3%;
+}
+.modalAlertImage{
+	width:28%;
+}
+.modalSuccessGif{
+	width:38%;
+}
+.modalOrText{
+	position: relative;
+    top: 0.8em;
+    right: -1.5em;
+    font-weight: 400;
+}
+.errorSuccessModal{
+	margin-top:20vh;
+}
+.fade {
+    opacity: 0;
+    -o-transition: opacity .85s ease;
+    transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all 0.85s ease;
+    -o-transition: all 0.85s ease;
+    transition: all 0.85s ease;
+}
+
+.fade.in {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.85s ease;
+}
+.modal-backdrop {
+    top: unset;
+    right: unset;
+    bottom: unset;
+    left: unset;
+    z-index: unset;
+    background-color: #000;
+}
+.pop-up-box {
+    background-color:var(--cgsc-modal-background);
+    padding:0%;
+}
+.modalSignUpButtonSection{
+	margin-left:3%;
+}
+
+.cgscCertificationModal{
+    top:20%;
+    left:24%;
+}
+
+.cgscCertificationModalContent{
+    width: 56%;
+}
+
+.cgscCertificationHindiContent{
+    line-height: 1.7em;
+    font-weight: 600;
+}
+
+.cgscCertificationEnglishContent{
+    font-weight: 600;
+}
+/* ------------------------ MY PROFILE SECTION STYLES ------------------------------ */
+.myProfileSection{
+	display: flex;
+	min-height:91%;
+}
+.loginLeftImageSection{
+	flex:1;
+}
+.loginLeftImage{
+	width:100%;
+	height:100%;
+}
+.loginRegisterFormSection {
+    width: 50%;
+    background: var(--login-background-light-grey);
+    margin-top: 0.2%;
+    padding:3%;
+}
+.loginFormHeading{
+	margin-top:7%;
+}
+.userLoginForm{
+	margin-top:5%;
+	margin-bottom: 3%;
+}
+.loginInputBox{
+	border: 1px solid var(--cgsc-black);
+    border-radius: 4px;
+    margin-bottom:4%;
+    width: 90%;
+    padding: 2%;
+}
+.loginFormButton{
+	background: var(--cgsc-dark-blue);
+    color: var(--text-white);
+    border: none;
+    padding: 1% 15%;
+    border-radius: 100px;
+    margin-top: 6%;
+    width: 64%;
+}
+.loginFormButton:hover,.loginFormButton:active ,.loginFormButton:focus{
+	outline:none !important;
+	background: var(--cgsc-dark-blue);
+}
+.mobileNumberPrefix {
+    position: absolute;
+    left: 1.5em;
+    top: 0.65em;
+}
+.mobileNumberEmployerRegistrationPrefix{
+	position: absolute;
+    left: 0.8em;
+    top: 0.5em;
+}
+#phoneNumberLoginInput{
+	padding-left: 2.2em;
+}
+.resendOtpText{
+	display: inline-block;
+    position: absolute;
+    top: 1.5em;
+    right: 2em;
+    color: var(--cgsc-dark-blue);
+    font-size: 0.95em;
+}
+.resendOtpText:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+.linkText{
+	font-weight:bold;
+	border-bottom: 1px solid;
+	cursor:pointer;
+}
+.linkText:hover{
+	cursor:pointer;
+}
+.forgotPassowrdText{
+	color: var(--cgsc-dark-blue);
+	font-size: 0.9em;
+	font-weight: 400;
+}
+.loginSectionText{
+	color: var(--cgsc-dark-blue);
+	font-size: 0.9em;
+	font-weight: 400;
+}
+.rollingGif{
+	width: 2em;
+    margin-top: 8%;
+}
+.loginRegisterLoadingGif {
+    width: 1.5em;
+    margin-top: 6%;
+}
+
+/*-----------CAROUSEL STYLES ------------**/
+.carouselImage{
+	width:100%;
+	height:100%;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 18px;
+    height: 4px;
+    background: var(--cgsc-light-grey-shade1);
+    margin: 1px;
+    border-radius: 4px;
+    border: 1px solid var(--cgsc-light-grey-shade1);
+}
+
+.carousel-indicators .active {
+    width: 18px;
+    height: 5px;
+    margin: 0;
+    border: 1px solid var(--cgsc-dark-blue);
+    background-color: var(--cgsc-dark-blue);
+}
+.carousel-indicators {
+    bottom: -0.5em;
+}
+.slideHeadingText {
+    position: absolute;
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 1.8em;
+    margin-left: 3%;
+    top: 20vh;
+}
+.largeScreenCarousel{
+	display:block;
+}
+.smallScreenCarousel{
+	display:none;
+	height:auto;
+}
+/*----------REGISTRATION FORM STYLES ----------------- */
+.selectUserRoleCard{
+	margin-top: 9%;
+	margin-bottom:5%;
+    display: flex;
+    width: 65%;
+    align-items: center;
+    cursor:pointer;
+    border:1px solid var(--cgsc-dark-blue);
+    background: var(--cgsc-white);
+}
+.uploadResumeMandatory{
+	right: 2.2em;
+}
+.selectUserRoleCard:hover{
+	box-shadow: -2px 1px 8px 1px var(--cgsc-light-grey-shade2);
+}
+.userRoleCardImageSection{
+	flex: 1.2;
+    background: var(--cgsc-dark-blue);
+    text-align: center;
+}
+.userRoleCardTextSection{
+	flex: 2.4;
+}
+.roleTypeImage{
+	padding: 7%;
+    width: 75%;
+}
+.selectUserRoleText{
+	font-size: 1.6em;
+    font-weight: bold;
+}
+.userRegistrationForm{
+    margin-top: 5%;
+}
+.goToLoginText{
+	margin-top:4%;
+	margin-bottom:4%;
+}
+.registrationInputBox{
+	border: 1px solid var(--cgsc-black);
+    border-radius: 4px;
+    margin-bottom: 9%;
+    width: 92%;
+    padding: 2%;
+    padding-left: 2.0em;
+}
+#completeAddress{
+    width: 96%;
+    margin-bottom: 4%;
+    height: 4.5rem;
+    padding-top: 1rem;
+}
+#companyAddress{
+    width: 96%;
+    margin-bottom: 4%;
+    height: 4.5rem;
+    padding-top: 1rem;
+}
+#candidateRegistrationForm .dropdown-menu>li>a {
+    white-space: break-spaces;
+}
+.mobileNumberCandidateRegistrationPrefix
+{
+	position: absolute;
+    left: 0.5em;
+    top: 0.55em;
+}
+.registrationInputBottomSpace{
+	margin-bottom:8%;
+}
+
+#companyAddress{
+    margin-bottom: 7%;
+}
+
+.mandatoryFieldAsterisk{
+	position: absolute;
+    float: right;
+    color: red;
+    margin-left: 0.5%;
+    font-size: 1em;
+    font-weight: bold;
+}
+.loginErrorMessageImage{
+	width:2em;
+}
+.loginRegisterErrorText{
+	margin-top:0.5%;
+	font-weight:bold;
+	font-size:0.95em;
+}
+.loginRegisterErrorPanel {
+    border: 1px solid var(--cgsc-red);
+    background: var(--cgsc-white);
+    padding: 1%;
+    margin-top: 3%;
+    border-radius: 4px;
+}
+.loginRegisterSuccessPanel {
+    border: 1px solid var(--cgsc-light-green);
+    background: var(--cgsc-white);
+    padding: 1%;
+    margin-top: 3%;
+    border-radius: 4px;
+}
+.errorMessageFlexBox{
+	display:flex;
+	align-items:center;
+}
+.successAlertImage{
+	width:1.5em;
+}
+
+.footer{
+	width:100%;
+	position:relative;
+	bottom:0;
+	background:var(--cgsc-dark-blue);
+	color:var(--text-white);
+	font-size: 0.7em;
+    padding: 0.2%;
+}
+.loginTextSpace{
+	margin-right:8%;
+}
+[uib-typeahead-popup].dropdown-menu {
+    font-family: 'Roboto';
+    display: block;
+    width: 88%;
+}
+.informationGlyphicon
+{
+	position: absolute;
+    right: 14%;
+    top: 17%;
+}
+.popover.bottom
+{
+	display: block !important;
+    top: 56% !important;
+    right: 12%;
+    left: 0!important;
+}
+
+
+.arrow
+{
+	    left: 93% !important;
+}
+
+/* --------------------------- MEDIA QUERIES ---------------------------------------- */
+@media(min-width:1300px){
+	.loginRegisterErrorText{
+		font-size:0.9em;
+	}
+	.loginTextSpace{
+		margin-right:25%;
+	}
+}
+@media all and (device-width: 1366px) and (device-height: 1024px) and (orientation:landscape) {
+	.myProfileSection {
+	    min-height: 95%;
+	    height: auto;
+	}
+	.errorSuccessModal {
+	    margin-top: 31vh;
+	}
+}
+@media (min-width: 992px) and (max-width:1199px){
+	.templateTopMenuStyle {
+	    box-shadow: 0px 0px 4px 0px var(--box-shadow-grey);
+	    padding: 1.5% 1%;
+	}
+	.headerMenuSection {
+	    padding: 1% 0.5% 0% 0.5%;
+	}
+	.topMenuBarHomeIcon {
+	    font-size: 0.8em;
+	    margin-right: 2%;
+	}
+	.myProfileSection {
+	    min-height: 96%;
+	    height:auto;
+	}
+	.registrationInputBox {
+	    font-size: 0.85em;
+	    width: 96%;
+	}
+	.mobileNumberEmployerRegistrationPrefix {
+	    top: 0.4em;
+	}
+	.errorSuccessModal {
+	    margin-top: 32vh;
+	}
+	.modalAlertImage {
+	    width: 20%;
+	}
+	.uploadResumeMandatory {
+	    right: 1.2em;
+	}
+    #completeAddress{
+        width: 98%;
+    }
+    #companyAddress{
+        width: 98%  !important;
+    }
+}
+
+@media(min-width:992px) and (max-width:1024px){
+		.mobileNumberCandidateRegistrationPrefix {
+ 			position: absolute;
+ 		   	left: 0.5em;
+    		top: 0.35em;
+    	}
+		.browseFilesButton{
+			width:23%;
+			padding: 2.6% 3%;
+			top: -0.1em;
+		}
+		.uploadFilesButton{
+			font-size:0.84em;
+			right:2em;
+		}
+        #completeAddress{
+            width: 98%;
+        }
+        #companyAddress{
+            width: 98%  !important;
+        }
+	}
+
+@media (min-width: 801px) and (max-width:991px){
+	.headerMenuSection {
+	    padding: 1% 2%;
+	}
+	.topMenuBarStyle {
+	    padding: 2% 0%;
+	}
+	.topMenuBarHomeIcon {
+	    font-size: 0.9em;
+	    margin-right: 6%;
+	}
+	.topMenuBarMyProfileIcon {
+	    font-size: 1em;
+	    margin-right: 4%;
+	}
+	.topMenuBarTextStyle {
+	    font-weight: bold;
+	    left: 0.2em;
+	    font-size: 1.1em;
+	}
+	.homePagelogo {
+	    width: 37%;
+	    margin-top: 0%;
+	    margin-left: 0%;
+	}
+	.topMenuBarOptions {
+	    cursor: pointer;
+		font-size: 1.5rem;
+	}
+	.myProfileOptionDiv{
+		padding:0%;
+	}
+	.myProfileSection {
+	    min-height: 94%;
+	    height: auto;
+	}
+	/*-----Registration form section styles-----*/
+	.loginLeftImageSection{
+		display:block !important;
+	}
+	/**-- LOGIN STYLES --*/
+	.loginRegisterErrorText {
+	    margin-top: 0%;
+	    font-size: 0.9em;
+	    margin-left: 2%;
+	    font-weight: bold;
+	}
+	.errorCloseBtnDiv{
+		padding-right:0%;
+	}
+	.successAlertImage{
+		width:1.5em;
+		margin-left:-0.5em;
+	}
+	.loginErrorMessageImage {
+	    width: 2em;
+	    margin-left: -1em;
+	}
+	.errorSuccessModal {
+	    margin-top: 30vh;
+	}
+	.modalAlertImage {
+	    width: 20%;
+	}
+    #completeAddress{
+        width: 92%;
+    }
+    #companyAddress{
+        width: 92% !important;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width:800px){
+	.headerMenuSection {
+    	padding: 1.5% 4%;
+	}
+	.topMenuBarStyle {
+	    padding: 1% 0%;
+	}
+	.homePagelogo {
+	    width: 36%;
+	    margin-top: 1%;
+	    margin-left: -3%;
+	}
+	.topMenuBarOptions {
+	    cursor: pointer;
+		font-size: 1.5rem;
+	}
+	.topMenuBarTextStyle {
+	    font-weight: bold;
+	    left: 0.2em;
+	    font-size: 1em;
+	}
+	.topMenuBarMyProfileIcon {
+	    font-size: 1.1em;
+	}
+	.topMenuBarHomeIcon {
+	    font-size: 0.95em;
+	    margin-right: 3.5%;
+	}
+	.myProfileOptionDiv{
+		padding:0%;
+	}
+	.myProfileSection {
+	    min-height: 94%;
+	    height: auto;
+	}
+	/*-----Registration form section styles-----*/
+	.loginLeftImageSection{
+		display:block !important;
+	}
+	#candidateRegistrationForm .standardInputBox {
+	    width: 91%;
+	}
+    #completeAddress{
+        width: 92%;
+    }
+    #companyAddress{
+        width: 92%  !important;
+    }
+	/**-- LOGIN STYLES --*/
+	.loginRegisterErrorText {
+	    margin-top: 0.5%;
+	    font-weight: bold;
+	    padding-left: 5%;
+	}
+	.errorCloseBtnDiv{
+		padding-right:0%;
+	}
+	.successAlertImage{
+		width:1.5em;
+		margin-left:-0.5em;
+	}
+	.loginErrorMessageImage {
+	    width: 2em;
+	    margin-left: -1em;
+	}
+	/**----------Crousel Styles ------------**/
+	.carouselSlide {
+	    height: 35vh;
+	}
+	/**-----View job posts styles-------**/
+	.jobPostSection {
+	    flex: 3.5;
+	}
+	.filterSearchText {
+	    font-size: 0.95em;
+	}
+	.clearFilterText {
+	    font-size: 0.95em;
+	}
+	.salaryIcon {
+	    width: 8.5%;
+	}
+	.experienceIcon {
+	    width: 7%;
+	}
+	.vacancyIcon {
+	    width: 8.5%;
+	}
+	.viewJobSectionContentHeading {
+	    font-size: 0.9em;
+	}
+	.viewJobSectionContentText {
+	    font-size: 0.85em;
+	}
+	.errorSuccessModal {
+	    margin-top: 32vh;
+	}
+	.modalAlertImage {
+	    width: 22%;
+	}
+	.downloadJobDescriptionGif {
+	    margin-right: 11%;
+	}
+	.largeScreenCarousel{
+		display:none;
+	}
+	.smallScreenCarousel{
+		display:block;
+		height:auto;
+	}
+	.carouselSlide {
+	    height:auto;
+	}
+}
+
+@media (min-width: 577px) and (max-width:767px){
+	.headerMenuSection {
+	    padding: 0.5% 2%;
+	}
+	.topMenuBarStyle {
+	    padding: 1%;
+	}
+	.homePagelogo {
+	    width: 36%;
+	    margin-top:2%;
+	    margin-left: -3%;
+	}
+	.topMenuBarOptions {
+	    cursor: pointer;
+		font-size: 3rem;
+	}
+	.topMenuBarTextStyle{
+		display:none;
+	}
+	.topMenuBarHomeIcon {
+	    font-size: 0.8em;
+	    margin-right: 3.5%;
+	}
+	.topMenuBarMyProfileIcon {
+	    font-size: 1em;
+	    margin-right: 2%;
+	}
+	/*-----Registration form section styles-----*/
+	.loginRegisterFormSection {
+	    width: 100%;
+	    margin-top: 0.2%;
+	    padding: 5% 9%;
+	}
+	.loginRegisterErrorText {
+	    margin-top: 0.5%;
+	    font-weight: bold;
+	    padding-left: 5%;
+	}
+	.myProfileSection {
+	    min-height: 91%;
+	    height: auto;
+	}
+	.uploadResumeMandatory {
+	    right: 3.2em;
+	}
+	.browseFilesButton {
+	    padding: 2.2% 3%;
+	}.uploadFilesButton {
+	    right: 4.5em;
+	}
+    #completeAddress{
+        width: 92%;
+    }
+    #companyAddress{
+        width: 92%  !important;
+    }
+	/**-----View job posts styles-------**/
+	.allJobPostSection {
+	    margin: 1% 1%;
+	    display: flex;
+	    flex-direction: column;
+	}
+	.filterJobSection {
+	    flex: 1;
+	    margin: 2%;
+	}
+	.filterSearchText {
+	    font-size: 1.1em;
+	}
+	.filterOptionInputBox {
+	    width: 92%;
+	    margin-bottom:5%;
+	}
+	.jobPostSection {
+	    border-left: none;
+	    margin-left: 0%;
+	}
+	.salaryIcon {
+	    width: 11%;
+	}
+	.experienceIcon {
+	    width: 8%;
+	}
+	.vacancyIcon {
+	    width: 9%;
+	}
+	.salarySectionMargin{
+		margin-top:1%;
+	}
+	.jobPostCardGreyText {
+	    margin-bottom: 2.5%;
+	    font-size: 0.95em;
+	}
+	.jobPostCardDescriptionText {
+	    margin: 2% 0% 3% 0%;
+	    font-size: 0.95em;
+	}
+	.jobPostCardButton, .jobPostCardButton:hover, .jobPostCardButton:focus {
+	    padding: 1% 7%;
+	}
+	.applyJobPostError {
+	    position: relative;
+	    left: -0.5em;
+	}
+	.viewJobSectionDescriptionFlexBox {
+	    flex-direction: column-reverse;
+	}
+	.viewJobSectionDescriptionRight {
+	    border-left: none;
+	}
+	.viewJobSectionContentHeading {
+	    margin-top: 4%;
+	}
+	.preferenceListIcon {
+	    top: -0.1em;
+	}
+	.viewJobPostButtonSection{
+		margin: 6% 0%;
+    	text-align: center;
+	}
+	.downloadJobDescriptionButton, .downloadJobDescriptionButton:focus, .downloadJobDescriptionButton:hover {
+	    padding: 1% 5%;
+	}
+	.downloadJobDescriptionGlyphicon {
+	    margin-right: 7%;
+	    font-size:0.9em;
+	}
+	.loadMoreButton {
+	    padding: 0.2% 4%;
+	    font-size: 0.9em;
+	}
+	.modalAlertImage {
+	    width: 22%;
+	}
+	.downloadJobDescriptionGif {
+	    margin-right: 11%;
+	}
+	.largeScreenCarousel{
+		display:none;
+	}
+	.smallScreenCarousel{
+		display:block;
+		height:auto;
+	}
+	.carouselSlide {
+	    height:auto;
+	}
+    .occupationRowInCardView {
+        margin-top: -0.1rem;
+        margin-bottom: -1.3rem;
+    }
+
+    /**---CGSC Certificate Modal---**/
+    .cgscCertificationModal{
+        top:36%;
+        left: 6%;
+    }
+    .cgscCertificationModalContent{
+        width: 92%;
+    }
+}
+
+@media(max-width:480px)
+{
+    .cgscCertificationModalContent{
+        width: 100%;
+    }
+    .cgscCertificationModal{
+        top:26%;
+        left: 0;
+    }
+
+	[uib-typeahead-popup].dropdown-menu {
+    font-family: 'Roboto';
+    display: block;
+    width: 94%;
+	}
+	.informationGlyphicon {
+    position: absolute;
+    right: 8%;
+    top: 15%;
+	}
+	.popover.bottom
+	{
+	    display: block !important;
+	    top: 56% !important;
+	    right: 0% !important;
+	    left: 10%!important;
+	}
+	.arrow
+	{
+		margin-left: -9% !important;
+	}
+    #completeAddress{
+        width: 100%;
+    }
+    #companyAddress{
+        width: 100%  !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width:576px){
+    .cgscCertificationModalContent{
+        width: 100%;
+    }
+    .cgscCertificationModal{
+        top:36%;
+        left: 0;
+    }
+	.topMenuBarStyle {
+	    padding: 3% 0%;
+	}
+	.homePagelogo {
+	    width: 48%;
+	    margin-top:2%;
+	    margin-left: -3%;
+	}
+	.topMenuBarOptions {
+	    cursor: pointer;
+		font-size: 2.3rem;
+	}
+	.topMenuBarTextStyle{
+		display:none;
+	}
+	.topMenuBarHomeIcon {
+	    font-size: 0.8em;
+	    margin-right: 2%;
+	}
+	.topMenuBarMyProfileIcon {
+	    font-size: 0.95em;
+	    margin-right: 2%;
+	}
+	.headerMenuSection {
+	    padding: 1.5%;
+	}
+	/* --- My profile section ---*/
+	.myProfileSection {
+	    min-height: 91%;
+	    height:auto;
+	}
+
+	/*-----Registration form section styles-----*/
+	.loginRegisterFormSection {
+	    width: 100%;
+	    background: var(--login-background-light-grey);
+	    margin-top: 0.2%;
+	    padding: 5% 9%;
+	}
+	.loginRegisterErrorText {
+	    margin-top: 0.5%;
+	    font-weight: bold;
+	    padding-left: 5%;
+	}
+	.selectUserRoleCard {
+	    margin-top: 9%;
+	    margin-bottom: 8%;
+	    width: 77%;
+	}
+	.roleTypeImage {
+	    padding: 7%;
+	    width: 60%;
+	}
+	.successAlertImage {
+	    margin-left: -0.5em;
+	}
+	.goToLoginText{
+		margin-top:5%;
+		margin-bottom:8%;
+	}
+	.successAlertImage{
+		width:1.5em;
+		margin-left:-0.5em;
+	}
+	.mobileNumberEmployerRegistrationPrefix {
+	    top: 0.6em;
+	}
+    #completeAddress{
+        width:92%;
+    }
+    #companyAddress{
+        width:92%  !important;
+    }
+	/**-----Viw job posts styles-------**/
+	.allJobPostSection {
+	    margin: 1% 1%;
+	    display: flex;
+	    flex-direction: column;
+	}
+	.filterJobSection {
+	    flex: 1;
+	    margin: 3.5%;
+	}
+	.filterSearchText {
+	    font-size: 1.1em;
+	}
+	.filterOptionInputBox {
+	    width: 92%;
+	}
+	.jobPostSection {
+	    border-left: none;
+	}
+	.salaryIcon {
+	    width: 13%;
+	}
+	.experienceIcon {
+	    width: 10%;
+	}
+	.vacancyIcon {
+	    width: 11%;
+	}
+	.jobPostCardGreyText {
+	    margin-bottom: 2.5%;
+	}
+	.jobPostCardDescriptionText {
+	    margin: 2% 0% 3% 0%;
+	    font-size: 0.9em;
+	}
+	.jobPostCardButton, .jobPostCardButton:hover, .jobPostCardButton:focus {
+	    padding: 1% 10%;
+	}
+	.applyJobPostError {
+	    position: relative;
+	    left: -0.5em;
+	}
+	.viewJobSectionDescriptionFlexBox {
+	    flex-direction: column-reverse;
+	}
+	.viewJobSectionDescriptionRight {
+	    border-left: none;
+	}
+	.viewJobSectionContentHeading {
+	    font-size: 0.95em;
+	    margin-top: 4%;
+	}
+	.preferenceListIcon {
+	    top: -0.1em;
+	}
+	.viewJobPostButtonSection{
+		margin: 6% 0%;
+    	text-align: center;
+	}
+	.downloadJobDescriptionButton, .downloadJobDescriptionButton:focus, .downloadJobDescriptionButton:hover {
+	    padding: 1% 5%;
+	}
+	.downloadJobDescriptionGlyphicon {
+	    margin-right: 7%;
+	    font-size:0.9em;
+	}
+	.loadMoreButton {
+	    padding: 0.2% 4%;
+	    font-size: 0.9em;
+	}
+	.modalAlertImage {
+	    width: 22%;
+	}
+	.downloadJobDescriptionGif {
+	    margin-right: 13%;
+	}
+	.largeScreenCarousel{
+		display:none;
+	}
+	.smallScreenCarousel{
+		display:block;
+		height:auto;
+	}
+	.carouselSlide {
+	    height:auto;
+	}
+	.salarySectionMargin{
+		margin-top:4%;
+	}
+	.vacancySectionMargin{
+		margin-top:2%;
+	}
+    .occupationRowInCardView {
+        margin-top: 0.1rem;
+        margin-bottom: -0.8rem;
+    }
+}
+
+@media (max-width:480px){
+
+	#websiteExperienceText
+	{
+		margin-left:29%;
+		margin-right:28%;
+	}
+	.topMenuBarStyle {
+	    padding: 3% 0%;
+	}
+	.homePagelogo {
+	    width: 52%;
+	    margin-top: 3%;
+	    margin-left: -3%;
+	}
+	.topMenuBarOptions {
+	    cursor: pointer;
+		font-size: 2.3rem;
+	}
+	.topMenuBarTextStyle{
+		display:none;
+	}
+	.headerMenuSection {
+	    padding: 2%;
+	}
+	.topMenuBarHomeIcon {
+	    font-size: 0.8em;
+	}
+	/*-----Registration form section styles-----*/
+	.loginRegisterFormSection {
+	    width: 100%;
+	    padding: 5% 9%;
+	}
+	.uploadResumeMandatory {
+	    right: 0.5em;
+	}
+	.selectUserRoleCard {
+	    margin-top: 12%;
+	    margin-bottom: 10%;
+	    display: flex;
+	    width: 100%;
+	}
+	.myProfileSection {
+	    display: flex;
+	    min-height: 91%;
+	    height:auto;
+	}
+	.registrationInputBox {
+	    width: 100%;
+	}
+	.loginErrorMessageImage {
+	    width: 2em;
+	    margin-left: -1em;
+	}
+	.errorCloseBtnDiv{
+		padding-right:0%;
+	}
+	.loginRegisterErrorText {
+	    margin-top: 0.5%;
+	    font-weight: bold;
+	    padding-left: 5%;
+	}
+	.goToLoginText{
+		margin-top:5%;
+		margin-bottom:8%;
+	}
+	.successAlertImage{
+		width:1.5em;
+		margin-left:-0.5em;
+	}
+	.mobileNumberPrefix{
+		position:absolute;
+		left: 1.5em;
+		top:0.55em;
+	}
+	.mobileNumberEmployerRegistrationPrefix {
+	    top: 0.6em;
+	}
+	.topMenuBarMyProfileIcon {
+	    font-size: 0.8em !important;
+	    margin-right: 3.5%;
+	}
+	.topMenuBarHomeIcon {
+    	font-size: 0.7em !important;
+	}
+	.uploadFilesButton{
+		font-size:0.84em;
+		right:1.2em;
+		padding: 2.6% 3%;
+	}
+
+	/**-----Viw job posts styles-------**/
+	.allJobPostSection {
+	    margin: 1% 1%;
+	    display: flex;
+	    flex-direction: column;
+	}
+	.filterJobSection {
+	    flex: 1;
+	    margin: 3.5%;
+	}
+	.filterSearchText {
+	    font-size: 1.1em;
+	}
+	.filterOptionInputBox {
+	    width: 92%;
+	}
+	.jobPostSection {
+	    border-left: none;
+	}
+	.salaryIcon {
+	    width: 13%;
+	}
+	.experienceIcon {
+	    width: 10%;
+	}
+	.vacancyIcon {
+	    width: 11%;
+	}
+	.jobPostCardGreyText {
+	    margin-bottom: 2.5%;
+	}
+	.jobPostCardDescriptionText {
+	    margin: 2% 0% 3% 0%;
+	    font-size: 0.9em;
+	}
+	.jobPostCardButton, .jobPostCardButton:hover, .jobPostCardButton:focus {
+	    padding: 1% 10%;
+	}
+	.applyJobPostError {
+	    position: relative;
+	    left: -0.5em;
+	}
+	.viewJobSectionDescriptionFlexBox {
+	    flex-direction: column-reverse;
+	}
+	.viewJobSectionDescriptionRight {
+	    border-left: none;
+	}
+	.viewJobSectionContentHeading {
+	    font-size: 0.95em;
+	    margin-top: 4%;
+	}
+	.preferenceListIcon {
+	    top: -0.1em;
+	}
+	.viewJobPostButtonSection{
+		margin: 6% 0%;
+    	text-align: center;
+	}
+	.downloadJobDescriptionButton, .downloadJobDescriptionButton:focus, .downloadJobDescriptionButton:hover {
+	    padding: 1% 5%;
+	}
+	.downloadJobDescriptionGlyphicon {
+	    margin-right: 7%;
+	    font-size:0.9em;
+	}
+	.loadMoreButton {
+	    padding: 0.2% 4%;
+	    font-size: 0.9em;
+	}
+	.errorSuccessModal {
+	    margin-top: 32vh;
+	}
+	.modal .loginFormButton {
+	    width: 76%;
+	}
+	.modalOrText {
+	    right: 0em;
+	}
+	.downloadJobDescriptionGif {
+	    width: 1.5em;
+	    margin-right: 13%;
+	}
+	.viewJobSectionContentText {
+	    font-size: 0.85em;
+	}
+	.largeScreenCarousel{
+		display:none;
+	}
+	.smallScreenCarousel{
+		display:block;
+		height:auto;
+	}
+	.carouselSlide {
+	    height:auto;
+	}
+	.browseFilesButton {
+	    width: 22%;
+	}
+	.salarySectionMargin{
+		margin-top:4%;
+	}
+	.vacancySectionMargin{
+		margin-top:2%;
+	}
+    .occupationRowInCardView {
+        margin-top: 0.1rem;
+        margin-bottom: -0.8rem;
+    }
+}
+
+@media (max-width:426px)
+{
+	#websiteExperienceText{
+		
+		margin-left:27%;
+		margin-right:24%;
+	}
+	
+}
+
+@media(max-width:376px){
+	.mobileNumberEmployerRegistrationPrefix {
+	    position: absolute;
+	    left: 0.8em;
+	    top: 0.4em;
+	}
+	.browseFilesButton {
+	    width: 22%;
+	}
+	/**-----Viw job posts styles-------**/
+	.salaryIcon {
+	    width: 10%;
+	}
+	.experienceIcon {
+	    width: 11%;
+	}
+	.salarySectionMargin{
+		margin-top:4%;
+	}
+	.jobSummary .jobPostCardGreyText{
+		font-size: 0.8em !important;
+	}
+	.vacancySectionMargin{
+		margin-top:2%;
+	}
+	.salaryDetailsDiv{
+		width:60%;
+	}
+	.jobPostCardGreyText {
+	    font-size: 0.85em;
+	}
+    #completeAddress{
+        width: 100%;
+    }
+    #companyAddress{
+        width: 100%  !important;
+    }
+
+    .occupationRowInCardView {
+        margin-top: -0.2rem;
+        margin-bottom: -0.8rem;
+    }
+    #websiteExperienceText{
+		
+		margin-left:27%;
+		margin-right:18%;
+	}
+}
+@media(max-width:320px)
+{
+		#websiteExperienceText{	
+		margin-left:18%;
+		margin-right:17%;
+		}
+}

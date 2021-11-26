@@ -1,0 +1,169 @@
+<div class="templatePartial viewAppliedJobs" ng-controller="viewAppliedJobsController">
+	<p class="partialheading">View Applied Jobs</p>
+	<div class="contentSection">
+		<div ng-if="viewAppliedJobsGrid">
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewAppliedJobs" id="viewAppliedJobs" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit ng-init="correctGridSizing();"></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewAppliedJobsSmallScreen" id="viewAppliedJobsSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit ng-init="correctGridSizing();"></div>
+				</div>
+			</div>
+			<!-- GIF section -->
+			<div class="row margin-0" ng-show="downloadDescriptionDocumentGif && viewAppliedJobsGrid">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					<img src="../images/loadingImage.gif" class="downLoadingGif" alt="Loading GIF">
+				</div>
+			</div>
+			<!--Download error message section -->
+			<div class="row margin-0" ng-show="error && viewAppliedJobsGrid">
+		       <div class="alert alert-danger alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{errorMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="error=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+		</div>
+		
+		
+		<div class="jobPostDetailsSection" ng-hide="viewAppliedJobsGrid">
+			<i class="fa fa-chevron-left" title="Go Back" ng-click="viewAppliedJobsGridSection();"></i>
+				<p class="jobStatusClosedText" ng-show="viewJobPostDetails.jobStatus == 'Closed'">CLOSED</p>
+				<div class="row margin-0">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="jobPostCardTitle margin-top-2" title="Job Title: {{viewJobPostDetails.jobTitle}}">{{viewJobPostDetails.jobTitle}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="jobPostCardGreyText" title="Job Role: {{viewJobPostDetails.jobRole}}">{{viewJobPostDetails.jobRole}}</p>
+					</div>
+				</div>
+				<div class="row margin-0 viewJobSectionDescriptionFlexBox">
+					<div class="viewJobSectionDescriptionLeft">
+						<div class="row margin-0">
+							<div class="col-md-11 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Job Specialization</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.occupation}}</p>
+							</div>
+						</div>
+						<div class="row margin-0">
+							<div class="col-md-11 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Location</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.district}}, {{viewJobPostDetails.state}}</p>
+							</div>
+						</div>
+						<div class="row margin-0">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Job Summary</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.jobSummary}}</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="viewJobPostDetails.leavePolicy">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Leave Policy</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.leavePolicy}}</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="viewJobPostDetails.monthlyIncentives">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Monthly Incentives</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.monthlyIncentives}}</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="viewJobPostDetails.workTimings">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Work Timings</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.workTimings}}</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="viewJobPostDetails.isWalkInInterview"> 
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<p class="viewJobSectionContentHeading">Interview</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.isWalkInInterview=='Y'">Walk-in</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.isWalkInInterview=='N'">No Walk-in</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="viewJobPostDetails.interviewStartDateTime">
+							<div class="col-md-12 col-sm-12 col-xs-12 padding-right-0">
+								<p class="viewJobSectionContentHeading">Interview Time</p>
+								<p class="viewJobSectionContentText">From&nbsp; {{viewJobPostDetails.interviewStartDateTime}} &nbsp;to &nbsp; {{viewJobPostDetails.interviewEndDateTime}}</p>
+							</div>
+						</div>
+						<div class="row margin-0">
+							<div class="col-md-12">
+								<p class="viewJobSectionContentHeading">Application Last Date</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.applicationDate}}</p>
+							</div>
+						</div>
+						<div ng-show="viewJobPostDetails.preferredGender || viewJobPostDetails.armyBackgroundPreferred || viewJobPostDetails.cgscCertificatePreferred=='Y'">
+							<div class="col-md-12">
+								<p class="viewJobSectionContentHeading">Preferences</p>
+							</div>
+							<div class="col-md-12 preferencesText">
+							
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.cgscCertificatePreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>CGSC Certified Candidate</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'F'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Female</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'M'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Male</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'O'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Other</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.armyBackgroundPreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Ex-Army Personnel</p>
+								<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.armyBackgroundPreferred == 'N'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Not an Ex-Army Personnel</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="viewJobPostDetails.contactNumber">
+							<div class="col-md-12">
+								<p class="viewJobSectionContentHeading">Contact Number</p>
+								<p class="viewJobSectionContentText">{{viewJobPostDetails.contactNumber}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="viewJobSectionDescriptionRight">
+						<div class="col-md-12 col-sm-12 col-xs-6">
+							<p class="viewJobSectionContentHeading">Vacancy</p>
+							<p class="jobPostCardGreyText">{{viewJobPostDetails.vacancy}}</p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-6 padding-right-0">
+							<p class="viewJobSectionContentHeading">Salary</p>
+							<p class="jobPostCardGreyText">&#x20B9; {{viewJobPostDetails.minSalary}}-{{viewJobPostDetails.maxSalary}} {{staticContentArray.salarySuffixText}}</p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-6 cardPadding">
+							<p class="viewJobSectionContentHeading">Minimum Qualification</p>
+							<p class="jobPostCardGreyText">{{viewJobPostDetails.educationQualification}}</p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-6 cardPadding">
+							<p class="viewJobSectionContentHeading">Minimum Experience</p>
+							<p class="jobPostCardGreyText">{{viewJobPostDetails.minimumExperience}}</p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-6">
+							<p class="viewJobSectionContentHeading">Joining Date</p>
+							<p class="jobPostCardGreyText" ng-show="viewJobPostDetails.joiningDate!=null">{{viewJobPostDetails.joiningDate}}</p>
+							<p class="jobPostCardGreyText" ng-show="viewJobPostDetails.joiningDate==null">N/A</p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-6">
+							<p class="viewJobSectionContentHeading">Salary Offered</p>
+							<p class="jobPostCardGreyText" ng-show="viewJobPostDetails.salary!=null">{{viewJobPostDetails.salary}} per month</p>
+							<p class="jobPostCardGreyText" ng-show="viewJobPostDetails.salary==null">N/A</p>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="jobPostCardGreyText margin-top-3">Posted On {{viewJobPostDetails.publishedAt}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="jobPostCardGreyText margin-top-1">Posted By {{viewJobPostDetails.postedBy}}</p>
+					</div>
+				</div>
+			</div>		
+	</div>
+</div>

@@ -1,0 +1,5 @@
+updateJobPosts: 
+
+ publishJobPost: update job_postings set job_status=:jobStatusPublished,job_approval_status=:jobApprovalStatusInReview, published_at=curdate(), updated_at=curdate() where id=:jobId;
+ 
+ updateJobPostsStatus: update job_postings set job_status=:updatedJobStatus, updated_at=curdate() where id=:jobId;

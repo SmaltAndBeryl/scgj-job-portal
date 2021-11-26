@@ -1,0 +1,8 @@
+userLogin:
+
+ checkMobileNumber: select exists (select 1 from users where mobile_number=:mobileNumber);
+ checkAccountActivationStatus: select exists (select 1 from users where mobile_number=:mobileNumber and is_active_flg=:activeFlagTrue and enrolment_status=:enrolmentStatusApproved);
+ updateUserOtp: update users set otp =:userOtp  where (mobile_number=:mobileNumber);
+ resetPollCount: update candidate_polling set poll_count = 0 WHERE (user_id =:candidateId);
+ userDetailsSql: select id as userId,username, mobile_number as mobileNumber, otp as otp, user_role as userRole, is_active_flg as isActive, enrolment_status as enrolmentStatus from users where mobile_number=:mobileNumber;
+ captureLoginTimeForUser: update users set last_login=sysdate() where id=:userId;

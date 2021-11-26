@@ -1,0 +1,49 @@
+<div class="templatePartial activeInactiveCandidates" ng-controller="viewActiveInactiveCandidatesController">
+	<p class="partialheading">View Inactive Candidates</p>
+	<div class="contentSection">
+		<div class="row margin-0 gridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="viewActiveInactiveCandidatesGrid" id="viewActiveInactiveCandidatesGrid" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		
+		<div class="row margin-0 gridSection">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+				<div ui-grid="viewActiveInactiveCandidatesGridSmallScreen" id="viewActiveInactiveCandidatesGridSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+			</div>
+		</div>
+		
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="loadingGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="loadingGif" alt="Loading GIF">
+			</div>
+		</div>
+		
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="error">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{errorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="error=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		<div class="row margin-0" ng-show="success" >
+	       <div class="alert alert-success alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{successMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="success=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+	</div>
+</div>

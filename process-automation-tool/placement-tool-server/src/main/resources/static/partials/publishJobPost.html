@@ -1,0 +1,238 @@
+<div ng-controller="publishJobPostController" class="templatePartial publishJobPost" >
+	<!-- Publish job post section -->
+	<div ng-show="showGridSection">
+		<p class="partialheading">Unpublished Job Posts</p>
+		<div class="contentSection">
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewUnpublishedJobs" id="viewUnpublishedJobs" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewUnpublishedJobsSmallScreen" id="viewUnpublishedJobsSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<!-- GIF section -->
+			<div class="row margin-0" ng-show="publishJobGif">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					<img src="../images/loadingImage.gif" class="publishJobLoadingGif" alt="Loading GIF">
+				</div>
+			</div>
+			
+			<!-- Error/Success message section -->
+			<div class="row margin-0" ng-show="publishJobError">
+		       <div class="alert alert-danger alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{publishJobErrorMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="publishJobError=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+			<div class="row margin-0" ng-show="publishJobSuccess" >
+		       <div class="alert alert-success alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{publishJobSuccessMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="publishJobSuccess=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+		</div>
+		
+		<!-- Published job post section -->
+		<p class="partialheading margin-top-3">Published Job Posts</p>
+		<div class="contentSection">
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewPublishedJobs" id="viewPublishedJobs" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewPublishedJobsSmallScreen" id="viewPublishedJobsSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<!-- GIF section -->
+			<div class="row margin-0" ng-show="publishedJobGif">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					<img src="../images/loadingImage.gif" class="publishJobLoadingGif" alt="Loading GIF">
+				</div>
+			</div>
+			
+			<!-- Error/Success message section -->
+			<div class="row margin-0" ng-show="publishedJobError">
+		       <div class="alert alert-danger alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{publishedJobErrorMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="publishedJobError=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+			<div class="row margin-0" ng-show="publishedJobSuccess" >
+		       <div class="alert alert-success alert-dismissible errorMessageBox">
+		    		<div class="row margin-0">
+				   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+				   			{{publishedJobSuccessMessage}}
+				  		</div>
+				   		<div class="col-md-1 col-sm-2 col-xs-2">
+				   			<button type="button" class="close" ng-click="publishedJobSuccess=false">&times;</button>
+				   		</div>
+			  		</div>
+		    	</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Section to view job post information-->
+    <div class="contentSection viewJobDetailsPopup" ng-hide="showGridSection">
+    	<i class="fa fa-chevron-left" title="Go Back" ng-click="hideJobDetails();"></i>
+    	<div class="row margin-0">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<p class="jobPostCardTitle margin-top-2 displayInline" title="Job Title: {{jobPostInfo.jobTitle}}">{{jobPostInfo.jobTitle}} ({{jobPostInfo.jobId}})</p>
+				<img src="../images/pdfIcon.png" alt="Download Pdf Icon" ng-show="jobPostInfo.descriptionDocumentPath && !downloadGif" class="downloadJobDescriptionIcon" ng-click="downloadJobDescription(jobPostInfo);">
+				<img src="../images/loadingImage.gif" alt="Download gif icon" ng-show="downloadGif" class="downloadJobDescriptionGif">
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<p class="jobPostCardGreyText" title="Job Role: {{jobPostInfo.jobRole}}">{{jobPostInfo.jobRole}}</p>
+			</div>
+		</div>
+		<div class="row margin-0 viewJobSectionDescriptionFlexBox">
+			<div class="viewJobSectionDescriptionLeft">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-12 col-xs-12">
+						<p class="viewJobSectionContentHeading">Job Specialization</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.occupation}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-12 col-xs-12">
+						<p class="viewJobSectionContentHeading">Location</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.district}}, {{jobPostInfo.state}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="viewJobSectionContentHeading">Job Summary</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.jobSummary}}</p>
+					</div>
+				</div>
+				<div class="row margin-0" ng-show="jobPostInfo.leavePolicy">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="viewJobSectionContentHeading">Leave Policy</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.leavePolicy}}</p>
+					</div>
+				</div>
+				<div class="row margin-0" ng-show="jobPostInfo.monthlyIncentives">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Monthly Incentives</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.monthlyIncentives}}</p>
+					</div>
+				</div>
+				<div class="row margin-0" ng-show="jobPostInfo.workTimings">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Work Timings</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.workTimings}}</p>
+					</div>
+				</div>
+				<div class="row margin-0" ng-show="jobPostInfo.isWalkinInterview">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Interview Type</p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.isWalkinInterview=='Y'">Walk-in</p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.isWalkinInterview=='N'">No Walk-in</p>
+					</div>
+				</div>
+				<div class="row margin-0" ng-show="jobPostInfo.interviewStartDateTime">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<p class="viewJobSectionContentHeading">Interview Time</p>
+						<p class="viewJobSectionContentText">From&nbsp; {{jobPostInfo.interviewStartDateTime}} &nbsp;to &nbsp; {{jobPostInfo.interviewEndDateTime}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Application Last Date</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.applicationLastDate}}</p>
+					</div>
+				</div>
+				<div ng-show="jobPostInfo.preferredGender || jobPostInfo.armyBackgroundPreferred || jobPostInfo.isCGSCCertified=='Y'">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Preferences</p>
+					</div>
+					<div class="col-md-12 preferencesText">
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.isCGSCCertified == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>CGSC Certified Candidate</p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.preferredGender == 'F'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Female</p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.preferredGender == 'M'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Male </p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.preferredGender == 'O'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Other</p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.armyBackgroundPreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Ex-Army Personnel</p>
+						<p class="viewJobSectionContentText" ng-show="jobPostInfo.armyBackgroundPreferred == 'N'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Not an Ex-Army Personnel</p>
+					</div>
+				</div>
+				<div class="row margin-0" ng-show="jobPostInfo.contactNumber">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Contact Number</p>
+						<p class="viewJobSectionContentText">{{jobPostInfo.contactNumber}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-12">
+						<p class="viewJobSectionContentHeading">Admin Comments</p>
+						<p class="viewJobSectionContentText adminCommentText" ng-show="jobPostInfo.adminComments == null">N/A</p>
+						<p class="viewJobSectionContentText adminCommentText" ng-show="jobPostInfo.adminComments != null">{{jobPostInfo.adminComments}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="viewJobSectionDescriptionRight">
+				<div class="col-md-12 col-sm-12 col-xs-6">
+					<p class="viewJobSectionContentHeading">Vacancy</p>
+					<p class="jobPostCardGreyText">{{jobPostInfo.vacancy}}</p>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-6">
+					<p class="viewJobSectionContentHeading">Minimum Qualification</p>
+					<p class="jobPostCardGreyText">{{jobPostInfo.educationQualification}}</p>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-6">
+					<p class="viewJobSectionContentHeading">Minimum Experience</p>
+					<p class="jobPostCardGreyText">{{jobPostInfo.minimumExperience}}</p>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-6 padding-right-0">
+					<p class="viewJobSectionContentHeading">Salary Range</p>
+					<p class="jobPostCardGreyText">&#x20B9; {{jobPostInfo.minSalary}}-{{jobPostInfo.maxSalary}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-md-12 col-sm-12 col-xs-12" ng-show="jobPostInfo.publishedOn && jobPostInfo.jobStatus == 'Published'">
+				<p class="jobPostCardGreyText margin-top-3">Published On - {{jobPostInfo.publishedOn}}</p>
+			</div>
+		</div>
+		
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="downloadError">
+			<div class="alert alert-danger alert-dismissible errorMessageBox">
+		    	<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{downloadErrorMessage}}
+			  		</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+				   		<button type="button" class="close" ng-click="downloadError=false">&times;</button>
+				   	</div>
+			  	</div>
+		    </div>
+		</div>
+    
+    </div>
+	
+</div>

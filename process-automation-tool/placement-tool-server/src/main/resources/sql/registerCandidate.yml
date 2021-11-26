@@ -1,0 +1,4 @@
+candidateRegistration: 
+
+ generateCandidateCredentials: insert into users (mobile_number, username, state, pincode,user_role, account_status_updated_on, enrolment_updated_on, registered_on) values (:mobileNumber,:candidateName,:state,:pincode,:userRoleCandidate, curdate(), curdate(), curdate());
+ insertCandidateDetails: insert into candidates (user_id,guardian_mobile_number,qualification,working_experience, resume_path, certificate_path, gender, defence_background, dob, guardian_name, aadhaar_number, job_role_id, age, address) values (:candidateId,:guardianMobileNumber,:qualification,:workExperience,:resumePath,:certificatePath,:gender,:defenceBackground, :dateOfBirth, :guardianName, :aadhaarNumber, :jobRoleId, :age,:address);

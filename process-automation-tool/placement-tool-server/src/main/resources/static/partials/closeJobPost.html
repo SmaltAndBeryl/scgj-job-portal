@@ -1,0 +1,80 @@
+<div ng-controller="closeJobPostController" class="templatePartial closeJobPost">
+<!-- CLOSE JOB POST SECION -->
+	<p class="partialheading">Close Job Posts</p>
+	<div class="contentSection">
+
+		<div class="row margin-0">
+			<div ui-grid="closeJobPostGrid" ui-grid-auto-resize class="gridSection closeJobPostGrid"></div>
+		</div>
+		<div class="row margin-0">
+			<div ui-grid="closeJobPostGridSmallScreen" ui-grid-auto-resize class="gridSection closeJobPostGridSmallScreen"></div>
+		</div>
+
+		<!-- gif & error message -->
+		<div class="row margin-0" ng-show="closeJobPostGif">
+			<img src="../images/loadingImage.gif" alt="Loading GIF" class="closeJobPostLoadingGif">
+		</div>
+
+		<div class="row margin-0" ng-show="closeJobPostError">
+			<div class="alert alert-danger alert-dismissible errorMessageBox" role="alert">
+				<div class="row margin-0">
+					<div class="text-center col-md-11 col-sm-10 col-xs-10">
+						{{closeJobPostErrorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="closeJobPostError=false;">
+							&times;
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row margin-0 " ng-show="closeJobPostSuccess">
+			<div class="alert alert-success alert-dismissible errorMessageBox" role="alert">
+				<div class="row margin-0">
+					<div class="text-center col-md-11 col-sm-10 col-xs-10">
+						{{closeJobPostSuccessMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="closeJobPostSuccess=false;">
+						&times;
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<!-- CLOSED JOB POST SECION -->
+	<p class="partialheading margin-top-3">Closed Job Posts</p>
+	<div class="contentSection">
+		<div class="row margin-0">
+			<div ui-grid="closedJobPostGrid" ui-grid-auto-resize class="gridSection closedJobPostGrid"></div>
+		</div>
+		<div class="row margin-0">
+			<div ui-grid="closedJobPostGridSmallScreen" ui-grid-auto-resize class="gridSection closedJobPostGridSmallScreen"></div>
+		</div>
+
+		<!-- gif & error message -->
+		<div class="row margin-0" ng-show="closedJobPostGif">
+			<img src="../images/loadingImage.gif" alt="Loading GIF" class="closeJobPostLoadingGif">
+		</div>
+
+		<div class="row margin-0" ng-show="closedJobPostError">
+			<div class="alert alert-danger alert-dismissible errorMessageBox" role="alert">
+				<div class="row margin-0">
+					<div class="text-center col-md-11 col-sm-10 col-xs-10">
+						{{closedJobPostErrorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="closedJobPostError=false;">
+							&times;
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

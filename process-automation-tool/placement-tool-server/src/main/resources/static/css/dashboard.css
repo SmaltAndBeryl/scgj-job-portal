@@ -1,0 +1,463 @@
+/** ---------------Information panel styles ------------**/
+.dashboardPanelSection{
+	display:flex;
+	flex-wrap: wrap;
+}
+.informationPanelFlexBox {
+    margin: 1%;
+    padding: 0;
+    width: 22%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 2px 1px var(--box-shadow-grey);
+}
+.panelImageSection{
+	flex:1;
+	text-align: center;
+    padding: 4%;
+}
+.panelInfoSection{
+	flex:2.5;
+	text-align: center;
+    padding: 2%;
+}
+.panelInfoIcons{
+	width:100%;
+}
+#infoPanelImageSection1{
+	background:var(--panel-color-green);
+}
+#infoPanelImageSection2{
+	background:var(--panel-color-red);
+}
+#infoPanelImageSection3{
+	background:var(--panel-color-yellow);
+}
+#infoPanelImageSection4{
+	background:var(--panel-color-blue);
+	padding: 6% 4% 4% 4%;
+}
+.panelNumberStyle{
+    margin-top: 9%;
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-bottom: 2%;
+}
+.panelTextStyle{
+	font-size: 0.9em;
+    font-weight: 400;
+}
+#panelOneTextColor{
+    color: var(--panel-color-green);	
+}
+#panelTwoTextColor{
+    color: var(--panel-color-red);	
+}
+#panelThreeTextColor{
+    color: var(--panel-color-yellow);	
+}
+#panelFourTextColor{
+    color: var(--panel-color-blue);	
+}
+#registeredEmployersIcon {
+    width: 86%;
+    margin-top: 6%;
+}
+#activeJobsIcon{
+	width:91%;
+}
+#placedCandidatesIcon{
+	width: 95%;
+    margin-top: 4%;
+}
+/** -------------Reports Section Style------------------------**/
+.reportsHeading{
+	margin-left: 0.8%;
+    margin-top: 3.5%;
+	margin-bottom: 2%;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.datePickerIcon::-webkit-inner-spin-button,
+.datePickerIcon::-webkit-calendar-picker-indicator {
+    cursor:pointer;
+}
+.datePickerIcon::-webkit-calendar-picker-indicator {
+    opacity:0;
+	-webkit-filter: opacity(0);
+}
+.calendarIcon {
+    width: 0.9em;
+    height: 1.2em;
+}
+.openDateIcon {
+    position: absolute;
+    top: 0.4em;
+    right: 9%;
+    background: var(--cgsc-white);
+    pointer-events: none;
+    color: var(--sems-light-grey-shade2);
+}
+
+.selectDateInputBox {
+    width: 100%;
+    border-radius: 3px;
+    padding: 2%;
+    margin-bottom: 8%;
+    background: var(--cgsc-white);
+    border: 1px solid var(--cgsc-light-grey-shade4);
+}
+.reportCards{
+	width: 85%;
+    border: 1px solid var(--cgsc-light-grey-shade3);
+    margin-top: 3%;
+	margin-bottom: 1%;
+	margin-right: 5%;
+}
+.report-padding-bottom{
+	padding-bottom: 5rem;
+}
+.reportCardImage{
+	width: 100%;
+    height: 10em;
+}
+.reportCardTextSection{
+	padding:4%;
+}
+.reportNameText{
+	font-size: 1.1em;
+    font-weight: 900;
+}
+.reportDescriptionText{
+	font-size:0.88em;
+	font-weight: 300;
+	height: 7rem;
+}
+.downloadReportButton{
+	background: var(--download-report-button);
+    color: var(--cgsc-white);
+    font-weight: 300;
+}
+.downloadReportButton:hover, .downloadReportButton:active, .downloadReportButton:focus{
+	background: var(--download-report-button);
+    color: var(--cgsc-white);
+    font-weight: 300;
+}
+.downloadReportGif {
+    width: 1.8em;
+    margin-top: 7%;
+    margin-right: 10%;
+}
+.reportTypeDropDown{
+	position: relative;
+    top: 0.5em;
+    width: 110%;
+    left: -5%;
+    border-radius: 0;
+}
+.dropDownListOption{
+    font-size: 0.9em;
+    padding-left: 2%;
+    cursor: pointer;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+.dropDownListOption:hover{
+	background: var(--cgsc-light-grey-shade3);
+}
+.dashboardTemplate .contentSection {
+    min-height: 95vh;
+}
+.reportContainer{
+	display: flex;
+	align-items: stretch;
+	margin-left: 1% !important;
+	justify-content: center;
+}
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:1025px){
+	.panelTextStyle {
+	    font-size: 0.75em;
+	}
+	.panelNumberStyle {
+	    margin-top: 1%;
+	    margin-bottom: 0%;
+	}
+	.reportCards {
+	    width: 100%;
+	}
+}
+@media (max-width:1060px) and (min-width:991px){
+	.candidateReportDescriptionText{
+		height: 9rem;
+	}
+	.companyReportDescriptionText{
+		height: 9rem;
+	}
+}
+
+@media (max-width:1024px) and (min-width:991px){
+	.panelTextStyle {
+	    font-size: 0.75em;
+	}
+	.panelNumberStyle {
+	    margin-top: 1%;
+	    margin-bottom: 0%;
+	}
+	.reportCards {
+	    width: 100%;
+	}
+	#placementReportGif{
+		margin-top: 14%;
+	}
+	#registeredEmployersIcon {
+	    width: 90%;
+	}
+	#activeJobsIcon {
+	    width: 91%;
+	}
+	#placedCandidatesIcon{
+		width: 95%;
+    	margin-top: 3%;
+	}
+}
+@media (max-width:990px) and (min-width:827px) {
+	.reportDescriptionText{
+		height: 8rem;
+	}
+}
+	@media (max-width:991px) and (min-width:801px){
+	.selectDateInputBox {
+	    width: 86%;
+	}
+	.openDateIcon {
+	    right: 19%;
+	}
+	.reportCards {
+	    height: 31rem;
+	}
+	#registeredEmployersIcon {
+	    width: 90%;
+		margin-top: 5%;
+	}
+	#activeJobsIcon {
+	    width: 93%;
+	}
+	#placedCandidatesIcon{
+		width: 93%;
+    	margin-top: 6%;
+	}
+
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.reportContainer{
+		flex-flow: row nowrap;
+		margin-left: 3% !important;
+	}
+	.informationPanelFlexBox {
+	    margin: 3% 3% 3% 3.5%;
+	    width: 43%;
+	}
+	.panelInfoIcons {
+	    width: 70%;
+	}
+	.panelNumberStyle {
+	    margin-top: 6%;
+	}
+	.reportsHeading {
+	    margin-left: 2.8%;
+	}
+	.selectDateInputBox {
+	    margin-left: 4%;
+	    width:93%;
+	}
+	.reportCards {
+	    width: 93%;
+		height: 34rem;
+	}
+	#registeredEmployersIcon {
+	    width: 68%;
+	}
+	#placedCandidatesIcon{
+		width: 70%;
+	}
+	#activeJobsIcon {
+	    width: 66%;
+		margin-top: -3%;
+	}
+	.downloadReportGif {
+	    margin-top: 8%;
+	}
+	.reportDescriptionText{
+		height: 10rem;
+	}
+	.candidateReportDescriptionText{
+		height: 12rem;
+	}
+	.companyReportDescriptionText{
+		height: 12rem;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	.informationPanelFlexBox {
+		margin: 1% 5% 3% 0%;
+    	width: 45%;
+	}
+	.selectDateInputBox {
+	    width: 92%;
+	}
+	.openDateIcon {
+	    right: 13%;
+	}
+	.downloadReportGif {
+	    margin-right: 4%;
+	}
+	#activeJobsIcon {
+	   width: 91%;
+	}
+	.reportDescriptionText{
+		height: 12rem;
+	}
+	.companyReportDescriptionText{
+		height: 14rem;
+	}
+	.candidateReportDescriptionText{
+		height: 14rem;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	.informationPanelFlexBox {
+	    margin: 4% 8%;
+	    width: 84%;
+	}
+	.panelInfoIcons {
+	    width:74%;
+	}
+	.selectDateInputBox {
+	   margin-left: 7.5%;
+	   width:97%;
+	}
+	.reportsHeading {
+	    margin-left: 7%;
+	    margin-top: 7.5%;
+	    margin-bottom: 4%;
+	}
+	.reportCards {
+	    width: 86%;
+    	margin-left: 6%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+	.openDateIcon {
+	    right: 3%;
+	}
+	#registeredEmployersIcon {
+	    width: 68%;
+	}
+	#placedCandidatesIcon{
+		width: 68%;
+	}
+	#activeJobsIcon {
+	    width: 66%;
+	}
+	.reportDescriptionText{
+		height: 6rem;
+	}
+	.reportContainer{
+		flex-flow: column;
+	}
+}
+
+@media (max-width:480px){
+	.informationPanelFlexBox {
+	    margin: 4% 8%;
+	    width: 84%;
+	}
+	.panelInfoIcons {
+	    width:74%;
+	}
+	.selectDateInputBox {
+	   margin-left: 7.5%;
+	   width:97%;
+	}
+	.reportsHeading {
+	    margin-left: 7%;
+	    margin-top: 7.5%;
+	    margin-bottom: 4%;
+	}
+	.reportCards {
+	    width: 85%;
+    	margin-left: 6%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+	.openDateIcon {
+	    right: 3%;
+	}
+	.reportDescriptionText {
+	    font-size: 0.95em;
+	}
+	#infoPanelImageSection4 {
+	    padding: 5% 4% 4% 4%;
+	}
+	#activeJobsIcon {
+	    width: 65%;
+		margin-top: 2%;
+	}
+	#registeredEmployersIcon {
+	    width: 66%;
+	    margin-top: 4%;
+	}
+	#placedCandidatesIcon{
+		width: 70%;
+	}
+	.reportContainer{
+		flex-flow: column;
+	}
+}
+
+@media (max-width:415px){
+	.informationPanelFlexBox {
+	    margin: 4%;
+	    width: 90%;
+	}
+	.panelInfoIcons {
+	    width:74%;
+	}
+	.selectDateInputBox {
+	   margin-left: 2.5%;
+	}
+	.reportsHeading {
+	    margin-left: 2.8%;
+	    margin-top: 7.5%;
+	    margin-bottom: 4%;
+	}
+	.reportCards {
+	    width: 94%;
+	    margin-left: 3%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+	.openDateIcon {
+	    right: 9%;
+	}
+	#infoPanelImageSection4 {
+	    padding: 5% 4% 4% 4%;
+	}
+	#activeJobsIcon {
+	    width: 66%;
+		margin-top: 4%;
+	}
+	#registeredEmployersIcon {
+	    width: 66%;
+	    margin-top: 4%;
+	}
+	.reportContainer{
+		flex-flow: column;
+	}
+}
+

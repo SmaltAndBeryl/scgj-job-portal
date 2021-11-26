@@ -1,0 +1,825 @@
+<!doctype html>
+<html ng-app="app">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+		<title>SCGJ's Placement Portal</title>
+		    
+		<!-- Add stylesheets here -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,500,700&display=swap" rel="stylesheet">
+		<link href="css/index.css" type="text/css" rel="stylesheet">
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		
+		
+		
+		<!-- Add javascripts here -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js" type="text/javascript"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.8.0/ui-grid.js"></script>
+	  	<script type= "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>  
+		  	
+	  	<!-- Controllers -->
+	    <script type="text/javascript" src="js/controllers/indexController.js"></script> 
+	    
+	    <!-- Candidate controllers here-->
+	    <script type="text/javascript" src="js/controllers/candidateController.js"></script> 
+	    <script type="text/javascript" src="js/controllers/viewAppliedJobsController.js"></script> 
+	    <script type="text/javascript" src="js/controllers/candidateProfileController.js"></script> 
+	    
+	    <!-- Admin controllers here-->
+	    <script type="text/javascript" src="js/controllers/adminController.js"></script>
+	    <script type="text/javascript" src="js/controllers/dashboardController.js"></script>
+	    <script type="text/javascript" src="js/controllers/reviewJobPostController.js"></script>
+	    <script type="text/javascript" src="js/controllers/approveRejectEmployersController.js"></script>
+	    <script type="text/javascript" src="js/controllers/viewActiveInactiveCandidatesController.js"></script>
+		<script type="text/javascript" src="js/controllers/resetUserMobileNumberController.js"></script>
+		<script type="text/javascript" src="js/controllers/employerActivationController.js"></script>
+		<script type="text/javascript" src="js/controllers/notificationsController.js"></script>
+		<script type="text/javascript" src="js/controllers/adminFaqController.js"></script>
+
+	    
+	    <!-- Employer controllers here-->
+	    <script type="text/javascript" src="js/controllers/employerController.js"></script> 
+	    <script type="text/javascript" src="js/controllers/createJobPostController.js"></script> 
+	    <script type="text/javascript" src="js/controllers/editJobPostController.js"></script>
+	    <script type="text/javascript" src="js/controllers/publishJobPostController.js"></script>
+	    <script type="text/javascript" src="js/controllers/closeJobPostController.js"></script>
+	    <script type="text/javascript" src="js/controllers/deleteJobPostController.js"></script>
+	    <script type="text/javascript" src="js/controllers/viewJobApplicationsController.js"></script>
+	    <script type="text/javascript" src="js/controllers/manageJobApplicationsController.js"></script>
+	    <script type="text/javascript" src="js/controllers/employerViewOfferLettersController.js"></script>
+	    
+   	</head>
+	<body>
+		<div ng-show="mainTemplate" ng-controller="mainController">
+			<!-- Pre-Loader -->
+			<div id="loadingPage">
+		    	<img class="logoImagePreLoader" src="images/loadingImage.gif" alt="Loading Gif">
+		  	</div>
+		  	<!-- Top menu bar -->
+		  	<div id="landingPageWrapper">
+				<div class="row margin-0 templateHeaderMenu">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<a href="#" target="_blank" id="logoLink">
+						<img src="../images/scgjLogo.png" alt="SCGJ Logo" class="homePagelogo">
+						</a>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 headerMenuSection">
+						<div class="col-md-3 col-sm-4 col-xs-3 col-md-offset-6 col-sm-offset-4 col-xs-offset-6  text-right">
+							<div class="topMenuBarOptions" ng-click="showHomePage();">
+								<div id="homePageOptionText" class="selectedMenuOrange">
+									<span class="glyphicon glyphicon-home topMenuBarHomeIcon"></span>
+									<span class="topMenuBarTextStyle">Home</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-3 text-right myProfileOptionDiv">
+							<div id="profilePageOptionText" class="topMenuBarOptions" ng-click="showMyProfile();">
+								<span class="fa fa-user topMenuBarMyProfileIcon"></span>
+								<span class="topMenuBarTextStyle" ng-hide="showLoginText">My Profile</span>
+								<span class="topMenuBarTextStyle loginTextSpace" ng-show="showLoginText">Login</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			<!-- home page section-->
+			<div ng-show="homePage" class="homePageSection">
+				
+				<!-- Carousel section -->
+				<div id="landingPageSlider" class="carousel slide largeScreenCarousel" data-ride="carousel">
+				    <!-- Indicators -->
+				     <ol class="carousel-indicators bottomSpace">
+				      <li data-target="#landingPageSlider" data-slide-to="0" class="active"></li>
+				      <li data-target="#landingPageSlider" data-slide-to="1"></li>
+				      <li data-target="#landingPageSlider" data-slide-to="2"></li>
+				      <li data-target="#landingPageSlider" data-slide-to="3"></li>
+				    </ol>
+	
+				    <!-- Wrapper for slides -->
+				   <div class="carousel-inner">
+				    	<div class="item active">
+					         <div class="carousel-content carouselSlide">
+						     	<img src="../images/introduction-image.jpg" class="carouselImage" alt="Introduction Image" >
+						     </div>				       
+					      </div>
+					    <div class="item">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/desktopCarouselImage1.jpg" class="carouselImage" alt="Slider Image Four" >
+						     </div>				       
+					      </div>
+					      <div class="item">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/desktopCarouselImage2.jpg" class="carouselImage" alt="Slider Image One" >
+						    </div>				       
+					      </div>
+					      <div class="item">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/desktopCarouselImage3.jpg" class="carouselImage" alt="Slider Image Two" >
+						     </div>				       
+					      </div>
+				    </div>
+				</div>
+				
+				
+				<!-- Carousel section -->
+				<div id="landingPageSliderSmallScreen" class="carousel slide smallScreenCarousel" data-ride="carousel">
+				    <!-- Indicators -->
+				    <ol class="carousel-indicators bottomSpace">
+				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="0" class="active"></li>
+				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="1"></li>
+				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="2"></li>
+				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="3"></li>
+				    </ol>
+	
+				    <!-- Wrapper for slides -->
+				    <div class="carousel-inner">
+				    	 <div class="item active">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/introduction-image-mobile.jpg" class="carouselImage" alt="Introduction Image" >
+						     </div>				       
+					      </div>
+					    <div class="item">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/mobileCarouselImage1.jpg" class="carouselImage" alt="Slider Image Four" >
+						     </div>				       
+					      </div>
+					      <div class="item">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/mobileCarouselImage2.jpg" class="carouselImage" alt="Slider Image One" >
+						    </div>				       
+					      </div>
+					      <div class="item">
+					        <div class="carousel-content carouselSlide">
+						     	<img src="../images/mobileCarouselImage3.jpg" class="carouselImage" alt="Slider Image Two" >
+						     </div>				       
+					      </div>
+				    </div>
+				</div>				
+				
+				<!-- Job Post section -->
+				<div class="row allJobPostSection">
+					<div class="filterJobSection">
+						<div class="row margin-0">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 padding-0">
+								<p class="filterSearchText">Filter Search</p>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 padding-0 text-right">
+								<p class="clearFilterText" ng-show="showRemoveFilterText && !viewJobPostSection" ng-click="removeFilter();">Clear All</p>
+							</div>
+						</div>
+						<hr>
+						<div class="row margin-0">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 padding-0">
+								<select class="filterOptionInputBox" ng-options="role for role in jobRoleList" ng-disabled="viewJobPostSection" ng-model="filterOptions.jobRole" ng-change="populateJobOccupation();">
+									<option value="" disabled>Job Role</option>
+								</select>		
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 padding-0">
+								<select class="filterOptionInputBox" ng-options="occupation for occupation in occupationList" ng-disabled="viewJobPostSection" ng-model="filterOptions.occupation" ng-change="filterJobPosts();" ng-show="filterOptions.jobRole">
+									<option value="" disabled>Specialization</option>
+								</select>		
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 padding-0">
+								<select class="filterOptionInputBox" id="filterEmployerInput" ng-disabled="viewJobPostSection" ng-options="employer for employer in employerList" ng-model="filterOptions.employer" ng-change="filterJobPosts();">
+									<option value="" disabled>Employer</option>
+								</select>		
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 padding-0">
+								<select class="filterOptionInputBox" ng-disabled="viewJobPostSection" ng-options="state for state in statesList" ng-model="filterOptions.state" ng-change="filterJobPosts();">
+									<option value="" disabled>State</option>
+								</select>		
+							</div>
+						</div>	
+					</div>
+					<div class="jobPostSection">
+						<div ng-hide="viewJobPostSection" ng-repeat="jobPost in filteredJobPosts | limitTo:maxCardsLimit">
+							<div class="row margin-0">
+								<p class="jobPostCardTitle" title="Job Title: {{jobPost.jobTitle}}">{{jobPost.jobTitle}}</p>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-12 col-sm-12 col-xs-12 padding-0 occupationRowInCardView">
+									<p class="jobPostCardGreyText occupationInCardView" title="Job Specialization: {{jobPost.occupation}}">{{jobPost.occupation}}</p>
+								</div>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+								<p class="jobPostCardGreyText" title="Job location: {{jobPost.district}}, {{jobPost.state}}">{{jobPost.district}}, {{jobPost.state}}</p>
+								</div>
+							</div>
+							<div class="row margin-0 jobSummary">
+								<div class="col-md-4 col-sm-4 col-xs-6 padding-0 vacancySectionMargin">
+									<img src="../images/vacancyIcon.png" title="Vacancy: {{jobPost.totalVacancy}}" class="vacancyIcon" alt="Vacancy Icon">
+									<p class="jobPostCardGreyText" title="Vacancy: {{jobPost.totalVacancy}}">{{jobPost.totalVacancy}}</p>
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-6 padding-0 vacancySectionMargin">
+									<img src="../images/experienceIcon.png" title="Minimum Experience: {{jobPost.minimumExperience}}" class="experienceIcon" alt="Experience Icon">
+									<p class="jobPostCardGreyText" title="Minimum Experience: {{jobPost.minimumExperience}}">{{jobPost.minimumExperience}}</p>
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-6 padding-0 salarySectionMargin salaryDetailsDiv">
+									<img src="../images/salaryIcon.png" title="Salary: &#x20B9; {{jobPost.minSalary}}-{{jobPost.maxSalary}} {{staticContentArray.salarySuffixText}}" class="salaryIcon" alt="Salary Icon">
+									<p class="jobPostCardGreyText" title="Salary: &#x20B9; {{jobPost.minSalary}}-{{jobPost.maxSalary}} {{staticContentArray.salarySuffixText}}">&#x20B9; {{jobPost.minSalary}}-{{jobPost.maxSalary}} {{staticContentArray.salarySuffixText}}</p>
+								</div>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-11 col-sm-12 col-xs-12 padding-0">
+									<p class="jobPostCardDescriptionText" title="Job Summary: {{jobPost.jobSummary}}">{{jobPost.jobSummary}}</p>
+								</div>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-4 col-sm-12 col-xs-12 padding-0">
+									<p class="jobPostCardGreyText" title="Posted On: {{jobPost.publishedAt}}">Posted on {{jobPost.publishedAt}}</p>
+									<p class="jobPostCardGreyText postedByText" title="Posted By: {{jobPost.postedBy}}">Posted By {{jobPost.postedBy}}</p>
+								</div>
+								<div class="col-md-4 col-sm-6 col-xs-7  col-md-offset-3 col-sm-offset-6 col-xs-offset-5 text-right">
+									<button class="btn jobPostCardButton viewJobPostButton" ng-click="viewJobPost(jobPost,$index);">View</button>
+									<button  class="btn jobPostCardButton applyJobPostButton" ng-click="applyForJob(jobPost.id);">Apply</button>
+								</div>
+							</div>
+							<hr>
+						</div>
+						
+						<div class="jobPostDetailsSection" ng-show="viewJobPostSection">
+							<i class="fa fa-chevron-left" title="Go Back" ng-click="viewAllJobPostsSearched();"></i>
+							<div class="row margin-0">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<p class="jobPostCardTitle margin-top-2" title="Job Title: {{viewJobPostDetails.jobTitle}}">{{viewJobPostDetails.jobTitle}}</p>
+								</div>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<p class="jobPostCardGreyText" title="Job Role: {{viewJobPostDetails.jobRole}}">{{viewJobPostDetails.jobRole}}</p>
+								</div>
+							</div>
+							<div class="row margin-0 viewJobSectionDescriptionFlexBox">
+								<div class="viewJobSectionDescriptionLeft">
+									<div class="row margin-0">
+										<div class="col-md-11 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Job Specialization</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.occupation}}</p>
+										</div>
+									</div>
+									<div class="row margin-0">
+										<div class="col-md-11 col-sm-12c col-xs-12">
+											<p class="viewJobSectionContentHeading">Job Location</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.district}}, {{viewJobPostDetails.state}}</p>
+										</div>
+									</div>
+									<div class="row margin-0">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Job Summary</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.jobSummary}}</p>
+										</div>
+									</div>
+									<div class="row margin-0" ng-show="viewJobPostDetails.leavePolicy">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Leave Policy</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.leavePolicy}}</p>
+										</div>
+									</div>
+									<div class="row margin-0" ng-show="viewJobPostDetails.monthlyIncentives">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Monthly Incentives</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.monthlyIncentives}}</p>
+										</div>
+									</div>
+									<div class="row margin-0" ng-show="viewJobPostDetails.workTimings">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Work Timings</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.workTimings}}</p>
+										</div>
+									</div>
+									<div class="row margin-0" ng-show="viewJobPostDetails.isWalkinInterview">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Interview Type</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.isWalkinInterview=='Y'">Walk-in</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.isWalkinInterview=='N'">No Walk-in</p>
+										</div>
+									</div>
+									<div class="row margin-0" ng-show="viewJobPostDetails.interviewStartDateTime">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<p class="viewJobSectionContentHeading">Interview Time</p>
+											<p class="viewJobSectionContentText">From&nbsp; {{viewJobPostDetails.interviewStartDateTime}} &nbsp;to &nbsp; {{viewJobPostDetails.interviewEndDateTime}}</p>
+										</div>
+									</div>
+									<div class="row margin-0">
+										<div class="col-md-12">
+											<p class="viewJobSectionContentHeading">Application Last Date</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.applicationDate}}</p>
+										</div>
+									</div>
+									<div ng-show="viewJobPostDetails.preferredGender || viewJobPostDetails.armyBackgroundPreferred || viewJobPostDetails.cgscCertificatePreferred=='Y'">
+										<div class="col-md-12">
+											<p class="viewJobSectionContentHeading">Preferences</p>
+										</div>
+										<div class="col-md-12 preferencesText">
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.cgscCertificatePreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>CGSC Certified Candidate</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'F'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Female</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'M'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Male </p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'O'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Other</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.armyBackgroundPreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Ex-Army Personnel</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.armyBackgroundPreferred == 'N'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Not an Ex-Army Personnel</p>
+										</div>
+									</div>
+									<div class="row margin-0" ng-show="viewJobPostDetails.contactNumber">
+										<div class="col-md-12">
+											<p class="viewJobSectionContentHeading">Contact Number</p>
+											<p class="viewJobSectionContentText">{{viewJobPostDetails.contactNumber}}</p>
+										</div>
+									</div>
+								</div>
+								<div class="viewJobSectionDescriptionRight">
+									<div class="col-md-12 col-sm-12 col-xs-6">
+										<p class="viewJobSectionContentHeading">Vacancy</p>
+										<p class="jobPostCardGreyText">{{viewJobPostDetails.totalVacancy}}</p>
+									</div>
+									<div class="col-md-12 col-sm-12 col-xs-6">
+										<p class="viewJobSectionContentHeading">Minimum Qualification</p>
+										<p class="jobPostCardGreyText">{{viewJobPostDetails.educationQualification}}</p>
+									</div>
+									<div class="col-md-12 col-sm-12 col-xs-6">
+										<p class="viewJobSectionContentHeading">Minimum Experience</p>
+										<p class="jobPostCardGreyText">{{viewJobPostDetails.minimumExperience}}</p>
+									</div>
+									<div class="col-md-12 col-sm-12 col-xs-6 padding-right-0">
+										<p class="viewJobSectionContentHeading">Salary</p>
+										<p class="jobPostCardGreyText">&#x20B9; {{viewJobPostDetails.minSalary}}-{{viewJobPostDetails.maxSalary}} {{staticContentArray.salarySuffixText}}</p>
+									</div>
+									
+								</div>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<p class="jobPostCardGreyText margin-top-3">Posted by {{viewJobPostDetails.postedBy}}</p>
+								</div>
+							</div>
+							<div class="row margin-0">
+								<div class="col-md-8 col-sm-9 viewJobPostButtonSection">
+									<img class="downloadJobDescriptionGif" src="images/loadingImage.gif" alt="Loading Gif" ng-show="showDownloadDescriptionGif">
+									<button class="btn downloadJobDescriptionButton" ng-hide="showDownloadDescriptionGif" ng-click="downloadJobDescription(viewJobPostDetails);" ng-disabled="noJobDescriptionFlag"><i ng-hide="noJobDescriptionFlag" class="fa fa-download downloadJobDescriptionGlyphicon" aria-hidden="true"></i>Description <span ng-show="noJobDescriptionFlag">N/A</span></button>
+									<button class="btn jobPostCardButton applyJobPostButton" ng-click="applyForJob(viewJobPostDetails.id);">Apply</button>
+								</div>
+							</div>
+								
+							<!-- Error message for download job description -->
+							<div class="row margin-0" ng-show="downloadJobDescriptionError">
+						       <div class="alert alert-danger alert-dismissible errorMessageBox">
+						    		<div class="row margin-0">
+								   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+								   			{{downloadJobDescriptionErrorMessage}}
+								  		</div>
+								   		<div class="col-md-1 col-sm-2 col-xs-2">
+								   			<button type="button" class="close" ng-click="downloadJobDescriptionError=false">&times;</button>
+								   		</div>
+							  		</div>
+						    	</div>
+							</div>
+						</div>
+						
+						
+						<div class="row rowMargin-0" ng-show="filteredJobPosts.length == '0'">
+							<div class="col-md-12 col-sm-12 col-xs-12 padding-0 text-center noJobPostsError">
+								<p class="">{{noJobPostsAvailableError}}</p>
+							</div>
+						</div>
+						<div class="row margin-0" ng-show="maxCardsLimit<filteredJobPosts.length && !viewJobPostSection">
+							<div class="col-md-12 col-sm-12 col-xs-12 padding-0 text-center">
+								<button class="btn loadMoreButton" ng-click="loadMoreJobs();">Load More</button>
+							</div>
+						</div>
+						
+						
+						<!-- Error Modal -->
+						<div class="modal fade pop-up-box" id="homePageErrorModal" role="dialog">
+							<div class="modal-dialog errorSuccessModal">
+								<div class="modal-content modalContentContainer">
+									<i class="fa fa-times closeModalButton" aria-hidden="true" data-dismiss="modal" aria-hidden="true"></i>
+									<div class="row margin-0 text-center">
+										<img src="images/alertImage.png" alt="Alert Image" class="modalAlertImage">
+									</div>
+									<div class="row margin-0 text-center">
+										<p class="modalErrorText">{{applyForJobErrorMessage}}</p>
+									</div>
+									<div class="row margin-0 text-center" ng-show="showModalButton">
+										<div class="col-md-4 col-sm-5 col-xs-5 col-md-offset-1 text-right">
+											<button class="btn btn-primary loginFormButton" data-dismiss="modal" ng-click="loginToApply()">Login</button>
+										</div>
+										<div class="col-md-1 col-sm-1 col-xs-1 modalOrText">
+											<p>OR</p>
+										</div>
+										<div class="col-md-4 col-sm-5 col-xs-5 modalSignUpButtonSection">
+											<button class="btn btn-primary loginFormButton" data-dismiss="modal" ng-click="signUpToApply()">Sign Up</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> 
+						
+						<!-- Success Modal -->
+						<div class="modal fade pop-up-box" id="homePageSuccessModal" role="dialog">
+							<div class="modal-dialog errorSuccessModal">
+								<div class="modal-content modalContentContainer">
+									<i class="fa fa-times closeModalButton" aria-hidden="true" data-dismiss="modal" aria-hidden="true"></i>
+									<div class="row margin-0 text-center">
+										<img src="images/greenTickGif.gif" alt="Success Gif" class="modalSuccessGif">
+									</div>
+									<div class="row margin-0 text-center">
+										<p class="modalErrorText">{{applyForJobSuccessMessage}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<!-- Home Page Section Ends Here-->
+			
+			<!-- My Profile Section -->
+			<div ng-show="showMyProfileSection" class="myProfileSection">
+				<div class="loginLeftImageSection">
+					<img src="../images/loginPageImage.png" class="loginLeftImage" alt="Login Left Cover Image ">
+				</div>
+				<div class="loginRegisterFormSection">
+					<div ng-show="showLoginForm">
+						<h3 class="loginFormHeading"><b>Login</b></h3>
+						<form class="userLoginForm" id="userLoginForm"  ng-submit="requestOtp(); login();">
+							<div class="row">
+								<div class="col-lg-8 col-md-8 col-sm-11 col-xs-11">
+									<span class="mobileNumberPrefix">91</span>
+									<input placeholder="Enter Mobile Number" id="phoneNumberLoginInput"  class="loginInputBox" type="number" oninput="this.value=parseInt(this.value)" ng-model="credential.mobileNumber" required/>
+								</div>
+							</div>
+							<div class="row" ng-show="showOtpInput">
+								<div class="col-lg-8 col-md-8 col-sm-11 col-xs-11">
+									<input placeholder="Enter OTP" class="loginInputBox" type="number" oninput="this.value=parseInt(this.value)" ng-model="credential.otp" ng-required="showOtpInput"/>
+								</div>
+							</div>
+							<div class="row" ng-hide="showOtpInput">
+								<div class="col-lg-6 col-md-8 col-sm-11 col-xs-11">
+									<button class="btn btn-primary loginFormButton" type="submit">Request OTP</button>
+								</div>
+							</div>
+							<div class="row" ng-show="showOtpInput">
+								<div class="col-lg-6 col-md-8 col-sm-11 col-xs-11">
+									<button class="btn btn-primary loginFormButton" type="submit">Login</button>
+									<p class="resendOtpText" ng-click="resendOtp()">Resend OTP</p>
+								</div>
+							</div>
+							<div class="row" ng-show="processingOTP">
+								<div class="col-md-4 col-sm-6 col-xs-6 text-center">
+									<img src="../images/loadingImage.gif" class="rollingGif" alt="Loading GIF">
+								</div>
+							</div>
+						</form>
+						<p class="loginSectionText">Not registered yet? Click here to <span class="linkText" ng-click="openRegistrationSection()">Sign Up</span></p>
+						<div class="row rowMargin-0 loginRegisterErrorPanel" ng-show="loginError">
+							<div class="col-md-11 col-sm-11 col-xs-11 errorMessageFlexBox">
+								<div class="col-md-1 col-sm-1 col-xs-1 padding-0">
+									<img src="../images/errorIcon.png" class="loginErrorMessageImage" alt="Error Alert Image">
+								</div>
+								<div class="col-md-10 col-sm-9 col-xs-9 padding-0 loginRegisterErrorText">
+									<span>{{loginErrorMessage}}</span>
+								</div>
+							</div>
+							<div class="col-md-1 col-sm-1 col-xs-1 errorCloseBtnDiv">
+						    	<button type="button" class="close" ng-click="loginError=false">&times;</button>
+						    </div>
+						</div>
+					</div>
+					<div  ng-hide ="showLoginForm">
+						<h3 class="loginFormHeading"><b>Join Us</b></h3>
+						<div ng-show="selectUserRole">
+							<div class="selectUserRoleCard" ng-click="openCandidateRegistration()">
+								<div class="userRoleCardImageSection">
+									<img src="../images/registerAsCandidateIcon.png" alt="Candidate Icon" class="roleTypeImage">
+								</div>
+								<div class="userRoleCardTextSection text-center" ng-click="openCandidateRegistration()">
+									<p class="selectUserRoleText">Candidate</p>
+								</div>
+							</div>
+							<div class="selectUserRoleCard margin-top-0" ng-click="openEmployerRegistration()">
+								<div class="userRoleCardImageSection">
+									<img src="../images/candidateProfileIcon.png" alt="Employer Icon" class="roleTypeImage">
+								</div>
+								<div class="userRoleCardTextSection text-center">
+									<p class="selectUserRoleText">Employer</p>
+								</div>
+							</div>
+						</div>
+						<div class="userRegistrationForm" ng-hide="selectUserRole">
+							
+							<!-- Candidate Registration Form -->
+							
+							<form ng-show="registerAsCandidate" id="candidateRegistrationForm" ng-submit="generateCandidateCredentials()">
+								<div class="row margin-0">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Candidate Name" class="registrationInputBox registrationInputBottomSpace" pattern="[A-Za-z ]{3,50}" title="Candidate name must have 3-50 letters without numbers or any special characters" ng-model="candidate.candidateName" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+							
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<span class="mobileNumberCandidateRegistrationPrefix">91</span>
+										<input placeholder="Enter Mobile Number" type="number" min="0" oninput="this.value=parseInt(this.value)" class="registrationInputBox" ng-model="candidate.mobileNumber" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>	
+								</div>
+
+								<div class="row margin-0">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Father/Mother/Guardian Name" minlength="3" maxlength="100" class="registrationInputBox registrationInputBottomSpace"  pattern="[A-Za-z ]{3,50}" title="Guardian name must have 3-50 letters without numbers or any special characters" ng-model="candidate.guardianName" required>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<span class="mobileNumberCandidateRegistrationPrefix">91</span>
+										<input placeholder="Enter Guardian Mobile Number" type="number" min="0" oninput="this.value=parseInt(this.value)" class="registrationInputBox" ng-model="candidate.guardianMobileNumber" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+								<div class="row margin-0">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input type="text" placeholder="Enter Date of Birth" class="registrationInputBox registrationInputBottomSpace" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="candidate.dob" id="datePicker" title="Please enter date of birth" required>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input type="number" placeholder="Enter Aadhaar Card Number" oninput="this.value=parseInt(this.value)" class="registrationInputBox registrationInputBottomSpace" ng-model="candidate.aadhaarNumber" minlength="0" maxlength="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+
+								<div class="row margin-0">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox registrationInputBottomSpace" ng-model="candidate.jobRole" ng-options="jobRoles.jobRoleId as jobRoles.jobRole for jobRoles in jobRolesObject" required>
+											<option value="" disabled>Job Role</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox registrationInputBottomSpace" ng-model="candidate.professionalExperience" ng-options="experience for experience in professionalExperienceList" required>
+											<option value="" disabled>Professional Experience</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+								
+								<div class="row margin-0">	
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox registrationInputBottomSpace" ng-model="candidate.educationQualification" ng-options="educationQualification for educationQualification in educationQualificationList" required>
+											<option value="" disabled>Education Qualification</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox registrationInputBottomSpace" ng-model="candidate.gender" required>
+											<option value="" disabled selected>Select Gender</option>
+											<option value="M">Male</option>
+											<option value="F">Female</option>
+											<option value="O">Other</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+								<div class="row margin-0">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+								    	<div>
+											<span><input class="standardInputBox registrationInputBox" id="candidateResume" type="text" placeholder="Upload Resume"></span>
+											<input type="file" id="candidateResumeFile" class="uploadRegistrationDocuments" ng-disabled="disableUploadButton" accept="application/pdf" onchange="document.getElementById('candidateResume').value=this.value.split('\\').pop()" required/>
+											<button class="btn uploadButton  browseFilesButton uploadFilesButton"  type="button">Browse</button>	
+											<span class="mandatoryFieldAsterisk uploadResumeMandatory">*</span>
+										</div>
+							    	</div>
+							    	<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+									<div>
+										<span><input class="standardInputBox registrationInputBox" type="text" id="candidateCertificates" placeholder="Upload Certificates"></span>
+										<input type="file" class="uploadRegistrationDocuments" id="candidateCertificateFile" accept=".zip" ng-disabled="disableUploadButton" onchange="document.getElementById('candidateCertificates').value=this.value.split('\\').pop()"/>
+										<button class="btn uploadButton browseFilesButton uploadFilesButton" type="button">Browse</button>	
+									</div>
+									</div>
+							   </div>
+								<div class="row margin-0">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox" ng-model="candidate.defenceBackground" required>
+											<option value="" disabled selected>Ex-Armed Forces Personnel?</option>
+											<option value="Y">Yes</option>
+											<option value="N">No</option>
+										</select>					
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									
+									
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox" ng-model="candidate.state" ng-options="state for state in statesList" required>
+											<option value="" disabled>Select State</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									
+									<!-- 	<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Certificate Number" pattern="[A-Za-z0-9-/ ]{5,50}" title="Certificate number can contain letters, numbers, (-) and (/) only, with length between 5-50 characters" class="registrationInputBox" ng-model="candidate.certificateNumber" ng-required="candidate.cgscCertification=='Y'"/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>  -->
+									
+									<!-- <div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox cgscCertifiedDropdown" ng-model="candidate.cgscCertification" required>
+											<option value="" disabled selected>CGSC Certified Candidate?</option>
+											<option value="Y">Yes - CGSC Certified</option>
+											<option value="N">No - Not CGSC Certified</option>
+										</select>					
+										<span class="mandatoryFieldAsterisk">*</span>
+										<i class="glyphicon glyphicon-info-sign informationGlyphicon" data-placement="bottom" data-toggle="modal"  data-target=".cgscCertificationModal" ></i>
+									</div>  -->
+									
+								</div>
+								<!-- 
+								<div class="row margin-0">
+								
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										
+										<input placeholder="Enter Training Partner Name" class="registrationInputBox" ng-model="candidate.trainingPartner" uib-typeahead="trainingPartner as trainingPartner.trainingPartnerName for trainingPartner in trainingPartners | filter:{trainingPartnerName:$viewValue} | limitTo:8" ng-required="candidate.cgscCertification=='Y'">
+										<span class="mandatoryFieldAsterisk">*</span>									
+									</div> 
+									
+								</div> -->
+								
+								<div class="row margin-0">									
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Pincode" type="number" min="0" oninput="this.value=parseInt(this.value)" class="registrationInputBox" ng-model="candidate.pincode" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+								<div class="row margin-0">
+									<div class="col-md-12 col-sm-11 col-xs-11 padding-left-0">
+										<textarea placeholder="Enter Complete Address" class="registrationInputBox registrationInputBottomSpace"  id="completeAddress" minlength="3" maxlength="255" class="registrationInputBox" ng-model="candidate.address" required></textarea>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+								<div class="row margin-0">
+									<div class="col-lg-6 col-md-8 col-sm-11 col-xs-11 padding-0">
+										<button class="btn btn-primary loginFormButton margin-bottom-0" type="submit" ng-disabled ="disableCandidateRegistrationButton">Submit</button>
+									</div>
+								</div>	
+								<div class="row margin-0" ng-show="disableCandidateRegistrationButton">
+									<div class="col-lg-4 col-md-5 col-sm-7 col-xs-7 padding-0 text-center">
+										<img class="loginRegisterLoadingGif" src="images/loadingImage.gif" alt="Loading Image">
+									</div>
+								</div>							
+							</form>
+						
+						<!-- 
+							<div class="modal fade in cgscCertificationModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+								<div class="modal-dialog modal-lg " role="document">
+									<div class="modal-content cgscCertificationModalContent">
+
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h5 class="modal-title cgscCertificationEnglishContent" id="myModalLabel">Capital Goods Skill Council is a Sector Skill Council established to conduct assessment and certification to successful candidates in manufacturing job roles as per different Schemes like PMKVY, DDUGKY, NULM, etc.</h5>
+										</div>
+
+										<div class="modal-body">
+											<h5 class="cgscCertificationHindiContent">
+												कैपिटल गुड्स स्किल काउंसिल एक सेक्टर स्किल काउंसिल है जो विभिन्न योजनाओं जैसे <span>PMKVY,DDUGKY,NULM</span> इत्यादि के अनुसार नौकरी की भूमिकाओं में सफल उम्मीदवारों के लिए मूल्यांकन और प्रमाणन के लिए स्थापित की जाती है।
+											</h5>
+										</div>
+
+									</div>
+								</div>
+							</div>
+									 -->
+
+							<!-- Employer Registration Form -->
+
+
+							<form ng-show="registerAsEmployer" id="employerRegistrationForm" ng-submit="employerRegistration();">
+								<div class="flex-container">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Company Name" class="registrationInputBox registrationInputBottomSpace" ng-model="employer.companyName" pattern="[A-Za-z,-.& ]{3,80}" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity(' ')" oninvalid="this.setCustomValidity('Company name must contain letters, (,), (.), (-), (&) only, with length between 3 to 80 characters')" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox" ng-model="employer.companyType" ng-options="companyType for companyType in companyTypeList" required>
+											<option value="" disabled>Select Company Type</option>
+										</select>	
+										<span class="mandatoryFieldAsterisk">*</span>					
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox registrationInputBottomSpace" ng-model="employer.industryType" ng-options="industryType for industryType in industryTypeList" ng-change="specifyIndustryType();" required	>
+											<option value="" disabled>Select Industry Type</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0" ng-show="showIndustryTypeTextInput">
+										<input placeholder="Enter Industry Type"  ng-model="employer.newIndustryType" class="registrationInputBox registrationInputBottomSpace" pattern="[A-Za-z,-.& ]{3,80}" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity(' ')" oninvalid="this.setCustomValidity('Industry type must contain letters, (,), (.), (-), (&) only, with length between 3 to 80 characters')" ng-required="showIndustryTypeTextInput"/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox registrationInputBottomSpace" ng-model="employer.companyScale" ng-options="companyScale for companyScale in companyScaleList" required>
+											<option value="" disabled>Select Company Scale</option>
+										</select>	
+										<span class="mandatoryFieldAsterisk">*</span>					
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Pan Number" pattern="[a-zA-Z0-9 ]{10,10}" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity(' ')" oninvalid="this.setCustomValidity('PAN Number must be a 10 characters alphanumeric value')" class="registrationInputBox registrationInputBottomSpace" ng-model="employer.panNumber" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Liaising Authority's Name" ng-trim="false" class="registrationInputBox" ng-model="employer.liasingAuthorityName" pattern="[A-Za-z0-9 ]{3,50}" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity(' ')" oninvalid="this.setCustomValidity('Name must contain only letters of at least 3 to 50 characters')" ng-keyup="showDesignation()" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Designation"  type="text" pattern="^[a-zA-Z0-9,-. ]+$" ng-trim="false" class="registrationInputBox" minlength="3" maxlength="40" ng-model="employer.designation" oninvalid="this.setCustomValidity('Designation must contain only letters, numbers, (.), (-), (,) and must be of at least 3 to 40 characters')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity(' ')" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Email" type="email" class="registrationInputBox" ng-model="employer.email" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<span class="mobileNumberEmployerRegistrationPrefix">91</span>
+										<input placeholder="Enter Mobile Number" type="number" minlength="0" oninput="this.value=parseInt(this.value)" class="registrationInputBox" ng-model="employer.mobileNumber" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input title="Please enter landline number with state code" placeholder="Enter Landline Number" minlength="10" maxlength="16" pattern="^[0-9]{10,16}$" class="registrationInputBox" ng-model="employer.landlineNumber" onchange="try{setCustomValidity('')}catch(e){}" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('This field only accepts landline number with state code, 10 to 16 digits')"/>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Company Website" minlength="6" maxlength="200" type="url" class="registrationInputBox" ng-model="employer.employerWebsite" onchange="try{setCustomValidity('')}catch(e){}" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter a valid url')"/>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox" ng-model="employer.state" ng-options="state for state in statesList" required>
+											<option value="" disabled>Select State</option>
+										</select>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Pincode" type="number" min="0" oninput="this.value=parseInt(this.value)" class="registrationInputBox" ng-model="employer.pincode" required/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-12 col-sm-11 col-xs-11 padding-left-0">
+										<textarea placeholder="Enter Complete Address" class="registrationInputBox registrationInputBottomSpace" id="companyAddress"  minlength="3" maxlength="255"  class="registrationInputBox" ng-model="employer.companyAddress" onchange="try{setCustomValidity('')}catch(e){}" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter a valid address between 3 to 255 characters')" required></textarea>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+								</div>
+								<div class="row margin-0">
+									<div class="col-lg-6 col-md-8 col-sm-11 col-xs-11 padding-0">
+										<button class="btn btn-primary loginFormButton margin-bottom-0" type="submit" ng-disabled ="disableEmployerRegistrationButton">Submit</button>
+									</div>
+								</div>	
+								<div class="row margin-0" ng-show="disableEmployerRegistrationButton">
+									<div class="col-lg-4 col-md-5 col-sm-7 col-xs-7 padding-0 text-center">
+										<img class="loginRegisterLoadingGif" src="images/loadingImage.gif" alt="Loading Gif">
+									</div>
+								</div>							
+							</form>	
+						</div>
+						<p class="loginSectionText goToLoginText">Go back to <span class="linkText" ng-click="openLoginSection()">Login</span></p>
+						
+						<!-- Error/Success Messages -->
+						<div class="row margin-0 loginRegisterSuccessPanel" ng-show="registerationSuccess">
+							<div class="col-md-11 col-sm-11 col-xs-11 errorMessageFlexBox">
+								<div class="col-md-1 col-sm-1 col-xs-1 padding-0">
+									<img src="../images/successIcon.png" class="successAlertImage" alt="Success Image">
+								</div>
+								<div class="col-md-10 col-sm-9 col-xs-9 padding-0 loginRegisterErrorText">
+									<span>{{registerationSuccessMessage}}</span>
+								</div>
+							</div>
+							<div class="col-md-1 col-sm-1 col-xs-1 errorCloseBtnDiv">
+						    	<button type="button" class="close" ng-click="registerationSuccess=false">&times;</button>
+						    </div>
+						</div>
+						<div class="row margin-0 loginRegisterErrorPanel" ng-show="registrationError">
+							<div class="col-md-11 col-sm-11 col-xs-11 errorMessageFlexBox">
+								<div class="col-md-1 col-sm-1 col-xs-1 padding-0">
+									<img src="../images/errorIcon.png" class="loginErrorMessageImage" alt="Error Image">
+								</div>
+								<div class="col-md-10 col-sm-9 col-xs-9 padding-0 loginRegisterErrorText">
+									<span>{{registerationErrorMessage}}</span>
+								</div>
+							</div>
+							<div class="col-md-1 col-sm-1 col-xs-1 errorCloseBtnDiv">
+						    	<button type="button" class="close" ng-click="registrationError=false">&times;</button>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+				<!-- Footer -->
+				<footer class="footer">
+					<p class="text-center margin-0">
+						<span id="websiteExperienceText">This website is best viewed in Google Chrome &nbsp; &nbsp; </span>
+						| &nbsp; &nbsp; <i class="fa fa-copyright copyrightIcon"></i> <span>SCGJ - All Rights Reserved &nbsp; &nbsp; | &nbsp; &nbsp;</span>
+						<span ng-click="downloadTermsAndConditionsDocument();" class="termsAndConditions">Terms & Conditions</span>
+					</p>
+				</footer>
+			</div>
+		</div>
+		<div ng-view ng-hide="mainTemplate"></div>
+	</body>
+</html>

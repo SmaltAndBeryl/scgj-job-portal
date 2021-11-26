@@ -1,0 +1,156 @@
+<div ng-controller="employerViewOfferLettersController" class="templatePartial employerViewOfferLetters" >
+	
+	<p class="partialheading">View Offer Letters</p>
+	
+	<div class="contentSection">
+		<div class="row margin-0 margin-top-1">
+			<div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+				<select class="standardInputBox" ng-options="jobPost as jobPost.jobId + ' | ' +  jobPost.jobTitle for jobPost in jobPostList" ng-model="jobPostInfo" ng-change="viewHiredCandidateDetails();" required>
+					<option value="" disabled>Select Job Post</option>
+				</select>
+			</div>
+		</div>
+		<!--Error message section -->
+		<div class="row margin-0" ng-show="noCandidatesHiredError">
+			<div class="alert alert-danger alert-dismissible errorMessageBox">
+			    <div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{noCandidatesHiredErrorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="noCandidatesHiredError=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="contentSection margin-top-2" ng-show="showOfferLetterDetails">
+		<div class="row margin-0" ng-show="viewAllCandidateDetailsGrid">
+			<div ng-show="jobPostInfo.jobStatus">
+				<p class="jobStatusHeading displayInline">Job Status: </p>
+				<p class="jobStatusText jobStatusClosedText displayInline" ng-show="jobPostInfo.jobStatus == 'Closed'">Closed</p>
+				<p class="jobStatusText jobStatusPublishedText displayInline" ng-show="jobPostInfo.jobStatus == 'Published'">Published</p>
+			</div>
+			
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="hiredCandidateDetailsGrid" id="hiredCandidateDetailsGrid" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="hiredCandidateDetailsGridSmallScreen" id="hiredCandidateDetailsGridSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-hide="viewAllCandidateDetailsGrid">
+			<i class="fa fa-chevron-left backChevronLeftIcon" title="Go Back" ng-click="viewApplicantsGridSection();"></i>
+			<div class="row margin-0">
+				<div class="flexContainer">
+					<div id="candidateNameDiv">
+					<p class="jobPostCardTitle margin-top-1 margin-bottom-3" title="Candidate Name: {{candidateInfo.candidateName}}">{{candidateInfo.candidateName}}
+						<span class="applicationStatusText inReviewText" ng-show="candidateInfo.applicationStatus == 'In Review'">(In Review)</span>
+						<span class="applicationStatusText rejectedText" ng-show="candidateInfo.applicationStatus == 'Rejected'">(Rejected)</span>
+						<span class="applicationStatusText shortlistedText" ng-show="candidateInfo.applicationStatus == 'Shortlisted'">(Shortlisted)</span>
+						<span class="applicationStatusText hiredText" ng-show="candidateInfo.applicationStatus == 'Hired'">(Hired)</span>
+					</p>
+				</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Job Role</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.jobRole}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Qualification</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.educationQualification}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Experience</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.professionalExperience}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">State</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.state}}</p>
+					</div>
+					
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Gender</p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.gender == 'F'">Female</p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.gender == 'M'">Male </p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.gender == 'O'">Other</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Ex-Army Personnel</p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.defenceBackground == 'Y'">Yes</p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.defenceBackground == 'N'">No</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Contact Number</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.candidateMobileNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Guardian's Contact Number</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.guardianMobileNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Aadhaar Card Number</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.adharNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Address</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.address}}</p>
+					</div>
+					<!-- <div class="flexElement">
+						<p class="viewCandidateContentHeading">CGSC Certified</p>
+						<p class="viewCandidateContentText jobPostCardGreyText hiredText" ng-show="candidateInfo.isCgscCertified =='Y' ">Yes</p>
+						<p class="viewCandidateContentText jobPostCardGreyText rejectedText" ng-show="candidateInfo.isCgscCertified =='N'">No</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">CGSC Certificate Number</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.cgscCertificateNumber}}</p>
+					</div>
+					<div class="flexElement">
+						<p class="viewJobSectionContentHeading">Training Partner</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="candidateInfo.isCgscCertified =='Y'">{{candidateInfo.trainingPartner}}</p>
+						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="candidateInfo.isCgscCertified =='N'">N/A</p>
+					</div> -->
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">Applied On</p>
+						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.appliedOn}}</p>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-6 col-sm-6 col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-6 downloadDocumentSection">
+						<button class="btn downloadJobDescriptionButton downloadButton" ng-click="downloadResume(candidateInfo.resumePath,candidateInfo.candidateName)" ng-disabled="downloadGif"><i class="fa fa-download downloadJobDescriptionGlyphicon" aria-hidden="true"></i>Resume</button>
+						<button ng-show="candidateInfo.certificatePath" class="btn downloadJobDescriptionButton downloadButton" ng-click="downloadCertificates(candidateInfo.certificatePath,candidateInfo.candidateName)" ng-disabled="downloadGif"><i class="fa fa-download downloadJobDescriptionGlyphicon" aria-hidden="true"> </i>Certificates</button>
+						<button ng-hide="candidateInfo.certificatePath" class="btn downloadJobDescriptionButton downloadButton" disabled>Certificates N/A</button>					
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="downloadGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="downLoadingGif" alt="Downloading GIF">
+			</div>
+		</div>
+			
+		<!--Error message section -->
+		<div class="row margin-0" ng-show="error">
+			<div class="alert alert-danger alert-dismissible errorMessageBox">
+		    	<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="error=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

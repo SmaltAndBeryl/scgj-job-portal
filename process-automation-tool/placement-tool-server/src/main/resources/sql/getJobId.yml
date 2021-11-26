@@ -1,0 +1,3 @@
+fetchJobId: 
+ 
+ getJobPostId: select job_id from job_postings where id=:jobId;

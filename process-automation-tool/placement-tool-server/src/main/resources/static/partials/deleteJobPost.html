@@ -1,0 +1,78 @@
+<div ng-controller="deleteJobPostController" class="templatePartial deleteJobPost">
+<!-- DELETE JOB POST SECION -->
+	<p class="partialheading">Delete Job Posts</p>
+	<div class="contentSection">
+		<div class="row margin-0">
+			<div ui-grid="deleteJobPostGrid" ui-grid-auto-resize class="gridSection deleteJobPostGrid"></div>
+		</div>
+		<div class="row margin-0">
+			<div ui-grid="deleteJobPostGridSmallScreen" ui-grid-auto-resize class="gridSection deleteJobPostGridSmallScreen"></div>
+		</div>
+
+		<!-- gif & error message -->
+		<div class="row margin-0" ng-show="deleteJobPostGif">
+			<img src="../images/loadingImage.gif" alt="Loading GIF" class="deleteJobPostLoadingGif">
+		</div>
+
+		<div class="row margin-0" ng-show="deleteJobPostError">
+			<div class="alert alert-danger alert-dismissible errorMessageBox" role="alert">
+				<div class="row margin-0">
+					<div class="text-center col-md-11 col-sm-10 col-xs-10">
+						{{deleteJobPostErrorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="deleteJobPostError=false;">
+							&times;
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row margin-0 " ng-show="deleteJobPostSuccess">
+			<div class="alert alert-success alert-dismissible errorMessageBox" role="alert">
+				<div class="row margin-0">
+					<div class="text-center col-md-11 col-sm-10 col-xs-10">
+						{{deleteJobPostSuccessMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="deleteJobPostSuccess=false;">
+							&times;
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- DELETED JOB POST SECION -->
+	<p class="partialheading margin-top-3">Deleted Job Posts</p>
+	<div class="contentSection">
+		<div class="row margin-0">
+			<div ui-grid="deletedJobPostGrid" ui-grid-auto-resize class="gridSection deletedJobPostGrid"></div>
+		</div>
+		<div class="row margin-0">
+			<div ui-grid="deletedJobPostGridSmallScreen" ui-grid-auto-resize class="gridSection deletedJobPostGridSmallScreen"></div>
+		</div>
+		<!-- gif & error message -->
+		<div class="row margin-0" ng-show="deletedJobPostGif">
+			<img src="../images/loadingImage.gif" alt="Loading GIF" class="deleteJobPostLoadingGif">
+		</div>
+
+		<div class="row margin-0" ng-show="deletedJobPostError">
+			<div class="alert alert-danger alert-dismissible errorMessageBox" role="alert">
+				<div class="row margin-0">
+					<div class="text-center col-md-11 col-sm-10 col-xs-10">
+						{{deletedJobPostErrorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="deleteJobPostError=false;">
+							&times;
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

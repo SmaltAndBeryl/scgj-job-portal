@@ -1,0 +1,96 @@
+<head>
+	<link href="css/viewAppliedJobs.css" type="text/css" rel="stylesheet">
+	<link href="css/candidateProfile.css" type="text/css" rel="stylesheet">
+	<link href="css/candidate.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<div ng-cloak ng-controller="mainController">
+
+	<!-- Top menu bar -->
+	<div class="row margin-0 templateHeaderMenu">
+		<div class="col-md-6 col-sm-6 col-xs-6 templateLogoDiv">
+			<label class="visible-xs-inline-block  visible-sm-inline-block hamburgerMenu" ng-click="collapseNavigation()">&#9776</label>
+			<a href="#" target="_blank" id="logoLink">
+			<img src="../images/scgjLogo.png" alt="SCGJ Logo" class="templatelogo">
+			</a>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 headerMenuSection">
+			<div class="col-md-3 col-sm-4 col-xs-3  col-md-offset-6 col-sm-offset-4 col-xs-offset-6 text-right">
+				<div class="topMenuBarOptions">
+					<div id="homePageOptionText" ng-click="showHomePage()">
+						<span class="glyphicon glyphicon-home topMenuBarHomeIcon"></span>
+						<span class="topMenuBarTextStyle" >Home</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-4 col-xs-3 text-right myProfileOptionDiv">
+				<div id="profilePageOptionText" class="topMenuBarOptions selectedMenuOrange" ng-click="showMyProfile()">
+					<span class="fa fa-user topMenuBarMyProfileIcon"></span>
+					<span class="topMenuBarTextStyle" >My Profile</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<!-- Side navigation bar -->
+		<nav class="sidebar navigationOpacity" id="sideNavigationBar">
+			<div class="row margin-0 sideBarUserInfoBox">
+				<div class="col-md-4 col-sm-4 col-xs-3 userAvatar">
+					{{userNameInitials}}
+				</div>
+				<div class="col-md-8 col-sm-8 col-xs-9 userNameSection">
+					<p class="margin-0">{{loggedInUsername}}</p>
+					<div class="logoutSection" ng-click="logout()">
+						<img src="../images/logout.png" class="logoutImage" alt="Logout Icon">
+						<p class="logoutText">Logout</p>
+					</div>
+                 </div>
+			</div>
+			
+			<!-- Navigation options -->
+			<div>
+				<ul class="list-unstyled">
+					<li class="activeMenu navMenuItem sublist" id="list-item-1">
+		               <p ng-click="page='viewAppliedJobs'; addBorder('#list-item-1'); collapseNavigation()" class="margin-0">
+		                  <img src="images/briefcaseIcon.png" alt="Applied Jobs Icon" class="leftNavigationIcon">&nbsp;
+		                  View Applied Jobs
+		               </p>
+		            </li>
+		            <li class="navMenuItem sublist" id="list-item-2">
+		               <p ng-click="page='myProfile'; addBorder('#list-item-2'); collapseNavigation()" class="margin-0">
+		                  <img src="images/candidateProfileIcon.png" alt="Manage Employer Icon" class="leftNavigationIcon leftNavigationEmployerIcon">&nbsp;
+		                  My Profile
+		               </p>
+		            </li>
+		            
+				</ul>
+			</div>
+		</nav>
+		<div id="content">
+			<div ng-switch on="page">
+               <div ng-switch-default>
+					<div ng-include src="'partials/viewAppliedJobs.html'"></div>
+				</div>
+				<div ng-switch-when="viewAppliedJobs">
+					<div ng-include src="'partials/viewAppliedJobs.html'"></div>
+				</div>
+				<div ng-switch-when="myProfile">
+					<div ng-include src="'partials/candidateProfile.html'"></div>
+				</div>
+			</div>
+        </div>
+	</div>
+	
+	
+	<!-- Footer -->
+	<footer class="footerContainer">
+		<div class="footerTextDiv">
+			<p class="text-center margin-0">
+				<i class="fa fa-copyright copyrightIcon"></i> <span>SCGJ - All Rights Reserved |</span>
+				<span ng-click="downloadTermsAndConditionsDocument();" class="termsAndConditions">Terms & Conditions</span>
+			</p>
+		</div>
+	</footer>
+
+</div>

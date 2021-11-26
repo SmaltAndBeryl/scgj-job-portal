@@ -1,0 +1,104 @@
+#viewActiveInactiveCandidatesGrid{
+	display:block;
+	height:95px;
+}
+
+#viewActiveInactiveCandidatesGridSmallScreen{
+	display:none;
+	height:95px;	
+}
+.activeInactiveCandidates .loadingGif{
+	width:1.5em;
+	margin-top:3%;
+}
+.activeInactiveCandidates .gridActionButton {
+	    padding: 2.5% 10%;
+	    margin-top: 2.5%;
+	}
+
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.activeInactiveCandidates .gridActionButton {
+	    padding: 1.5% 10%;
+	    margin-top: 4.5%;
+	}
+}
+@media (max-width:991px) and (min-width:801px){
+	.activeInactiveCandidates .loadingGif{
+		margin-top:3%;
+	}
+	.activeInactiveCandidates .gridActionButton {
+	    padding: 2% 10%;
+	    margin-top: 4%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.activeInactiveCandidates .loadingGif{
+		margin-top:3%;
+	}
+	#viewActiveInactiveCandidatesGrid{
+		display:none;
+	}
+	#viewActiveInactiveCandidatesGridSmallScreen{
+		display:block;
+	}
+	.activeInactiveCandidates .gridActionButton {
+	    padding: 1.5% 10%;
+	    margin-top: 2.5%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#viewActiveInactiveCandidatesGrid{
+		display:none;
+	}
+	#viewActiveInactiveCandidatesGridSmallScreen{
+		display:block;
+	}
+	.activeInactiveCandidates .gridActionButton {
+	    padding: 2% 10%;
+	    margin-top: 2.5%;
+	}
+	.activeInactiveCandidates .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#viewActiveInactiveCandidatesGrid{
+		display:none;
+	}
+	#viewActiveInactiveCandidatesGridSmallScreen{
+		display:block;
+	}
+	.activeInactiveCandidates .loadingGif{
+		margin-top:3%;
+	}
+	.activeInactiveCandidates .gridActionButton {
+		padding: 2% 10%;
+	    margin-top: 3%;
+	}
+}
+
+@media (max-width:480px){
+	#viewActiveInactiveCandidatesGrid{
+		display:none;
+	}
+	#viewActiveInactiveCandidatesGridSmallScreen{
+		display:block;
+	}
+	.activeInactiveCandidates .gridActionButton {
+		padding: 2% 10%;
+	    margin-top: 4%;
+	}
+	.activeInactiveCandidates .loadingGif{
+		margin-top:3%;
+	}
+}
+
+@media (max-width:415px){
+	.activeInactiveCandidates .gridActionButton {
+	    margin-top: 6.5%;
+	}
+}

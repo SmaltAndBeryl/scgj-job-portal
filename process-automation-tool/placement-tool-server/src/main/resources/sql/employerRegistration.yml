@@ -1,0 +1,4 @@
+employerRegistration: 
+
+ insertUserCredentialDetails: insert into users (mobile_number, username, state, pincode,user_role,enrolment_status,account_status_updated_on,enrolment_updated_on, registered_on) values (:mobileNumber,:companyName,:state,:pincode,:userRoleEmployer,:enrolmentStatus,curdate(),curdate(), curdate());
+ insertEmployerDetails: insert into employer(user_id,email_address,industry_type,company_type,company_scale,pan_number,liasing_authority,designation,landline_number,website,address) values (:userId,:emailAddress,:industryType,:companyType,:companyScale,:panNumber,:liasingAuthority,:designation,:landlineNumber,:employerWebsite,:companyAddress);

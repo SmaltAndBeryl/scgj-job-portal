@@ -1,0 +1,4 @@
+candidateVerification: 
+
+ incrementCandidatePollCount: insert into candidate_polling (user_id, poll_count, polled_at) values (:userId,1,sysdate()) on duplicate key update poll_count=poll_count+1, polled_at=sysdate();
+ 

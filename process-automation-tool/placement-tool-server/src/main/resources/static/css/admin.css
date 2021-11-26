@@ -1,0 +1,35 @@
+.activateButton{
+	background:var(--cgsc-light-green) !important;	
+}
+.deactivateButton{
+	background:var(--cgsc-red) !important;	
+}
+.faqNavigationIcon{
+	margin-left:-2%;
+}
+
+@media (min-width: 577px) and (max-width:767px){
+	.adminTemplate .navSubMenuText {
+	    padding-left: 14%;
+	}
+}
+
+@media (min-width: 481px) and (max-width:576px){
+	.adminTemplate .navSubMenuText {
+	    padding-left: 18%;
+	}
+}
+
+@media (max-width:480px){
+	.adminTemplate .sidebar{
+	    min-width: 68vw;
+	    max-width: 62vw;
+	}
+	.adminTemplate .navSubMenuText {
+	    padding-left: 19%;
+	}
+	.faqNavigationIcon {
+	    margin-left: 1%;
+	}
+	
+}

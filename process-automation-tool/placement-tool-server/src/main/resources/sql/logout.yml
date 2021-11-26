@@ -1,0 +1,4 @@
+logout: 
+
+ resetUserOtp: update users set otp = NULL where (id =:userId);
+ 

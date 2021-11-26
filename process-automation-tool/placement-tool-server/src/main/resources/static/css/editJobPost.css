@@ -1,0 +1,116 @@
+.downloadJobDescription{
+	background: none;
+    border: none;
+    position: absolute;
+    font-size: 1.2em;
+    top: 0.3em;
+    right: 2.5em;
+    color: var(--light-blue);
+    outline:none;
+}
+.downloadJobDescription:focus, .downloadJobDescription:hover{
+	outline:none;
+	background: none;
+    border: none;
+}
+.downloadDescriptionGif{
+	position: absolute;
+    width: 1.5em;
+    right: 3em;
+    top: 0.5em;
+}
+.editJobPost .deleteDocumentIcon{
+    right:4%;
+}
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.downloadJobDescription{
+	    right: 0em;
+	}
+	.downloadDescriptionGif {
+		width: 1.5em;
+	    right: 0.4em;
+	    top: 0.5em;
+	}
+	#uploadDescriptionDiv{
+		width:29%;
+	}
+	.editJobPost .browseJobDescriptionButton {
+	    right: 2.4em;
+	}
+	.editJobPost .deleteDocumentIcon {
+	    right: -11%;
+	}
+}
+
+@media (max-width:991px) and (min-width:800px){
+	.downloadJobDescription{
+	    right: 1.5em;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.downloadJobDescription{
+	    right: -0.3em;
+	}
+	.downloadDescriptionGif {
+	    width: 1.2em;
+	    right: 0em;
+	    top: 0.5em;
+	}
+	.editJobPost .deleteDocumentIcon {
+	    right: -14%;
+	}
+	#uploadDescriptionDiv{
+		width:29%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	.downloadJobDescription{
+	    font-size: 1.5em;
+	    right: 3em;
+	}
+	.downloadDescriptionGif {
+	    width: 2em;
+	    right: 5em;
+	    top: 0.5em;
+	}
+	.editJobPost .deleteDocumentIcon {
+	    right: 4%;
+	    top: 12%;
+	    font-size: 1.15em;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	.downloadJobDescription{
+	    font-size: 1.5em;
+	    right: 2em;
+	}
+	.editJobPost .deleteDocumentIcon {
+	    right: 2%;
+	    top: 14%;
+	}
+}
+
+@media (max-width:480px){
+	.downloadJobDescription{
+	    font-size: 1.3em;
+	    top: 0.3em;
+	    right: 1.7em;
+	}
+	.downloadDescriptionGif{
+	    right: 3em;
+	}
+	.editJobPost .deleteDocumentIcon {
+	    right: 1%;
+	}
+}
+
+@media (max-width:415px){
+	.downloadDescriptionGif{
+	    right: 2em;
+	}
+	
+}

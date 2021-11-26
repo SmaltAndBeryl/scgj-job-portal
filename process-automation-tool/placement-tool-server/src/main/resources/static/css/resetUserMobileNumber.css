@@ -1,0 +1,204 @@
+.resetNumberInput{
+	width:90%;
+    border-radius: 3px;
+    padding: 2% 2% 2% 7%;
+    margin-bottom: 8%;
+    background: var(--cgsc-white);
+    border: 1px solid var(--cgsc-light-grey-shade4);
+    outline:none !important;
+}
+.resetMobileInputPrefix{
+	position: absolute;
+    top: 0.5em;
+    left: 1.5em;
+}
+.searchUserInfoButton{
+	background: var(--cgsc-dark-blue) !important;
+    color: var(--cgsc-white) !important;
+    font-weight: 300;
+}
+
+#viewUserDetailsGrid{
+	display:block;
+	height:60px;
+}
+#viewUserDetailsGridSmallScreen{
+	display:none;
+	height:60px;
+}
+
+div.ui-grid-cell input{
+	margin: 2.5% 5%;
+    padding: 1% 2% 1% 14%;
+    background: transparent;
+    width: 90%;
+    border: 1px solid var(--cgsc-light-grey-shade4);
+    border-radius: 3px;
+}
+.gridMobileNumberPrefix{
+	position: absolute;
+    margin-left: 1.2em;
+    margin-top: 0.55em;
+}
+.updateMobileNumberButton{
+	padding: 3% 10%;
+    margin-top: 3%;
+    background: var(--cgsc-light-green) !important;
+}
+.resetMobileNumber .loadingGif{
+	width:1.7em;
+	margin-top:3%;
+}
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.activeInactiveCandidates .gridActionButton {
+	    padding: 1.5% 10%;
+	    margin-top: 4.5%;
+	}
+	.resetMobileInputPrefix {
+	    top: 0.4em;
+	}
+	div.ui-grid-cell input {
+    	margin: 3.5% 5%;
+    	padding: 1% 2% 1% 20%;
+    }
+    .resetNumberInput {
+    	padding: 2% 2% 2% 10%;
+    }
+    
+}
+@media (max-width:991px) and (min-width:801px){
+	.activeInactiveCandidates .loadingGif{
+		margin-top:3%;
+	}
+	.activeInactiveCandidates .gridActionButton {
+	    padding: 2% 10%;
+	    margin-top: 4%;
+	}
+	.resetNumberInput{
+	    padding: 2% 2% 2% 8.5%;
+	}
+	div.ui-grid-cell input {
+	    margin: 4% 5%;
+	    padding: 1% 2% 1% 16%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+	#viewUserDetailsGrid{
+		display:none;
+	}
+	#viewUserDetailsGridSmallScreen{
+		display:block;
+	}
+	.resetNumberInput {
+	    padding: 2% 2% 2% 11%;
+	}
+	.gridMobileNumberPrefix {
+	     margin-left: 2em;
+	}
+	.updateMobileNumberButton {
+	    padding: 1.5% 10%;
+	    margin-top: 2%;
+	}
+	.searchUserInfoButton {
+	    padding: 1.5% 5%;
+	}
+	div.ui-grid-cell input {
+	    margin: 1% 5%;
+	    padding: 1% 2% 1% 7%;
+	}
+	.resetMobileInputPrefix {
+	    top: 0.4em;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#viewUserDetailsGrid{
+		display:none;
+	}
+	#viewUserDetailsGridSmallScreen{
+		display:block;
+	}
+	.resetMobileInputPrefix {
+	    top: 0.6em;
+	}
+	.resetNumberInput {
+	    padding: 2% 2% 2% 7%;
+	}
+	.gridMobileNumberPrefix {
+	    margin-left: 1.5em;
+	}
+	div.ui-grid-cell input {
+	    margin: 1.5% 5%;
+	    padding: 1% 2% 1% 9%;
+	}
+	.updateMobileNumberButton {
+	    padding: 2% 10%;
+	    margin-top: 2%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#viewUserDetailsGrid{
+		display:none;
+	}
+	#viewUserDetailsGridSmallScreen{
+		display:block;
+	}
+	.resetMobileInputPrefix {
+	    top: 0.45em;
+	}
+	.resetNumberInput {
+	    width: 100%;
+	    padding: 2% 2% 2% 10%;
+	}
+	.searchUserInfoButton {
+	    padding: 4% 10%;
+	    font-size: 0.9em;
+	}
+	div.ui-grid-cell input {
+	    margin: 1.5% 5%;
+	    padding: 1% 2% 1% 9%;
+	}
+
+}
+
+@media (max-width:480px){
+	#viewUserDetailsGrid{
+		display:none;
+	}
+	#viewUserDetailsGridSmallScreen{
+		display:block;
+	}
+	.resetMobileInputPrefix {
+	    top: 0.45em;
+	}
+	.resetNumberInput {
+	    width: 100%;
+	    padding: 2% 2% 2% 10%;
+	}
+	.searchUserInfoButton {
+	    padding: 4% 10%;
+	    font-size: 0.9em;
+	}
+	div.ui-grid-cell input {
+	    margin: 2.5% 5%;
+	    padding: 1% 2% 1% 11%;
+	}
+	
+}
+
+@media (max-width:415px){
+	.resetMobileInputPrefix {
+	    top: 0.3em;
+	}
+	.resetNumberInput {
+	    width: 100%;
+	    padding: 2% 2% 2% 12%;
+	}
+	div.ui-grid-cell input {
+	    margin: 3% 5%;
+	    padding: 1% 2% 1% 16%;
+	}
+}

@@ -1,0 +1,250 @@
+<div ng-controller="editJobPostController" class="templatePartial editJobPost">
+	<p  class="partialheading">Edit Job Post</p>
+	<div class="contentSection">
+		<form id="editJobPostForm" ng-submit="editJobPost();">
+			<div class="row margin-0">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<p class="partialSubHeading">Select Job Post To Edit</p>
+				</div>
+			</div>
+			<div class="row margin-0 margin-top-1">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<select class="standardInputBox" ng-options="jobPost as jobPost.jobId + ' | ' +  jobPost.jobTitle for jobPost in jobPostList" ng-model="jobPostInfo" ng-change="populateJobPostDetails();" required>
+						<option value="" disabled>Select Job Post</option>
+					</select>
+				</div>
+			</div>
+			<div ng-show="viewEditJobPostForm">
+				<div class="row margin-0">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<p class="partialSubHeading">Basic information</p>
+					</div>
+				</div>
+
+				<!-- Basic information form section -->
+				<div class="row margin-0">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input class="standardInputBox" placeholder="Enter Job Title" ng-model="jobPostDetails.jobTitle"  pattern="[A-Za-z,-.&/ ]{3,65}" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity(' ')" oninvalid="this.setCustomValidity('Job title can contain letters, (,), (.), (-), (&), (/) only, with length between 3 to 65 characters')" ng-disabled="processingEditJobPostAction" required/>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input class="standardInputBox" placeholder="Enter Minimum Salary" ng-model="jobPostDetails.minSalary"  type="number"  min="5000" max="500000" oninput="this.value=parseInt(this.value)" ng-disabled="processingEditJobPostAction" required/>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input class="standardInputBox" placeholder="Enter Maximum Salary" ng-model="jobPostDetails.maxSalary"  type="number"  min="5000" max="500000" oninput="this.value=parseInt(this.value)" ng-disabled="processingEditJobPostAction" required/>
+					</div>
+
+				</div>
+				<div class="row margin-0">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input class="standardInputBox" placeholder="Enter Number Of Vacancy" ng-model="jobPostDetails.vacancy"  type="number" min="1" oninput="this.value=parseInt(this.value)" ng-disabled="processingEditJobPostAction" required/>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<select class="standardInputBox" ng-options="role for role in jobRoleList" ng-model="jobPostDetails.jobRole" ng-disabled="processingEditJobPostAction" ng-change="getOccupationList(jobPostDetails.jobRole)" required>
+							<option value="" disabled>Select Job Role</option>
+						</select>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<!-- Please make this field mandatory, if it's populated from BE now-->
+						<select class="standardInputBox" ng-model="jobPostDetails.occupation" ng-options="occupation.occupationName as occupation.occupationName for occupation in occupationList" ng-disabled="disableFormAction" required>
+							<option value="" disabled selected>Select Specialization</option>
+						</select>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<select class="standardInputBox" ng-options="state for state in statesList" ng-model="jobPostDetails.state" ng-disabled="processingEditJobPostAction" required>
+							<option value="" disabled>Select State</option>
+						</select>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input class="standardInputBox" placeholder="Enter District" pattern="[A-Za-z, ]{3,70}" oninput="try{setCustomValidity('')}catch(e){}" onchange="try{setCustomValidity('')}catch(e){}" oninvalid="this.setCustomValidity('District can contain letters and (,) only, with length between 3 to 70 characters')" ng-model="jobPostDetails.district" ng-disabled="processingEditJobPostAction" required/>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<select class="standardInputBox" ng-options="qualification for qualification in qualificationList" ng-model="jobPostDetails.educationQualification" ng-disabled="processingEditJobPostAction" required>
+							<option value="" disabled>Select Qualification</option>
+						</select>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<select class="standardInputBox" ng-options="experience for experience in workExperienceList" ng-model="jobPostDetails.minimumExperience" ng-disabled="processingEditJobPostAction" required>
+							<option value="" disabled>Select Minimum Experience</option>
+						</select>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<span class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
+						</span>
+						<input class="standardInputBox datePickerIcon" ng-disabled="processingEditJobPostAction" placeholder="Select Application Last Date" id="applicationDatePicker" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="jobPostDetails.applicationDate" required/>
+					</div>
+					<!-- 
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<select class="standardInputBox" ng-model="jobPostDetails.cgscCertificatePreferred" ng-disabled="processingEditJobPostAction" required>
+							<option value="" disabled>CGSC Certificate Preference</option>
+							<option value="Y" ng-selected="jobPostDetails.cgscCertificatePreferred=='Y'">Yes</option>
+							<option value="N" ng-selected="jobPostDetails.cgscCertificatePreferred=='N'">No</option>
+						</select>
+					</div> -->
+					<div class="col-md-4 col-sm-4 col-xs-12" id="uploadDescriptionDiv">
+						<div>
+							<input class="standardInputBox" type="text" id="uploadJobDescription" placeholder="Upload Document">
+							<input type="file" class="uploadJobDescriptionDocumentInput" ng-disabled="processingEditJobPostAction" id ="uploadJobDescriptionFile" accept=".pdf" onchange="document.getElementById('uploadJobDescription').value = this.value.split('\\').pop(); angular.element(this).scope().updateDocumentUploadedFlg();" />
+							<button class="btn browseButton browseJobDescriptionButton" type="button">Browse</button>
+						</div>
+						<button type="button" class="downloadJobDescription" id="downloadIcon" ng-click="downloadJobDescription()" ng-show="downloadDescriptionIcon"  ng-disabled="processingEditJobPostAction"><i title="Download job description document" class="fa fa-download downloadGlyphicon"></i></button>
+						<img src="../images/loadingImage.gif" class="downloadDescriptionGif" alt="Downloading GIF" ng-hide="downloadDescriptionIcon">
+						<button class="deleteDocumentIcon" ng-show="showDeleteIcon" type="button" ng-disabled="processingEditJobPostAction"  title="Delete Description Document" ng-click="deleteDescriptionDocument();"><i class="glyphicon glyphicon-trash"></i></button>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-8 col-sm-8 col-xs-12">
+						<textarea class="standardInputBox" ng-disabled="processingEditJobPostAction" id="jobSummaryInput" rows="6" cols="2" type="text" minlength="3" maxlength="250" placeholder="Enter Job Summary" ng-model="jobPostDetails.jobSummary" required></textarea>
+					</div>
+					
+				</div>
+				<div class="row margin-0">
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<input type="checkbox" class="form-check-input" ng-model="addAdditionalInfo" id="addAdditionalInfoCheckBox">
+						<label class="checkBoxLabel" for="addAdditionalInfoCheckBox">Add Additional Information</label>
+					</div>
+				</div>
+				<!-- Additional information form section -->
+				<div ng-show="addAdditionalInfo">
+					<div class="row margin-0">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<p class="partialSubHeading">Additional information</p>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Leave Policy (If Any):</p>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<input class="additionalInfoInputBox" placeholder="Enter Leave Policy Details" ng-trim="false" ng-model="jobPostDetails.leavePolicy"  minlength="3" maxlength="500" ng-disabled="processingEditJobPostAction"/>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Monthly Incentives (If Any):</p>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<input class="additionalInfoInputBox" placeholder="Enter Monthly Incentives Details" ng-trim="false" ng-model="jobPostDetails.monthlyIncentives"  minlength="3" maxlength="500" ng-disabled="processingEditJobPostAction"/>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Work Timings:</p>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<input class="additionalInfoInputBox" placeholder="Enter Work Timings Details" ng-trim="false" ng-model="jobPostDetails.workTimings"  minlength="3" maxlength="250" ng-disabled="processingEditJobPostAction"/>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Contact Number:</p>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<input class="additionalInfoInputBox" placeholder="Enter Contact Number" ng-model="jobPostDetails.contactNumber" type="number" min="0" ng-disabled="processingEditJobPostAction"/>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Interview Timings:</p>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-11">
+							<span class="openDateIcon">
+								<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
+							</span>
+							<input class="standardInputBox datePickerIcon datePickerInputBox" type="datetime-local" ng-disabled="processingEditJobPostAction" id="interviewStartTime" ng-model="jobPostDetails.interviewStartDateTime" min="{{jobPostDetails.applicationDate}}T00:00"/>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 padding-0 interviewTimeText">
+							<span>to</span>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-11">
+				    		<span class="openDateIcon">
+								<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
+							</span>
+							<input class="standardInputBox datePickerIcon datePickerInputBox" type="datetime-local" ng-disabled="processingEditJobPostAction" id="interviewEndTime" ng-model="jobPostDetails.interviewEndDateTime" min="{{jobPostDetails.applicationDate}}T00:00"/>
+						</div>
+
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Would there be a walk-in interview:</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+							<input type="radio" id="walkInTrue" name="walkInTrueOption" ng-model="jobPostDetails.isWalkInInterview" value="Y"/><label for="walkInTrue" class="options">Yes</label>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+							<input type="radio" id="walkInFalse" name="walkInFalseOption" ng-model="jobPostDetails.isWalkInInterview" value="N"/><label for="walkInFalse" class="options">No</label>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Preferred Gender:</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3  col-xs-4">
+							<input type="radio" id="male" name="maleGenderOption" ng-model="jobPostDetails.preferredGender" value="M" /><label for="male" class="options">Male</label>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3  col-xs-4">
+							<input type="radio" id="female" name="femaleGenderOption" ng-model="jobPostDetails.preferredGender" value="F" /><label for="female" class="options">Female</label>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3  col-xs-4">
+							<input type="radio" id="other" name="otherGenderOption" ng-model="jobPostDetails.preferredGender" value="O" /><label for="other" class="options">Other</label>
+						</div>
+					</div>
+					<div class="row margin-0 additionalInfoContainerDiv">
+						<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							<p class="additionalInfoInputLabel">Would ex-army personnel be preferred:</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+							<input type="radio" id="exArmyPersonnelTrue" name="exArmyPersonnelTrueOption" ng-model="jobPostDetails.armyBackgroundPreferred" value="Y" /><label for="exArmyPersonnelTrue" class="options">Yes</label>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+							<input type="radio" id="exArmyPersonnelFalse" name="exArmyPersonnelFalseOption" ng-model="jobPostDetails.armyBackgroundPreferred" value="N" /><label for="exArmyPersonnelFalse" class="options">No</label>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-0">
+					<div class="col-lg-12 col-md-12 col-sm-12 text-right">
+						<button class="btn createJobPostButton" type="submit" ng-disabled="disabledUpdateButton">Update</button>
+					</div>
+				</div>
+
+			</div>
+		</form>
+
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="processingEditJobPostAction">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="createJobLoadingGif" alt="Loading GIF">
+			</div>
+		</div>
+
+		<!-- Error/Success message section -->
+		<div class="row margin-0" ng-show="error">
+			<div class="alert alert-danger alert-dismissible errorMessageBox">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{editJobPostError}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="error=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row margin-0" ng-show="success" >
+			<div class="alert alert-success alert-dismissible errorMessageBox">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{editJobPostSuccess}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="success=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

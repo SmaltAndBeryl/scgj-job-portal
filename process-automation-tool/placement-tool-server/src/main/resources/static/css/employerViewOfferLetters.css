@@ -1,0 +1,170 @@
+.employerViewOfferLetters .standardInputBox {
+    margin-bottom: 3%;
+}
+.employerViewOfferLetters .loadingGif{
+	margin-top:3%;
+	width:1.8em;
+}
+#hiredCandidateDetailsGrid{
+	display:block;
+	height:90px
+}
+#hiredCandidateDetailsGridSmallScreen{
+	display:none;
+	height:90px;
+}
+.employerViewOfferLetters .viewCandidateContentHeading {
+    font-weight: 400;
+    margin-top: 5%;
+    color: var(--cgsc-light-grey-shade2);
+}
+.employerViewOfferLetters .jobStatusText{
+    font-size: 0.9em;
+    margin-bottom: 2%;
+}
+.employerViewOfferLetters .downloadButton {
+    width: 30%;
+    margin:12% 0% 3% 8%;
+}
+.viewCandidateInfoGridButton{
+	padding: 3% 15%;
+    margin-top: 2%;
+    outline: none;
+}
+.downloadOfferLetterButton{
+    margin-top: 2%;
+    padding: 2% 10%;
+    outline: none;
+    background: var(--cgsc-light-green) !important;
+}
+.viewCandidateContentText{
+	font-size:0.9em;
+}
+
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.employerViewOfferLetters .downloadButton {
+    	width: 35%;
+	}
+	.downloadOfferLetterButton {
+	    margin-top: 4%;
+	    padding: 2% 10%;
+	}
+	.viewCandidateInfoGridButton {
+	    padding: 3% 15%;
+	    margin-top: 5%;
+	}
+}
+
+@media (max-width:991px) and (min-width:800px){
+	.downloadOfferLetterButton {
+	    margin-top: 3%;
+	    padding: 2% 10%;
+	}
+	.viewCandidateInfoGridButton {
+	    padding: 3% 15%;
+	    margin-top: 4%;
+	}
+}
+
+@media (max-width:800px) and (min-width:768px){
+
+	.viewCandidateContentText{
+		font-size:0.85em;
+	}
+	.employerViewOfferLetters .downloadButton {
+    	width: 40%;
+	}
+	.viewCandidateInfoGridButton {
+	    margin-top: 6%;
+	}
+	.downloadOfferLetterButton {
+	    margin-top: 5%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	#hiredCandidateDetailsGrid{
+		display:none;
+		height:90px
+	}
+	#hiredCandidateDetailsGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.employerViewOfferLetters .viewCandidateContentHeading {
+	    font-size:0.9em;
+	    margin-top: 4%;
+	}
+	.employerViewOfferLetters .downloadButton {
+	    width: 30%;
+	    margin: 12% 5% 3% 5%;
+	}
+	.viewCandidateInfoGridButton {
+	    padding: 1.5% 15%;
+	}
+	.downloadOfferLetterButton {
+	    margin-top: 2%;
+	    padding: 1% 10%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	#hiredCandidateDetailsGrid{
+		display:none;
+		height:90px
+	}
+	#hiredCandidateDetailsGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.employerViewOfferLetters .viewCandidateContentHeading {
+	    font-size:0.9em;
+	    margin-top: 4%;
+	}
+	.employerViewOfferLetters .downloadButton {
+	    width: 40%;
+	    margin: 12% 3% 3% 3%;
+	}
+}
+
+@media (max-width:480px){
+	#hiredCandidateDetailsGrid{
+		display:none;
+		height:90px
+	}
+	#hiredCandidateDetailsGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.employerViewOfferLetters .viewCandidateContentHeading {
+	    font-size:0.9em;
+	    margin-top: 4%;
+	}
+	.viewCandidateContentText{
+		font-size:0.85em;
+	}
+	.employerViewOfferLetters .downloadButton {
+	    width: 40%;
+	    margin: 12% 3% 3% 3%;
+	}
+}
+
+@media (max-width:415px){
+	#hiredCandidateDetailsGrid{
+		display:none;
+		height:90px
+	}
+	#hiredCandidateDetailsGridSmallScreen{
+		display:block;
+		height:90px;
+	}
+	.employerViewOfferLetters .viewCandidateContentHeading {
+	    font-size:0.9em;
+	    margin-top: 4%;
+	}
+	.employerViewOfferLetters .downloadButton {
+	    width: 40%;
+	    margin: 12% 3% 3% 3%;
+	}
+}

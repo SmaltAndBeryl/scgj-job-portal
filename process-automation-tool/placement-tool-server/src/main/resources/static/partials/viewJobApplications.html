@@ -1,0 +1,148 @@
+<div ng-controller="viewJobApplicationsController" class="templatePartial viewJobApplications">
+	<p  class="partialheading">View Applications</p>
+	<div class="contentSection">
+		<div class="row margin-0 margin-top-1">
+			<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+				<select class="standardInputBox" ng-options="jobPost as jobPost.jobId + ' | ' +  jobPost.jobTitle for jobPost in jobPostList" ng-model="jobPostInfo" ng-change="getJobApplicationDetails();" required>
+					<option value="" disabled>Select Job Post</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="row margin-0" ng-show="noApplicationsError">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{noApplicationsErrorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="noApplicationsError=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+		
+	</div>
+	<div class="contentSection margin-top-2 jobDetailSection" ng-show="showJobApplicationDetails">
+		<div class="row margin-0">
+			<div class="col-md-10 col-sm-10 col-xs-11">
+				<p class="jobPostCardTitle margin-top-1" title="Job Title: {{jobPostInfo.jobTitle}}">{{jobPostInfo.jobTitle}}
+					<span class="jobStatusClosedText" ng-show="jobPostInfo.jobStatus == 'Closed'">(Closed)</span>
+					<span class="jobStatusPublishedText" ng-show="jobPostInfo.jobStatus == 'Published'">(Published)</span>
+				</p>
+			</div>
+		</div>
+		<div class="row margin-0">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<p class="jobPostCardGreyText" title="Job Role: {{jobPostInfo.jobRole}}">Job Role: {{jobPostInfo.jobRole}}</p>
+			</div>
+		</div>
+		
+		<div class="row margin-0 viewJobApplicationsPanel">
+			<div class="jobApplicationOverviewFlexCard totalApplicationsCard">
+				<div class="cardImageSection">
+					<img src="../images/totalApplications.png" class="applicationOverviewVacancyIcon" id="totalApplicationsIcon" alt="Total Applications Icon">
+				</div>
+				<div class="cardInfoSection">
+					<p class="applicationOverviewNumberStyle">{{viewJobApplicationDetails.totalNumberOfApplicants}}</p>
+					<p class="applicationOverviewLabelStyle">Applications</p>
+				</div>
+			</div>
+			<div class="jobApplicationOverviewFlexCard hiredCandidatesCard">
+				<div class="cardImageSection">
+					<img src="../images/hiredIcon.png" class="applicationOverviewVacancyIcon hiredIcon" alt="Hired Icon">
+				</div>
+				<div class="cardInfoSection">
+					<p class="applicationOverviewNumberStyle">{{viewJobApplicationDetails.hired}}</p>
+					<p class="applicationOverviewLabelStyle">Hired</p>
+				</div>
+			</div>
+			<div class=" jobApplicationOverviewFlexCard shortlistedCandidatesCard">
+				<div class="cardImageSection">
+					<img src="../images/selected.png" class="applicationOverviewVacancyIcon" alt="Selected Icon">
+				</div>
+				<div class="cardInfoSection">
+					<p class="applicationOverviewNumberStyle">{{viewJobApplicationDetails.selected}}</p>
+					<p class="applicationOverviewLabelStyle">Shortlisted</p>
+				</div>
+			</div>
+			<div class="jobApplicationOverviewFlexCard rejectedCandidatesCard">
+				<div class="cardImageSection">
+					<img src="../images/rejectedIcon.png" class="applicationOverviewVacancyIcon" alt="Rejected Icon">
+				</div>
+				<div class="cardInfoSection">
+					<p class="applicationOverviewNumberStyle">{{viewJobApplicationDetails.rejected}}</p>
+					<p class="applicationOverviewLabelStyle">Rejected</p>
+				</div>
+			</div>
+			<div class="jobApplicationOverviewFlexCard inreviewCandidatesCard">
+				<div class="cardImageSection">
+					<img src="../images/candidateInReviewIcon.png" class="applicationOverviewVacancyIcon" id="applicationsInReviewIcon" alt="In Review Icon">
+				</div>
+				<div class="cardInfoSection">
+					<p class="applicationOverviewNumberStyle">{{viewJobApplicationDetails.inReview}}</p>
+					<p class="applicationOverviewLabelStyle">In Review</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row margin-0">
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<p class="viewJobSectionContentHeading">Vacancy</p>
+				<p class="viewJobSectionContentText">{{viewJobApplicationDetails.vacancy}}</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<p class="viewJobSectionContentHeading">Application Last Date</p>
+				<p class="viewJobSectionContentText">{{viewJobApplicationDetails.applicationLastDate}}</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<p class="viewJobSectionContentHeading">Ex-Army Personnel</p>
+				<p class="viewJobSectionContentText">{{viewJobApplicationDetails.exArmyPersonnel}}</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<p class="viewJobSectionContentHeading">Male Candidates</p>
+				<p class="viewJobSectionContentText">{{viewJobApplicationDetails.maleCandidates}}</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<p class="viewJobSectionContentHeading">Female Candidates</p>
+				<p class="viewJobSectionContentText">{{viewJobApplicationDetails.femaleCandidates}}</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-6">
+				<p class="viewJobSectionContentHeading">Other Gender Candidates</p>
+				<p class="viewJobSectionContentText">{{viewJobApplicationDetails.otherCandidates}}</p>
+			</div>
+		</div>
+		
+		<div class="row margin-0">
+			<div class="col-md-6 col-sm-6 col-xs-12 col-lg-offset-5 col-md-offset-6 col-sm-offset-5 downloadButtonSection">
+				<button class="btn downloadJobDescriptionButton downloadButton" ng-click="downloadFile('description');" ng-disabled="downloading || noDescriptionDocumentFlag"><i ng-hide="noDescriptionDocumentFlag" class="fa fa-download downloadJobDescriptionGlyphicon" aria-hidden="true"></i>Description <span ng-show="noDescriptionDocumentFlag">N/A</span></button>
+				<button class="btn downloadJobDescriptionButton downloadButton dropdown-toggle " type="button" data-toggle="dropdown"  ng-disabled="downloading"><i class="fa fa fa-files-o downloadJobDescriptionGlyphicon" aria-hidden="true"></i>Applications</button>
+				   <ul class="dropdown-menu fileTypeMenu">
+				      <li class="dropDownOption" ng-click="downloadFile('pdf');">Export as PDF</li>
+				      <li class="dropDownOption" ng-click="downloadFile('xlsx')">Export as Excel</li>
+				   </ul>			
+			</div>
+		</div>
+		<!-- Gif Section -->
+		<div class="row margin-0">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center" ng-show="downloading">
+				<img src="../images/loadingImage.gif" class="downloadApplicationsGif" alt="Downloading GIF">			
+			</div>
+		</div>
+		
+		<!-- Error message section -->
+		<div class="row margin-0" ng-show="error">
+	       <div class="alert alert-danger alert-dismissible errorMessageBox">
+	    		<div class="row margin-0">
+			   		<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+			   			{{errorMessage}}
+			  		</div>
+			   		<div class="col-md-1 col-sm-2 col-xs-2">
+			   			<button type="button" class="close" ng-click="error=false">&times;</button>
+			   		</div>
+		  		</div>
+	    	</div>
+		</div>
+	</div>
+	
+</div>

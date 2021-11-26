@@ -1,0 +1,383 @@
+.calendarIcon {
+    width: 0.9em;
+    height: 1.2em;
+}
+.openDateIcon {
+    position: absolute;
+    top: 0.4em;
+    right: 25%;
+    background: var(--cgsc-white);
+    pointer-events: none;
+    color: var(--sems-light-grey-shade2);
+}
+.datePickerIcon::-webkit-inner-spin-button,
+.datePickerIcon::-webkit-calendar-picker-indicator {
+    cursor:pointer;
+}
+.datePickerIcon::-webkit-calendar-picker-indicator {
+    opacity:0;
+	-webkit-filter: opacity(0);
+}
+#jobSummaryInput{
+	width:90%;
+	padding:1%;
+	height:4em;
+	margin-bottom: 4%;
+}
+.uploadJobDescriptionDocumentInput {
+    opacity: 0;
+    position: absolute;
+    top: 0em;
+    z-index: 100;
+    height: 80%;
+    cursor: pointer;
+}
+.browseJobDescriptionButton{
+	position: absolute;
+    right: 22%;
+    padding: 1.8%;   
+    width:5em; 
+}
+.checkBoxLabel{
+	font-weight:300;
+	font-size:1em;
+    margin-left: 2%;
+	position: relative;
+    top: -0.2em;
+    margin-bottom:10%;
+}
+input[type=checkbox]{
+    height: 1.2em;
+    width: 1.2em;
+}
+.additionalInfoInputBox {
+    width: 103%;
+    background: var(--cgsc-white);
+    padding: 1%;
+    border: 1px solid var(--cgsc-light-grey-shade4);
+    margin-bottom: 0%;
+    border-radius: 3px;
+}
+.additionalInfoInputLabel{
+	font-weight:400;
+}
+.additionalInfoContainerDiv{
+	display: flex;
+    align-items: center;
+    margin-bottom:2%;
+}
+input[type=radio] {
+    height: 1.2em;
+    position: relative;
+    width: 1.2em;
+    top: 0.2em;
+    height: 1.2em;
+    width: 1.2em;
+}
+.options{
+	font-weight: 300;
+    margin-left: 5%;
+}
+.contactNumberPrefix{
+	position: absolute;
+    top: 0.7em;
+    left: 2em;	
+}
+.contactNumberInput{
+	padding-left: 5%;
+}
+.interviewTimeText{
+	position: relative;
+    top: -0.9em;
+    font-size: 1.1em;
+}
+.createJobPostButton{
+	margin-right: 8%;
+    padding: 0.5% 2%;
+    color: var(--cgsc-white);
+    background:var(--light-green);
+    font-weight: 300;
+}
+.createJobPostButton:focus, .createJobPostButton:hover{
+    color: var(--cgsc-white);
+    background:var(--light-green);
+}
+.createJobLoadingGif{
+	width:2em;
+}
+.deleteDocumentIcon{
+	background: none;
+    outline: none;
+    border: none;
+    color: var(--cgsc-red);
+    font-size: 1.1em;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+.basicInfoSubHeading{
+	margin-bottom:8.5%;
+}
+/** -------------------MEDIA QUERIES--------------------**/
+@media (min-width: 992px) and (max-width:1199px){
+	.browseJobDescriptionButton {
+	    right: 2.7em;
+	}
+	.datePickerInputBox {
+	    width: 78%;
+	}
+	.openDateIcon {
+	    right: 18%;
+	}
+	.contactNumberInput {
+	    padding-left: 7%;
+	}
+	.contactNumberPrefix {
+	    top: 0.5em;
+	}
+	.additionalInfoContainerDiv .openDateIcon {
+	    right: 29%;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    top: 0em;
+	    width: 80%;
+	}
+	.deleteDocumentIcon {
+	    right: 1%;
+	}
+}
+@media (min-width: 801px) and (max-width:991px){
+	.createJobPostButton {
+	    margin-right: 3%;
+	}
+	.openDateIcon {
+	    top: 0.3em;
+	    right: 26%;
+	}
+	#jobSummaryInput {
+	    width: 91%;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    height: 80%;
+	    width: 74%;
+	}
+	.browseJobDescriptionButton {
+	    right: 4.8em;
+	}
+	.datePickerInputBox {
+	    width: 78%;
+	}
+	.additionalInfoContainerDiv .openDateIcon {
+	    right: 29%;
+	}
+	.contactNumberPrefix {
+	    top: 0.5em;
+	    left: 1.5em;
+	}
+	.interviewTimeText {
+	    top: -0.4em;
+	}
+}
+@media (min-width: 768px) and (max-width:800px){
+	.createJobPostButton {
+	    margin-right: 3%;
+	}
+	.openDateIcon {
+	    top: 0.3em;
+	    right: 14%;
+	}
+	#jobSummaryInput {
+	    width: 97%;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    width: 80%;
+	    height: 80%;
+	}
+	.browseJobDescriptionButton {
+	    right: 1.8em;
+	}
+	.datePickerInputBox {
+	    width: 94%;
+	}
+	.additionalInfoContainerDiv .openDateIcon {
+	    right: 16%;
+	}
+	.contactNumberPrefix {
+	    top: 0.5em;
+	    left: 1.5em;
+	}
+	.interviewTimeText {
+	    top: -0.4em;
+	    width:3%;
+	}
+	.deleteDocumentIcon {
+	    right: -2%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	.additionalInfoContainerDiv {
+	    display: block;
+	    margin-bottom: 6%;
+	}
+	#jobSummaryInput {
+	    width: 80%;
+	}
+	.browseJobDescriptionButton {
+	    right: 5em;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    height: 60%;
+	    width: 80%;
+	}
+	.additionalInfoInputBox {
+	    width: 101%;
+	    margin-top: 1%;
+	    margin-left: 0.2%;
+	}
+	.contactNumberPrefix {
+	    top: 1.1em;
+	}
+	.contactNumberInput {
+	    padding-left: 6%;
+	}
+	.datePickerInputBox{
+		width:100%;
+	}
+	.openDateIcon {
+	    top: 0.9em;
+	    right: 24%;
+	}
+	.browseJobDescriptionButton {
+	    right: 8.4em;
+	    padding: 2%;
+	    width: 6em;
+	}
+	.additionalInfoContainerDiv .openDateIcon {
+	    right: 5%;
+	}
+	.interviewTimeText {
+	    top: 0.7em;
+	}
+	.createJobPostButton {
+	    margin-right: 0%;
+	    padding: 1.5% 3%;
+	}
+	.deleteDocumentIcon {
+	    right: 12%;
+	}
+}
+
+@media (min-width: 481px) and (max-width:576px){
+	.additionalInfoContainerDiv {
+	    display: block;
+	    margin-bottom: 6%;
+	}
+	#jobSummaryInput {
+	    width: 80%;
+	}
+	.browseJobDescriptionButton {
+	    right: 5em;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    height: 60%;
+	    width: 75%;
+	}
+	.additionalInfoInputBox {
+	    width: 101%;
+	    margin-top: 1%;
+	    margin-left: 0.2%;
+	}
+	.contactNumberPrefix {
+	    top: 0.6em;
+	}
+	.contactNumberInput {
+	    padding-left: 11%;
+	}
+	.datePickerInputBox {
+	    width: 100%;
+	    margin-top: 2%;
+	    margin-bottom: 3%;
+	}
+	.openDateIcon {
+	    top: 0.5em;
+	    right: 24%;
+	}
+	.browseJobDescriptionButton {
+	    right: 6.8em;
+	    padding: 2%;
+	    width: 6em;
+	}
+	.additionalInfoContainerDiv .openDateIcon {
+	    right: 5%;
+	    top:1.2em;
+	}
+	.interviewTimeText {
+	    top: 0.7em;
+	}
+	.createJobPostButton {
+	    margin-right: 0%;
+	    padding: 1.5% 3%;
+	}
+
+}
+
+@media (max-width:480px){
+	.additionalInfoContainerDiv {
+	    display: block;
+	    margin-bottom: 6%;
+	}
+	#jobSummaryInput {
+	    width: 80%;
+	}
+	.browseJobDescriptionButton {
+	    right: 5em;
+	}
+	.additionalInfoInputBox {
+	    width: 101%;
+	    margin-top: 1%;
+	    margin-left: 0.2%;
+	}
+	.contactNumberPrefix {
+	    top: 0.6em;
+	}
+	.contactNumberInput {
+	    padding-left: 11%;
+	}
+	.datePickerInputBox{
+		width:100%;
+	}
+	.additionalInfoContainerDiv .openDateIcon {
+	    top: 0em;
+	    right: 7%;
+	    margin-top: 2%;
+	    margin-bottom: 6%;
+	}
+	.interviewTimeText {
+	    top: 0.3em;
+	}
+	.createJobPostButton {
+	    margin-right: 0%;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    height: 61%;
+	    width: 77%;
+	}
+	.deleteDocumentIcon{
+	    right: 7%;
+	}
+}
+
+@media (max-width:375px){
+	.createJobLoadingGif {
+	    width: 1.5em;
+	}
+	.uploadJobDescriptionDocumentInput {
+	    height: 62%;
+	    width: 70%;
+	}
+	.deleteDocumentIcon {
+	    right: 10%;
+	}
+}
+

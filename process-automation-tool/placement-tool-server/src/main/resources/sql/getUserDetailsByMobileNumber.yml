@@ -1,0 +1,3 @@
+getUserDetails:
+
+ getUserDetailsByMobileNumber: SELECT username, state, mobile_number, pincode, user_role, is_active_flg FROM users WHERE mobile_number=:mobileNumber AND (user_role=:userRoleEmployer OR user_role=:userRoleCandidate);

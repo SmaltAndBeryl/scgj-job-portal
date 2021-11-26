@@ -1,0 +1,147 @@
+.deactivateEmployerGridSmallScreen{
+	display : none;
+	height:90px;
+}
+
+.deactivateEmployerGrid{
+	display : block;
+	height:90px;
+}
+
+.activateEmployerGridSmallScreen{
+	display : none;
+	height:90px;
+}
+
+.activateEmployerGrid{
+	display : block;
+	height:90px;
+}
+
+
+.loadingGif{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4%;
+}
+
+.employerActivation .deactivateButton{
+	background: var(--cgsc-red);
+	padding: 2.5% 6%;
+    margin-top: 1.2%;
+}
+
+.employerActivation .activateButton{
+	background: var(--cgsc-light-green);
+	padding: 2.5% 6%;
+    margin-top: 1.2%;
+}
+
+.deactivateButton.viewButton{
+	background : var(--cgsc-dark-blue) !important;
+    margin-top: 2%;
+	padding: 2.7% 10%;
+}
+
+/** ------------MEDIA QUERIES------------**/
+@media (max-width:1199px) and (min-width:992px){
+	.employerActivation .deactivateButton {
+    	margin-top: 2%;
+	}
+	.employerActivation .activateButton{
+    	margin-top: 2%;
+	}
+	.deactivateButton.viewButton{
+    	margin-top: 5%;
+	}
+}
+
+@media (max-width:991px) and (min-width:801px){
+	.employerActivation .deactivateButton {
+	   	padding: 1.5% 6%;
+    	margin-top: 2%;
+	}
+	.employerActivation .activateButton{
+		padding: 1.5% 6%;
+    	margin-top: 2%;
+	}
+}
+
+@media (max-width:800px){
+	.deactivateEmployerGridSmallScreen{
+		display : block;
+	}
+	
+	.deactivateEmployerGrid{
+		display : none;
+	}
+	
+	.activateEmployerGridSmallScreen{
+		display : block;
+	}
+	
+	.activateEmployerGrid{
+		display : none;
+	}
+	
+	.loadingGif{
+    width: 15%;
+	}
+	
+}
+
+@media (max-width:800px) and (min-width:768px){
+	.employerActivation .deactivateButton {
+	   	padding: 1.5% 6%;
+    	margin-top: 1.2%;
+	}
+	.employerActivation .activateButton{
+		padding: 1.5% 6%;
+    	margin-top: 1.2%;
+	}
+}
+
+@media (max-width:767px) and (min-width:577px){
+	.employerActivation .deactivateButton {
+	    padding: 1.5% 8%;
+    	margin-top: 2%;
+	}
+	.employerActivation .activateButton{
+		padding: 1.5% 8%;
+    	margin-top: 2%;
+	}
+}
+
+@media (max-width:576px) and (min-width:481px){
+	.employerActivation .deactivateButton {
+	    padding: 2.5% 8%;
+	    margin-top: 2%;
+	}
+	.employerActivation .activateButton{
+		padding: 2.5% 6%;
+	    margin-top: 2%;
+	}
+}
+
+@media (max-width:480px){
+	.employerActivation .deactivateButton {
+	    padding: 2.5% 8%;
+	    margin-top: 2.5%;
+	}
+	.employerActivation .activateButton{
+		padding: 2.5% 6%;
+	    margin-top: 2.5%;
+	}
+}
+
+@media (max-width:415px){
+	.employerActivation .deactivateButton {
+	    padding: 2.5% 8%;
+	    margin-top: 4.5%;
+	}
+	.employerActivation .activateButton{
+		padding: 2.5% 6%;
+	    margin-top: 4.5%;
+	}
+}

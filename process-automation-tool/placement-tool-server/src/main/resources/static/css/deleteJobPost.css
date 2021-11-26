@@ -1,0 +1,68 @@
+.deleteJobPostButton, .deleteJobPostButton:hover, .deleteJobPostButton:focus, .deleteJobPostButton:active{
+    padding: 2.5% 18%;
+    margin-top: 3%;
+    background: var(--cgsc-red);
+}
+
+
+.deleteJobPostGridSmallScreen{
+	display : none;
+	height:90px;
+}
+
+.deleteJobPostGrid{
+	display : block;
+	height:90px;
+}
+
+.deletedJobPostGridSmallScreen{
+	display : none;
+	height:90px;
+}
+
+.deletedJobPostGrid{
+	display : block;
+	height:90px;
+}
+
+.deleteJobPostLoadingGif{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4%;
+}
+.deleteJobPost .close{
+	width: 4rem;	
+}
+
+.deleteJobPost .notAvailableGridText{
+	margin-top:5%;
+}
+/** ----------- MEDIA QUERIES -------------**/
+@media (max-width:800px) and (min-width:768px){
+	.deleteJobPost .notAvailableGridText{
+		margin-top:4%;
+	}
+}
+
+@media (max-width:768px){
+	.deleteJobPostGridSmallScreen{
+		display : block;
+	}
+	
+	.deleteJobPostGrid{
+		display : none;
+	}
+	
+	.deletedJobPostGridSmallScreen{
+		display : block;
+	}
+	
+	.deletedJobPostGrid{
+		display : none;
+	}
+	.deleteJobPostLoadingGif{
+    width: 15%;
+	}
+	
+}

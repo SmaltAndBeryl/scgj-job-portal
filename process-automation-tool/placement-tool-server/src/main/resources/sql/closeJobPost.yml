@@ -1,0 +1,5 @@
+closeJobPost:
+
+ closeJobPost: UPDATE job_postings SET job_status=:closedState, updated_at = CURRENT_DATE() WHERE id=:jobId ;
+
+ 

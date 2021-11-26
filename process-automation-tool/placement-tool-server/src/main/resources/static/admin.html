@@ -1,0 +1,165 @@
+<head>
+	<link href="css/dashboard.css" type="text/css" rel="stylesheet">
+	<link href="css/approveRejectEmployers.css" type="text/css" rel="stylesheet">
+	<link href="css/viewActiveInactiveCandidates.css" type="text/css" rel="stylesheet">
+	<link href="css/resetUserMobileNumber.css" type="text/css" rel="stylesheet">
+	<link href="css/adminFaq.css" type="text/css" rel="stylesheet">
+	<link href="css/admin.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link href="css/employerActivation.css" type="text/css" rel="stylesheet">
+	<link href="css/reviewJobPost.css" type="text/css" rel="stylesheet">
+	<link href="css/notifications.css" type="text/css" rel="stylesheet">
+</head>
+
+<div ng-cloak ng-controller="mainController">
+	<!-- Top menu bar -->
+	<div class="row margin-0 templateHeaderMenu">
+		<div class="col-md-6 col-sm-6 col-xs-6 templateLogoDiv">
+			<label class="visible-xs-inline-block  visible-sm-inline-block hamburgerMenu" ng-click="collapseNavigation()">&#9776</label>
+			<a href="#" target="_blank" id="logoLink">
+			<img src="../images/scgjLogo.png" alt="SCGJ Logo" class="templatelogo">
+			</a>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 headerMenuSection">
+			<div class="col-md-3 col-sm-4 col-xs-3  col-md-offset-6 col-sm-offset-4 col-xs-offset-6 text-right">
+				<div class="topMenuBarOptions">
+					<div id="homePageOptionText" ng-click="showHomePage()">
+						<span class="glyphicon glyphicon-home topMenuBarHomeIcon"></span>
+						<span class="topMenuBarTextStyle">Home</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-4 col-xs-3 text-right myProfileOptionDiv">
+				<div id="profilePageOptionText" class="topMenuBarOptions selectedMenuOrange"  ng-click="showMyProfile()">
+					<span class="fa fa-user topMenuBarMyProfileIcon"></span>
+					<span class="topMenuBarTextStyle">My Profile</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper adminTemplate">
+		<!-- Side navigation bar -->
+		<nav class="sidebar navigationOpacity" id="sideNavigationBar">
+			<div class="row margin-0 sideBarUserInfoBox">
+				<div class="col-md-4 col-sm-4 col-xs-3 userAvatar">
+					{{userNameInitials}}
+				</div>
+				<div class="col-md-8 col-sm-8 col-xs-9 userNameSection">
+					<p class="margin-0">{{loggedInUsername}}</p>
+					<div class="logoutSection" ng-click="logout()">
+						<img src="../images/logout.png" class="logoutImage" alt="Logout Icon">
+						<p class="logoutText">Logout</p>
+					</div>
+                 </div>
+			</div>
+			
+			<!-- Navigation options -->
+			<div>
+				<ul class="list-unstyled">
+					<li class="activeMenu navMenuItem sublist" id="list-item-1">
+		               <p ng-click="page='dashboard'; addBorder('#list-item-1'); collapseNavigation()" class="margin-0">
+		                  <img src="images/dashboardIcon.png" alt="Dasboard Icon" class="leftNavigationIcon leftAdminDashboardIcon">&nbsp;
+		                  Dashboard
+		               </p>
+		            </li>
+		            <li class="navMenuItem sublist" id="list-item-21">
+		               <p ng-click="page='reviewJobPosts'; addBorder('#list-item-21'); collapseNavigation()" class="margin-0">
+		                  <img src="images/reviewJobPost.png" alt="Review Icon" class="leftNavigationIcon">&nbsp;
+		                  Review Job Posts
+		               </p>
+		            </li>
+		            <li>
+		            	<button class="navMenuDropdownBtn" ng-click="displaySublist('#sublistMenu1','subListDropDown1'); ">
+	                        <img src="images/manageEmployerIcon.png"  class="leftNavigationIcon" alt="Manage Icon">&nbsp;
+	                        	Manage Stakeholders
+	                        <i class="glyphicon glyphicon-chevron-down navArrowGlyphicon" id="sublistMenu1"  ></i>
+	                    </button>
+	                    <ul class="navSubMenuContainer" id="subListDropDown1">
+	                 		<li class="sublist navNestedMenu" id="list-item-3">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='manageEmployers'; addBorder('#list-item-3');collapseNavigation();">
+	                               Manage Employer
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-4">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='employerActivation'; addBorder('#list-item-4');collapseNavigation();">
+	                               Employer Activation
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-5">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='viewActiveInactiveCandidates'; addBorder('#list-item-5');collapseNavigation();">
+	                               Inactive Candidates
+	                            </p>
+	                        </li>
+	                        <li class="sublist navNestedMenu" id="list-item-6">
+	                            <p class="margin-0 navSubMenuText" ng-click="page='resetMobileNumber'; addBorder('#list-item-6');collapseNavigation();">
+	                               Reset Mobile Number
+	                            </p>
+	                        </li>
+	                    </ul>
+		            </li>
+		           
+		            
+		            <li class="navMenuItem sublist" id="list-item-7">
+		               <p ng-click="page='faq'; addBorder('#list-item-7'); collapseNavigation()" class="margin-0">
+		                  <img src="images/faqIcon.png" alt="FAQ Icon" class="leftNavigationIcon faqNavigationIcon">&nbsp;
+		                  FAQs
+		               </p>
+		            </li>
+		            
+		             
+					<li class="navMenuItem sublist" id="list-item-8">
+						<p ng-click="page='notifications'; addBorder('#list-item-8'); collapseNavigation()" class="margin-0">
+							<img src="images/notificationsIcon.png" alt="Notification Icon" class="leftNavigationIcon notificationNavigationIcon">&nbsp;
+							Notifications
+						</p>
+					</li>
+
+
+		        </ul>
+			</div>
+		</nav>
+		<div id="content">
+			<div ng-switch on="page">
+               <div ng-switch-default>
+					<div ng-include src="'partials/dashboard.html'"></div>
+				</div>
+               <div ng-switch-when="dashboard">
+					<div ng-include src="'partials/dashboard.html'"></div>
+				</div>
+				<div ng-switch-when="reviewJobPosts">
+					<div ng-include src="'partials/reviewJobPost.html'"></div>
+				</div>				
+				<div ng-switch-when="manageEmployers">
+					<div ng-include src="'partials/approveRejectEmployers.html'"></div>
+				</div>
+				<div ng-switch-when="employerActivation">
+					<div ng-include src="'partials/employerActivation.html'"></div>
+				</div>
+				<div ng-switch-when="viewActiveInactiveCandidates">
+					<div ng-include src="'partials/viewActiveInactiveCandidates.html'"></div>
+				</div>
+				<div ng-switch-when="resetMobileNumber">
+					<div ng-include src="'partials/resetUserMobileNumber.html'"></div>
+				</div>
+				
+				<div ng-switch-when="faq">
+					<div ng-include src="'partials/adminFaq.html'"></div>
+				</div>
+				
+				<div ng-switch-when="notifications">
+					<div ng-include src="'partials/notifications.html'"></div>
+				</div>
+			</div>
+        </div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footerContainer">
+		<div class="footerTextDiv">
+			<p class="text-center margin-0">
+				<i class="fa fa-copyright copyrightIcon"></i> <span>SCGJ - All Rights Reserved |</span>
+				<span ng-click="downloadTermsAndConditionsDocument();" class="termsAndConditions">Terms & Conditions</span>
+			</p>
+		</div>
+	</footer>
+</div>

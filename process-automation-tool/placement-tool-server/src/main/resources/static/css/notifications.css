@@ -1,0 +1,65 @@
+.notificationLabel{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.registrationInputBox{
+    margin-bottom: 5%;
+}
+
+.loginFormButton{
+    margin-top: 0%;
+}
+
+.notificationFormButton{
+    width: 23rem;
+    margin-left: 7rem;
+    background: var(--cgsc-dark-blue);
+    color: var(--text-white);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.errorMessageBox{
+    width: 88%;
+}
+
+.notificationFormButton:hover{
+    background: var(--cgsc-dark-blue);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .notificationLabel{
+        font-size: 14px;
+        padding-top: 0.4rem;
+    }
+    .notificationFormButton{
+        width: 18rem;
+        margin-left: 6rem;
+    }
+}
+
+@media (max-width: 768px){
+    .notificationFormButton {
+        width: 20rem;
+        margin-left: 4rem;
+    }
+}
+@media (max-width: 480px) {
+    .notificationLabel{
+        margin-left: 0;
+    }
+    #notificationForm{
+        margin-left: 1rem;
+    }
+    .notificationFormButton{
+        width: 18rem;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,3 @@
+manageCandidates: 
+
+ viewInactiveCandidates: select u.id as userId, u.mobile_number, u.username, u.state, u.is_active_flg, c.gender ,c.guardian_mobile_number, cp.poll_count, cp.polled_at, tp.tp_name from users as u inner join candidates as c on u.id=c.user_id inner join candidate_polling as cp on u.id=cp.user_id left join training_partner as tp on tp.id = c.tp_id where u.is_active_flg=:falseFlag;

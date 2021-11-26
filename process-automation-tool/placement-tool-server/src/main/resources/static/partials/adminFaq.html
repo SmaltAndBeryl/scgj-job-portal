@@ -1,0 +1,510 @@
+<div class="templatePartial faqTemplate" ng-controller="adminFaqController">
+	<p class="partialheading">Frequently Asked Questions</p>
+	<div class="contentSection">
+		
+		<!-- FAQ One Section -->
+		<div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewTotalJobsByEmployer('#glyphiconIcon1','#answerOne');">
+				<div class="questionSection">
+					<p class="questionText">How many job listings were posted by
+						<select class="faqInput" ng-model="faq1Employer" ng-options="employer as employer.employerName for employer in totalEmployersList" required>
+							<option value="" disabled>Select Employer</option>
+						</select>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon1"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ One Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerOne">
+			<p>{{faq1Answer}}</p>
+		</div>
+
+
+		<!-- FAQ Eleven Section -->
+		<div class="faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewTotalHiredCandidates('#glyphiconIcon11','#answerEleven');">
+				<div class="questionSection">
+					<p class="questionText">How many candidates got hired in
+						<select class="faqInput" ng-model="faq11SelectedTime" ng-change="resetFaq11TimePeriod()" required>
+							<option value="" disabled selected>Select Time Period</option>
+							<option value={{staticContentArray.oneMonthText}}>1 Month</option>
+							<option value={{staticContentArray.threeMonthText}}>3 Months</option>
+							<option value={{staticContentArray.sixMonthText}}>6 Months</option>
+							<option value={{staticContentArray.customDateText}}>Custom Date</option>
+						</select>
+						<input  ng-show="faq11SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq11StartTime" ng-required="faq11SelectedTime == 'customDate'"/>
+						<span  ng-show="faq11SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq11SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq11EndTime" ng-required="faq11SelectedTime == 'customDate'"/>
+						<span ng-show="faq11SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon11"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Eleven Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerEleven">
+			<p>{{faq11Answer}}</p>
+		</div>
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq11">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq11=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--  FAQ Twelve Section -->
+		<div class="faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewStateWiseVacanciesCreated('#glyphiconIcon12','#answerTwelve');">
+				<div class="questionSection">
+					<p class="questionText">How many vacancies were created in
+					<select class="faqInput" ng-model="faq12State" ng-options="state for state in statesList" required>
+							<option value="" disabled>Select State</option>
+						</select>
+						during
+						<select class="faqInput" ng-model="faq12SelectedTime" ng-change="resetFaq12TimePeriod()" required>
+							<option value="" disabled selected>Select Time Period</option>
+							<option value={{staticContentArray.oneMonthText}}>1 Month</option>
+							<option value={{staticContentArray.threeMonthText}}>3 Months</option>
+							<option value={{staticContentArray.sixMonthText}}>6 Months</option>
+							<option value={{staticContentArray.customDateText}}>Custom Date</option>
+						</select>
+						<input  ng-show="faq12SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq12StartTime" ng-required="faq12SelectedTime == 'customDate'"/>
+						<span  ng-show="faq12SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq12SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq12EndTime" ng-required="faq12SelectedTime == 'customDate'"/>
+						<span ng-show="faq12SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon12"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Twelve Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerTwelve">
+			<p>{{faq12Answer}}</p>
+		</div>
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq12">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq12=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!-- FAQ Two Section -->
+		<div class="faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewJobRoleSpecificCandidates('#glyphiconIcon2','#answerTwo');">
+				<div class="questionSection">
+					<p class="questionText">How many candidates got hired for
+						<select class="faqInput" ng-model="faq2Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
+							<option value="" disabled>Select Jobrole</option>
+						</select>
+						 during
+						 <select class="faqInput" ng-model="faq2SelectedTime" ng-change="resetFaq2TimePeriod()" required>
+		                    <option value="" disabled selected>Select Time Period</option>
+		                    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+		                    <option value={{staticContentArray.threeMonthText}}>3 Months</option>
+		                    <option value={{staticContentArray.sixMonthText}}>6 Months</option>
+		                    <option value={{staticContentArray.customDateText}}>Custom Date</option>
+		                </select>
+						<input  ng-show="faq2SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq2StartTime" ng-required="faq2SelectedTime == 'customDate'"/>
+						<span  ng-show="faq2SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq2SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq2EndTime" ng-required="faq2SelectedTime == 'customDate'"/>
+						<span ng-show="faq2SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon2"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Two Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerTwo">
+			<p>{{faq2Answer}}</p>
+		</div>
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq2">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq2=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- FAQ Three Section -->
+		<div class="faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewJobRoleStateSpecificCandidates('#glyphiconIcon3','#answerThree');">
+				<div class="questionSection">
+					<p class="questionText">How many candidates got hired for
+						<select class="faqInput" ng-model="faq3Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
+							<option value="" disabled>Select Jobrole</option>
+						</select>
+						 from
+						 <select class="faqInput" ng-model="faq3State" ng-options="state for state in statesList" required>
+							<option value="" disabled>Select State</option>
+						</select>
+						 during
+						 <select class="faqInput" ng-model="faq3SelectedTime" ng-change="resetFaq3TimePeriod()" required>
+		                    <option value="" disabled selected>Select Time Period</option>
+		                    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+		                    <option value={{staticContentArray.threeMonthText}}>3 Months</option>
+		                    <option value={{staticContentArray.sixMonthText}}>6 Months</option>
+		                    <option value={{staticContentArray.customDateText}}>Custom Date</option>
+		                </select>
+						<input  ng-show="faq3SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq3StartTime" ng-required="faq3SelectedTime == 'customDate'" />
+						<span  ng-show="faq3SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq3SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq3EndTime" ng-required="faq3SelectedTime == 'customDate'" />
+						<span ng-show="faq3SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon3"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Three Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerThree">
+			<p>{{faq3Answer}}</p>
+		</div>
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq3">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq3=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- FAQ Four Section -->
+		<div class="faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewInactiveCompanies('#glyphiconIcon4','#answerFour');">
+				<div class="questionSection">
+					<p class="questionText">How many employers were not active on platform during
+						 <select class="faqInput" ng-model="faq4SelectedTime" ng-change="resetFaq4TimePeriod()" required>
+		                    <option value="" disabled selected>Select Time Period</option>
+		                    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+		                    <option value={{staticContentArray.threeMonthText}}>3 Months</option>
+		                    <option value={{staticContentArray.sixMonthText}}>6 Months</option>
+		                    <option value={{staticContentArray.customDateText}}>Custom Date</option>
+		                </select>
+						<input  ng-show="faq4SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From"  onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq4StartTime" ng-required="faq4SelectedTime == 'customDate'" />
+						<span  ng-show="faq4SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq4SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq4EndTime" ng-required="faq4SelectedTime == 'customDate'" />
+						<span ng-show="faq4SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon4"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Four Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerFour">
+			<p>{{faq4Answer}}</p>
+		</div>
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq4">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq4=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- FAQ Five Section -->
+		<div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox">
+				<div class="questionSection">
+					<p class="questionText">How many candidates are active on the platform?</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon5" ng-click="viewActiveCandidates('#glyphiconIcon5','#answerFive');"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Five Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerFive">
+			<p>{{faq5Answer}}</p>
+		</div>
+		
+		
+		<!-- FAQ Six Section -->
+		<div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="viewJobRoleSpecificJobs('#glyphiconIcon6','#answerSix');">
+				<div class="questionSection">
+					<p class="questionText">How many job listings were posted for
+						<select class="faqInput" ng-model="faq6Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
+							<option value="" disabled>Select Jobrole</option>
+						</select>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon6"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Six Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerSix">
+			<p>{{faq6Answer}}</p>
+		</div>
+		
+		<!-- FAQ Seven Section -->
+	<!-- <div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="countPlacedCGSCCertifiedCandidate('#glyphiconIcon7','#answerSeven');">
+				<div class="questionSection">
+					<p class="questionText">How many CGSC certified candidates were hired
+					during
+					<select class="faqInput" ng-model="faq7SelectedTime" ng-change="resetFaq7TimePeriod()" required>
+		                    <option value="" disabled selected>Select Time Period</option>
+		                    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+		                    <option value={{staticContentArray.threeMonthText}}>3 Months</option>
+		                    <option value={{staticContentArray.sixMonthText}}>6 Months</option>
+		                    <option value={{staticContentArray.customDateText}}>Custom Date</option>
+		                </select>
+						<input  ng-show="faq7SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From"  onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq7StartTime" ng-required="faq7SelectedTime == 'customDate'" />
+						<span  ng-show="faq7SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq7SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq7EndTime" ng-required="faq7SelectedTime == 'customDate'" />
+						<span ng-show="faq7SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon7"></button>
+				</div>
+			</form>
+		</div>  -->
+		<!-- FAQ Seven Answer Section -->
+	<!--	<div class="faqAnswerPanel hidePanel" id="answerSeven">
+			<p>{{faq7Answer}}</p>
+		</div> -->
+		<!-- FAQ Error message section -->
+	<!--	<div class="row margin-0" ng-show="errorFaq7">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq7=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		
+		<!-- FAQ Eight Section -->
+		<div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox">
+				<div class="questionSection">
+					<p class="questionText">How many total job postings are active?</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon8" ng-click="viewActiveJobPostings('#glyphiconIcon8','#answerEight');"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Eight Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerEight">
+			<p>{{faq8Answer}}</p>
+		</div>
+		
+		
+		<!-- FAQ nine Section -->
+		<div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="getEmployersWithMinimumJobPostings('#glyphiconIcon9','#answerNine');">
+				<div class="questionSection">
+					<p class="questionText">List of employers who have posted more than 
+					<input class="faqInput" placeholder="Enter Count" ng-model="faq9JobCount"  type="number"  min="0" max="5000000" oninput="this.value=parseInt(this.value)" required/> 
+					job listings for
+					<select class="faqInput" ng-model="faq9Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" ng-change="populateJobOccupation()" required>
+						<option value="" disabled>Select Jobrole</option>
+					</select>
+					and 
+					<select class="faqInput" ng-model="faq9Occupation" ng-options="occupation as occupation.occupationName for occupation in occupationList" required>
+						<option value="" disabled>Select Specialization</option>
+					</select>
+					during
+					<select class="faqInput" ng-model="faq9SelectedTime" ng-change="resetFaq9TimePeriod()" required>
+		                    <option value="" disabled selected>Select Time Period</option>
+		                    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+		                    <option value={{staticContentArray.threeMonthText}}>3 Months</option>
+		                    <option value={{staticContentArray.sixMonthText}}>6 Months</option>
+		                    <option value={{staticContentArray.customDateText}}>Custom Date</option>
+		                </select>
+						<input  ng-show="faq9SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From"  onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq9StartTime" ng-required="faq9SelectedTime == 'customDate'" />
+						<span  ng-show="faq9SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+						<input ng-show="faq9SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq9EndTime" ng-required="faq9SelectedTime == 'customDate'" />
+						<span ng-show="faq9SelectedTime == 'customDate'" class="openDateIcon">
+							<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+						</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon9"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Nine Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerNine">
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewEmployerList" id="viewEmployerList" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewEmployerListSmallScreen" id="viewEmployerListSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+		</div>
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq9">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq9=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!-- FAQ Ten Section -->
+		<div class="faqPanel faqPanel row rowMargin-0">
+			<form class="faqQuestionFlexBox" ng-submit="getCompanyWiseCandidatesForJobrole('#glyphiconIcon10','#answerTen');">
+				<div class="questionSection">
+					<p class="questionText">List of candidates hired or shorlisted by 
+					<select class="faqInput" ng-model="faq10Employer" ng-options="employer as employer.employerName for employer in totalEmployersList" required>
+						<option value="" disabled>Select Employer</option>
+					</select>
+					for 
+					<select class="faqInput" ng-model="faq10Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
+						<option value="" disabled>Select Jobrole</option>
+					</select>					
+					during
+					<select class="faqInput" ng-model="faq10SelectedTime" ng-change="resetFaq10TimePeriod()" required>
+						<option value="" disabled selected>Select Time Period</option>
+					    <option value={{staticContentArray.oneMonthText}}>1 Month</option>
+						<option value={{staticContentArray.threeMonthText}}>3 Months</option>
+						<option value={{staticContentArray.sixMonthText}}>6 Months</option>
+						<option value={{staticContentArray.customDateText}}>Custom Date</option>
+					</select>
+					<input  ng-show="faq10SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq10StartTime" ng-required="faq10SelectedTime == 'customDate'" />
+					<span  ng-show="faq10SelectedTime == 'customDate'" class="openDateIcon">
+						<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+					</span>
+					<input ng-show="faq10SelectedTime == 'customDate'" class="faqInput datePickerIcon" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="faq10EndTime" ng-required="faq10SelectedTime == 'customDate'" />
+					<span ng-show="faq10SelectedTime == 'customDate'" class="openDateIcon">
+						<img src="images/calendarIcon.png" alt="Calendar Icon" class="selectDateIcon">
+					</span>
+					</p>
+				</div>
+				<div class="glyphiconSection">
+					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon10"></button>
+				</div>
+			</form>
+		</div>
+		<!-- FAQ Ten Answer Section -->
+		<div class="faqAnswerPanel hidePanel" id="answerTen">
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewCandidateList" id="viewCandidateList" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>
+			<div class="row margin-0 gridSection">
+				<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+					<div ui-grid="viewCandidateListSmallScreen" id="viewCandidateListSmallScreen" class="grid grid-align" ui-grid-auto-resize  ui-grid-edit></div>
+				</div>
+			</div>	
+		</div>
+
+		<!-- GIF section -->
+		<div class="row margin-0" ng-show="downloadGif">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<img src="../images/loadingImage.gif" class="downloadGif" alt="Loading GIF">
+			</div>
+		</div>
+
+		<!-- FAQ Error message section -->
+		<div class="row margin-0" ng-show="errorFaq10">
+			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
+				<div class="row margin-0">
+					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
+						{{errorMessage}}
+					</div>
+					<div class="col-md-1 col-sm-2 col-xs-2">
+						<button type="button" class="close" ng-click="errorFaq10=false">&times;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+</div>

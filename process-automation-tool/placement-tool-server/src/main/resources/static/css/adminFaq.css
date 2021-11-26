@@ -1,0 +1,270 @@
+.faqPanel{
+    border: 1px solid var(--text-dark-grey);
+    border-radius: 3px;
+    padding: 1% 1%;
+    margin: 1.5% 1.5% 0% 1.5%;
+    cursor: pointer;
+}
+.faqAnswerPanel {
+    border: 1px solid var(--text-dark-grey);
+    margin: 0% 1.5% 0% 1.5%;
+    border-top: 0px;
+    padding: 1%;
+}
+.questionText{
+	font-size: 1em;
+    font-weight: 400;
+    color: var(--text-dark-grey);
+}
+.hidePanel{
+	display:none;
+}
+.showPanel{
+	display:block;
+}
+.showHideFaqIcon{
+	border: none;
+    background: none;
+    outline: none;
+    color: var(--cgsc-dark-grey);
+    float: right;
+}
+.faqInput{
+    width: 18%;
+	margin: 0.5% 0.2% 0.5% 0.5%;
+    font-weight: 300;
+    outline: none;
+    padding: 0% 0.5%;
+    background: var(--cgsc-white);
+    border: none;
+    border-bottom: 1px solid var(--cgsc-dark-grey);
+    font-size: 0.9em;
+}
+.selectDateIcon{
+    width: 0.7em;
+    height: 0.9em;
+}
+.faqTemplate .openDateIcon{
+	position: relative;
+    left: -2%;
+    top:0;
+    right:0;
+    background: var(--cgsc-white);
+    pointer-events: none;
+    color: var(--sems-light-grey-shade2);
+}
+.faqQuestionFlexBox{
+	display:flex;
+	align-items:center;
+}
+.questionSection{
+	flex:3;
+}
+.glyphiconSection{
+	flex:0.2;
+}
+.errorMessageBox.errorMessageBoxFaq {
+	margin: 2.5% auto 1% auto;
+}
+/** ---------------ui-grid styles----------------------**/
+#viewEmployerList{
+	display:block;
+	height:90px;	
+}
+#viewEmployerListSmallScreen{
+	display:none;
+	height:90px;
+}
+#viewCandidateList{
+	display:block;
+	height:90px;	
+}
+#viewCandidateListSmallScreen{
+	display:none;
+	height:90px;
+}
+.downloadGif{
+	width:1.8em;
+	margin-top: 3%;
+}
+.jobStatusGridText{
+	margin-top:5%;
+}
+.shortlistedText{
+	color: var(--cgsc-dark-blue);
+}
+.hiredText{
+	color: var(--light-green);
+}
+.notAvailableGridText{
+	margin-top:5%;
+}
+.gridDownloadJobDescriptionIcon{
+	width: 24%;
+    margin-top: 1%;
+    cursor: pointer;
+}
+/** ------------ MEDIA QUERIES ----------**/
+
+@media (min-width: 992px) and (max-width:1200px){
+	.faqTemplate .gridSection {
+	    font-size: 0.82em;
+	}
+	.faqInput {
+	    width: 20%;
+	}
+}
+@media (min-width: 801px) and (max-width:991px){
+	.faqInput {
+	    width: 20%;
+	}
+}
+@media (min-width: 768px) and (max-width:800px){
+	.faqInput {
+	    width: 18%;
+	}
+	.faqTemplate .openDateIcon {
+    	left: -2.5%;
+    }
+	#viewEmployerList{
+		display:none;
+	}
+	#viewEmployerListSmallScreen{
+		display:block;
+	}
+	#viewCandidateList{
+		display:none;
+	}
+	#viewCandidateListSmallScreen{
+		display:block;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 13%;
+	}
+}
+@media (min-width: 577px) and (max-width:767px){
+	.faqInput {
+	    width: 23%;
+	}
+	.faqTemplate .openDateIcon {
+    	left: -2.5%;
+    }
+	#viewEmployerList{
+		display:none;
+	}
+	#viewEmployerListSmallScreen{
+		display:block;
+	}
+	#viewCandidateList{
+		display:none;
+	}
+	#viewCandidateListSmallScreen{
+		display:block;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 18%;
+	}
+	.errorMessageBox.errorMessageBoxFaq {
+		margin: 3% auto 2% auto;
+		padding-left: 4rem;
+	}
+}
+
+@media (min-width: 481px) and (max-width:576px){
+	.questionText {
+	    font-size: 1em;
+	}
+	.faqInput {
+	    width: 32%;
+	}
+	.faqTemplate .openDateIcon {
+    	left: -5%;
+    }
+    .faqPanel {
+	    margin: 4% 1.5% 0% 1.5%;
+	    padding: 2%;
+	}
+	#viewEmployerList{
+		display:none;
+	}
+	#viewEmployerListSmallScreen{
+		display:block;
+	}
+	#viewCandidateList{
+		display:none;
+	}
+	#viewCandidateListSmallScreen{
+		display:block;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 21%;
+	    margin-top: 0%;
+	}
+	.errorMessageBox.errorMessageBoxFaq {
+		margin: 4% auto 0 auto;
+		padding-left: 5rem;
+	}
+}
+
+@media (max-width:480px){
+	.questionText {
+	    font-size: 1em;
+	}
+	.faqInput {
+	    width: 31%;
+	}
+	.faqTemplate .openDateIcon {
+    	left: -5%;
+    }
+    .faqPanel {
+	    margin: 4% 1.5% 0% 1.5%;
+	    padding: 2%;
+	}
+	#viewEmployerList{
+		display:none;
+	}
+	#viewEmployerListSmallScreen{
+		display:block;
+	}
+	#viewCandidateList{
+		display:none;
+	}
+	#viewCandidateListSmallScreen{
+		display:block;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    width: 23%;
+	    margin-top:2%;
+	}
+	.errorMessageBox.errorMessageBoxFaq {
+		margin: 4% auto 0 auto;
+		padding-left: 3rem;
+	}
+}
+@media (max-width:415px){
+	.faqInput {
+	    width: 40%;
+	    margin:2%;
+	}
+	.faqPanel {
+	    padding:3% 2%;
+	}
+	.faqTemplate .openDateIcon {
+	    left: -8%;
+	}
+	#viewEmployerList{
+		display:none;
+	}
+	#viewEmployerListSmallScreen{
+		display:block;
+	}
+	#viewCandidateList{
+		display:none;
+	}
+	#viewCandidateListSmallScreen{
+		display:block;
+	}
+	.gridDownloadJobDescriptionIcon {
+	    margin-top:6%;
+	}
+}
