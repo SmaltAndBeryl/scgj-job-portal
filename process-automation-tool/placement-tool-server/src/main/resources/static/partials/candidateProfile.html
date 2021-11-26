@@ -364,7 +364,7 @@
 					<input type="file" class="uploadCandidateDocuments" id="candidateCertificateDocuments" accept=".zip" onchange="document.getElementById('updateProfileCandidateCertificates').value=this.value.split('\\').pop(); angular.element(this).scope().uploadCandidateCertificates();" ng-disabled="disableUserAction"/>
 					<button class="btn browseButton browseCandidateDocuments" type="button">Browse</button>	
 				</div>
-				<button class="btn deleteCertificatesButton" type="button" ng-click="deleteCertificates();" ng-disabled="disableUserAction"><i class="fa fa-trash" aria-hidden="true"></i></button>
+				<button class="btn deleteCertificatesButton" type="button" ng-click="deleteCertificates();" ng-disabled="disableUserAction" ng-hide="hideDeleteIcon"><i class="fa fa-trash" aria-hidden="true"></i></button>
 			</div>			
 			<div class="row margin-0 margin-top-2">
 				<div class="col-lg-12 col-md-12 col-sm-12 text-right">

@@ -10,6 +10,7 @@ import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,13 +59,14 @@ public class CandidateProfileService
 	 * @param candidateProfileDto
 	 * @return 1 if success;
 	 * else throws and exception and rollsback the transaction
+	 * @throws Exception 
 	 *
 	 * @updatedBy Sarthak Bhutani
 	 * @updatedOn 01-12-2020
 	 * @update - to calculate the age via dob & send it as a param to dao
 	 */
 	@Transactional(rollbackFor=Exception.class)
-	public int updateCandidateDetails(CandidateProfileDto candidateProfileDto)
+	public int updateCandidateDetails(CandidateProfileDto candidateProfileDto) throws Exception
 	{
 		Log.debug("Request received in service to update the candidate details for user with id {}",candidateProfileDto.getUserId());
 		Log.debug("Sending request to dao to fetch the candidate document path");
@@ -138,11 +140,16 @@ public class CandidateProfileService
 			}
 			return 1;
 		}
+		catch(DuplicateKeyException duplicateKey)
+		{
+			Log.error("The aadhaar number of the candidate already exists on the platform");
+			throw new DuplicateKeyException("Duplicate Key Exception", duplicateKey);
+		}
 		catch(Exception e)
 		{
 			Log.error("An exception occurred while updating the candidate details "+e);
 			Log.error("Returning -25 to controller");
-			return -25;
+			throw new Exception(e);
 		}
 	}
 }

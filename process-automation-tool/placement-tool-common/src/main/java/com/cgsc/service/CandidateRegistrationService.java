@@ -12,6 +12,7 @@ import com.cgsc.common.ReadApplicationConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -133,6 +134,11 @@ public class CandidateRegistrationService
 			Log.debug("Files uploaded by candidate uploaded on S3 bucket, sending request to insert the candidate details into database");
 			return registerCandidateDao.insertCandidateDetails(registerCandidateDto, candidateId, age, candidateResumeFilePath, candidateCertificateFilePath);
 		} 
+		catch(DuplicateKeyException duplicateKey)
+		{
+			Log.error("The aadhaar number of the candidate already exists on the platform");
+			throw new DuplicateKeyException("Duplicate Key Exception", duplicateKey);
+		}
 		catch (Exception e) 
 		{
 			Log.error("An exception occurred while generating candidate credentials - " +e);

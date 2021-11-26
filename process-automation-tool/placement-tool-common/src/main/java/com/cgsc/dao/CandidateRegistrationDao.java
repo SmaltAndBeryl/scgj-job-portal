@@ -110,6 +110,11 @@ public class CandidateRegistrationDao extends AbstractTransactionalDao
 			Log.debug("In try block to insert candidate details into database");
 			return getJdbcTemplate().update(registerCandidateConfig.getInsertCandidateDetails(), params);
 		}
+		catch (DuplicateKeyException duplicateKey)
+		{
+			Log.error("The aadhaar number of the candidate already exists on the platform");
+			throw new DuplicateKeyException("Duplicate Key Exception", duplicateKey);
+		}
 		catch (Exception e) 
 		{
 			Log.error("An exception occurred while inserting candidate details into database "+e);

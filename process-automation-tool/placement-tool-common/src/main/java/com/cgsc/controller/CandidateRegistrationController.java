@@ -3,6 +3,7 @@ package com.cgsc.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,7 @@ public class CandidateRegistrationController
 	 * @return 1 if success; 
 	 * -25 in case of exception;
 	 * -55 in case of duplicate mobile number
+	 * -66 in case of duplicate aadhaar number
 	 */
 	@PostMapping(value="/registerCandidates",consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
 	public int generateCandidateCredentials(@ModelAttribute RegisterCandidateDto registerCandidateDto)
@@ -36,6 +38,11 @@ public class CandidateRegistrationController
 		{
 			Log.debug("Request received in controller to generate the candidate credentials for candidate with mobile number {}",registerCandidateDto.getMobileNumber());
 			return registerCandidateService.generateCandidateCredentials(registerCandidateDto);
+		}
+		catch(DuplicateKeyException duplicateKey)
+		{
+			Log.error("The aadhaar number of the candidate already exists on the platform");
+			return -66;
 		}
 		catch(Exception e)
 		{

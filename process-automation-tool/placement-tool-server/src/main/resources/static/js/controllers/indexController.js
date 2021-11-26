@@ -1258,6 +1258,14 @@ app.controller('mainController', function($rootScope, $scope,$http, $location, $
 		      	              	$scope.registrationError=false;
 		      	              }, 7000);
 		      	        	}
+		      	        	else if(response.data == -66)
+		      	        	{
+		      	        		$scope.registerationErrorMessage=$scope.errorMessageArray.aadhaarNumberAlreadyExists;
+			      	    		$scope.registrationError=true;
+		      	        		$timeout(function() {
+		      	              	$scope.registrationError=false;
+		      	              }, 7000);
+		      	        	}
 		      	        	else
 		      	        	{
 		      	        		$scope.registerationErrorMessage=$scope.errorMessageArray.registrationError;

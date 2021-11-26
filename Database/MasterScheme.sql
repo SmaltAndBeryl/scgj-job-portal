@@ -39,7 +39,7 @@ create table job_candidate_mapping(id int primary key auto_increment, job_id int
 
 create table training_partner ( id int primary key auto_increment,  tp_name varchar(255), is_active enum('Y','N') default 'Y');
 
-create table candidates(id int primary key auto_increment, user_id int, guardian_mobile_number bigint(12), gender enum('M','F','O'), defence_background enum('Y','N'),qualification varchar(255), is_cgsc_certified enum('Y','N'), certificate_number varchar(100), working_experience varchar(255),resume_path varchar(255), certificate_path varchar(255), address VARCHAR(255), dob DATE, age INT, guardian_name VARCHAR(100),aadhaar_number BIGINT(12), job_role_id INT, tp_id int, foreign key (user_id) references users(id), foreign key(tp_id) references training_partner(id), foreign key(job_role_id) references job_roles(id));
+create table candidates(id int primary key auto_increment, user_id int, guardian_mobile_number bigint(12), gender enum('M','F','O'), defence_background enum('Y','N'),qualification varchar(255), is_cgsc_certified enum('Y','N'), certificate_number varchar(100), working_experience varchar(255),resume_path varchar(255), certificate_path varchar(255), address VARCHAR(255), dob DATE, age INT, guardian_name VARCHAR(100),aadhaar_number BIGINT(12) unique, job_role_id INT, tp_id int, foreign key (user_id) references users(id), foreign key(tp_id) references training_partner(id), foreign key(job_role_id) references job_roles(id));
 
 create table job_postings_review_comments(id int primary key auto_increment, job_id int, admin_comment varchar(255), commented_by int, updated_on datetime, foreign key(job_id) references job_postings(id), foreign key(commented_by) references users(id));
 

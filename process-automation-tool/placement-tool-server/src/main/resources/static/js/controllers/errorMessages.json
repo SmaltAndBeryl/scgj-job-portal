@@ -167,5 +167,6 @@
 "faqNoEmployerDetailsError":"No employer details available for the selected time period",
 "faqNoCandidateDetailsError":"No candidate details available for the selected time period",
 
-"noCandidatesHiredError":"No candidates are hired in the selected job post"
+"noCandidatesHiredError":"No candidates are hired in the selected job post",
+"aadhaarNumberAlreadyExists":"Entered Aadhaar Number already exists"
 }]

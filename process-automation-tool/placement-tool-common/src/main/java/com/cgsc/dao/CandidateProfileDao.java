@@ -8,6 +8,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -135,6 +136,11 @@ public class CandidateProfileDao extends AbstractTransactionalDao
 		{
 			Log.debug("In try block to execute the query and update the records in candidate table");
 			return getJdbcTemplate().update(candidateProfileConfig.getUpdateCandidateDetails(), params);	
+		}
+		catch(DuplicateKeyException duplicateKey)
+		{
+			Log.error("The aadhaar number of the candidate already exists on the platform");
+			throw new DuplicateKeyException("Duplicate Key Exception", duplicateKey);
 		}
 		catch (Exception e) 
 		{

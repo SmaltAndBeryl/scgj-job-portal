@@ -11,6 +11,8 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 	
 	var fetchCandidateDetailsUrl="/getCandidateProfileDetails";
 	var updateCandidateProfileUrl="/updateCandidateProfile";
+	
+	$scope.hideDeleteIcon=true;
 
 	//Function to format String(yyyy-MM-dd) to String(dd-MM-yyyy)
 	let formatToDisplayDate = function(dateString){
@@ -97,8 +99,9 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 		});
 	
 	//Request to fetch candidate Profile details
-	$scope.fetchCandidateDetails=function(){
-		
+	$scope.fetchCandidateDetails=function()
+	{
+		$scope.hideDeleteIcon=true;
 		$http.get(fetchCandidateDetailsUrl)
 		.then(function(response){
 			$scope.candidateDetails=response.data;
@@ -120,7 +123,9 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 
 			document.getElementById('updateProfileCandidateResume').value=$scope.candidateDetails.candidateName+$scope.staticContentArray.underScore+$scope.staticContentArray.resumeText;
 			
-			if($scope.candidateDetails.certificatesPath != null){
+			if($scope.candidateDetails.certificatesPath != null)
+			{	
+				$scope.hideDeleteIcon=false;
 				document.getElementById('updateProfileCandidateCertificates').value=$scope.candidateDetails.candidateName+$scope.staticContentArray.underScore+$scope.staticContentArray.certificatesText;				
 			}
 			if($scope.profileDetails.tpName!=null || $scope.profileDetails.tpName!=undefined || $scope.profileDetails.tpName!=""){
@@ -542,6 +547,16 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
           				document.getElementById('candidateResumeDocument').value="";
           				$scope.showEditPersonalInformation=false;
     	        	}
+    	        	else if(response.data==-66)
+    	        		{
+	    	        		$scope.updateProfileError=$scope.errorMessageArray.aadhaarNumberAlreadyExists;
+	    	        		$scope.error=true;	
+	          				$scope.loadingGif=false;
+	          				$scope.disableUserAction=false;
+	          				$scope.disableUpdateButton=false;
+	          				$scope.hideMessages();
+    	        		
+    	        		}
     	        	else{
     	        		$scope.updateProfileError=$scope.errorMessageArray.updateCandidateProfileError;
     	        		$scope.error=true;	

@@ -3,6 +3,7 @@ package com.cgsc.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,6 +46,7 @@ public class CandidateProfileController
 	 * @param candidateProfileDto
 	 * @return 1 if success;
 	 * else returns -25
+	 * -66 in case of duplicate aadhaar number
 	 */
 	@Privilege(value= {"Candidate"})
 	@PostMapping(value="/updateCandidateProfile",consumes=MediaType.ALL_VALUE)
@@ -54,6 +56,11 @@ public class CandidateProfileController
 		{
 			Log.debug("Request received in controller to update the candidate details for user with id {}",candidateProfileDto.getUserId());
 			return candidateProfileService.updateCandidateDetails(candidateProfileDto);
+		}
+		catch(DuplicateKeyException duplicateKey)
+		{
+			Log.error("The aadhaar number of the candidate already exists on the platform");
+			return -66;
 		}
 		catch(Exception e)
 		{
