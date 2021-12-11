@@ -60,11 +60,11 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 	});
 	
 	//View list of training partners
-//    $http.get('/viewTrainingPartners')
-//    .then(function(response)
-//    {
-//    	$scope.trainingPartners = response.data;
-//    });
+    $http.get('/viewTrainingPartners')
+    .then(function(response)
+    {
+    	$scope.trainingPartners = response.data;
+    });
 	
 	//Method to fetch error message
 	$http.get(errorMessageUrl)
@@ -298,27 +298,27 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 			$scope.hideMessages();
 		}
 		//certified, but didn't enter certificate details
-//		else if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag && ($scope.profileDetails.certificateNumber==null || $scope.profileDetails.certificateNumber==undefined || $scope.profileDetails.certificateNumber=="")){
-//			$scope.updateProfileError = $scope.errorMessageArray.certificateNumberError;
-//			$scope.updateDetails=false;
-//			$scope.error=true;
-//			$scope.loadingGif=false;
-//			$scope.disableUserAction=false;
-//			$scope.disableUpdateButton=false;
-//			$scope.updateDetails=false;
-//			$scope.hideMessages();
-//		}
-//		//certified, but didn't enter tpname
-//		else if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag && ($scope.profileDetails.trainingPartner==null || $scope.profileDetails.trainingPartner==undefined || $scope.profileDetails.trainingPartner=="")){
-//			$scope.updateProfileError = $scope.errorMessageArray.trainingPartnerDetailsError;
-//			$scope.updateDetails=false;
-//			$scope.error=true;
-//			$scope.loadingGif=false;
-//			$scope.disableUserAction=false;
-//			$scope.disableUpdateButton=false;
-//			$scope.updateDetails=false;
-//			$scope.hideMessages();
-//		}
+		else if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag && ($scope.profileDetails.certificateNumber==null || $scope.profileDetails.certificateNumber==undefined || $scope.profileDetails.certificateNumber=="")){
+			$scope.updateProfileError = $scope.errorMessageArray.certificateNumberError;
+			$scope.updateDetails=false;
+			$scope.error=true;
+			$scope.loadingGif=false;
+			$scope.disableUserAction=false;
+			$scope.disableUpdateButton=false;
+			$scope.updateDetails=false;
+			$scope.hideMessages();
+		}
+		//certified, but didn't enter tpname
+		else if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag && ($scope.profileDetails.trainingPartner==null || $scope.profileDetails.trainingPartner==undefined || $scope.profileDetails.trainingPartner=="")){
+			$scope.updateProfileError = $scope.errorMessageArray.trainingPartnerDetailsError;
+			$scope.updateDetails=false;
+			$scope.error=true;
+			$scope.loadingGif=false;
+			$scope.disableUserAction=false;
+			$scope.disableUpdateButton=false;
+			$scope.updateDetails=false;
+			$scope.hideMessages();
+		}
 		else if($scope.profileDetails.aadhaarNumber==undefined ||$scope.profileDetails.aadhaarNumber.toString().length != 12){
 			$scope.updateProfileError=$scope.errorMessageArray.aadhaarNumberLengthError;
 			$scope.updateDetails=false;
@@ -380,29 +380,29 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 			$scope.hideMessages();
 		}
 		//should be kept at last, since it'll go in the loop for checking, if the training partner entered is valid
-//		else if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag){
-//				for (let i = 0; i < $scope.trainingPartners.length; i++) {
-//					if (typeof $scope.profileDetails.trainingPartner == "string" && $scope.trainingPartners[i].trainingPartnerName == $scope.profileDetails.trainingPartner) {
-//						//allow registration
-//						$scope.updateDetails = true;
-//						break;
-//					} else if (typeof $scope.profileDetails.trainingPartner == "object" && $scope.trainingPartners[i].userId == $scope.profileDetails.trainingPartner.userId) {
-//						//allow registration
-//						$scope.updateDetails = true;
-//						break;
-//					} else {
-//						$scope.updateDetails = false;
-//					}
-//				}
-//				if($scope.updateDetails==false){
-//					$scope.updateProfileError = $scope.errorMessageArray.trainingPartnerInvalidDetailsError;
-//					$scope.error=true;
-//					$scope.loadingGif=false;
-//					$scope.disableUserAction=false;
-//					$scope.disableUpdateButton=false;
-//					$scope.hideMessages();
-//				}
-//		}
+		else if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag){
+				for (let i = 0; i < $scope.trainingPartners.length; i++) {
+					if (typeof $scope.profileDetails.trainingPartner == "string" && $scope.trainingPartners[i].trainingPartnerName == $scope.profileDetails.trainingPartner) {
+						//allow registration
+						$scope.updateDetails = true;
+						break;
+					} else if (typeof $scope.profileDetails.trainingPartner == "object" && $scope.trainingPartners[i].userId == $scope.profileDetails.trainingPartner.userId) {
+						//allow registration
+						$scope.updateDetails = true;
+						break;
+					} else {
+						$scope.updateDetails = false;
+					}
+				}
+				if($scope.updateDetails==false){
+					$scope.updateProfileError = $scope.errorMessageArray.trainingPartnerInvalidDetailsError;
+					$scope.error=true;
+					$scope.loadingGif=false;
+					$scope.disableUserAction=false;
+					$scope.disableUpdateButton=false;
+					$scope.hideMessages();
+				}
+		}
 
 		if($scope.updateDetails==true)
 		{
@@ -428,22 +428,22 @@ candidateProfile.controller("candidateProfileController",function($scope,$http,$
 			updatedProfileDetails.append('address',$scope.profileDetails.address);
 			updatedProfileDetails.append('guardianName',$scope.profileDetails.guardianName);
 
-//			updatedProfileDetails.append('isCgscCertified',$scope.profileDetails.isCgscCertified);
+			updatedProfileDetails.append('isCgscCertified',$scope.profileDetails.isCgscCertified);
 
-//			if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag){
-//				updatedProfileDetails.append('certificateNumber',$scope.profileDetails.certificateNumber);
-//				if(typeof($scope.profileDetails.trainingPartner) == "string"){
-//					for(let i=0;i<$scope.trainingPartners.length;i++){
-//						if ($scope.trainingPartners[i].trainingPartnerName==$scope.profileDetails.trainingPartner){
-//							updatedProfileDetails.append('tpId',$scope.trainingPartners[i].userId)
-//							break;
-//						}
-//					}
-//				}
-//				else {
-//					updatedProfileDetails.append('tpId', $scope.profileDetails.trainingPartner.userId);
-//				}
-//			}
+			if($scope.profileDetails.isCgscCertified==$scope.staticContentArray.trueFlag){
+				updatedProfileDetails.append('certificateNumber',$scope.profileDetails.certificateNumber);
+				if(typeof($scope.profileDetails.trainingPartner) == "string"){
+					for(let i=0;i<$scope.trainingPartners.length;i++){
+						if ($scope.trainingPartners[i].trainingPartnerName==$scope.profileDetails.trainingPartner){
+							updatedProfileDetails.append('tpId',$scope.trainingPartners[i].userId)
+							break;
+						}
+					}
+				}
+				else {
+					updatedProfileDetails.append('tpId', $scope.profileDetails.trainingPartner.userId);
+				}
+			}
 			
         	if(document.getElementById('candidateResumeDocument').files[0]!=undefined){
         		

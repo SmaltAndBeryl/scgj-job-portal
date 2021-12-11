@@ -32,7 +32,7 @@ manageJobApplications.controller("manageJobApplicationsController",function($sco
 		columnDefs: [{
 			name: 'candidateName',
 			displayName: "Candidate Name",
-			width: '25%',
+			width: '16%',
 			cellTooltip: function(row, col) {
 				return 'Candidate Name: ' + row.entity.candidateName;
 			}
@@ -40,7 +40,7 @@ manageJobApplications.controller("manageJobApplicationsController",function($sco
 		{
 			name: 'educationQualification',
 			displayName: "Education",
-			width: '15%',
+			width: '13%',
 			cellTooltip: function(row, col) 
 			{
 				return 'Education: ' + row.entity.educationQualification;
@@ -55,16 +55,16 @@ manageJobApplications.controller("manageJobApplicationsController",function($sco
 				return 'Experience: ' + row.entity.professionalExperience;
 			}
 		},
-//		{
-//			name: 'isCgscCertified',
-//			displayName: "CGSC Certified",
-//			cellTemplate : '<div class="applicationStatusGridText text-center"><p title="CGSC Certified Candidate" class="hiredText" ng-show="row.entity.isCgscCertified ==\'Y\'">Yes</p><p title="Not CGSC Certified" class="rejectedText" ng-show="row.entity.isCgscCertified ==\'N\'">No</p></div>',
-//			width: '10%',
-//			cellTooltip: function(row, col) 
-//			{
-//				return 'CGSC Certified: ' + row.entity.isCgscCertified;
-//			}
-//		},
+		{
+			name: 'isCgscCertified',
+			displayName: "SCGJ Certified",
+			cellTemplate : '<div class="applicationStatusGridText text-center"><p title="CGSC Certified Candidate" class="hiredText" ng-show="row.entity.isCgscCertified ==\'Y\'">Yes</p><p title="Not CGSC Certified" class="rejectedText" ng-show="row.entity.isCgscCertified ==\'N\'">No</p></div>',
+			width: '10%',
+			cellTooltip: function(row, col) 
+			{
+				return 'SCGJ Certified: ' + row.entity.isCgscCertified;
+			}
+		},
 		{
 			name: 'resumePath',
 			displayName: 'Resume',
@@ -142,16 +142,16 @@ manageJobApplications.controller("manageJobApplicationsController",function($sco
 				return 'Experience: ' + row.entity.professionalExperience;
 			}
 		},
-//		{
-//			name: 'isCgscCertified',
-//			displayName: "CGSC Certified",
-//			cellTemplate : '<div class="applicationStatusGridText text-center"><p title="Status: CGSC Certified Candidate" class="hiredText" ng-show="row.entity.isCgscCertified ==\'Y\'">Yes</p><p title="Not CGSC Certified" class="rejectedText" ng-show="row.entity.isCgscCertified ==\'N\'">No</p></div>',
-//			width: '35%',
-//			cellTooltip: function(row, col) 
-//			{
-//				return 'CGSC Certified: ' + row.entity.isCgscCertified;
-//			}
-//		},
+		{
+			name: 'isCgscCertified',
+			displayName: "SCGJ Certified",
+			cellTemplate : '<div class="applicationStatusGridText text-center"><p title="Status: SCGJ Certified Candidate" class="hiredText" ng-show="row.entity.isCgscCertified ==\'Y\'">Yes</p><p title="Not SCGJ Certified" class="rejectedText" ng-show="row.entity.isCgscCertified ==\'N\'">No</p></div>',
+			width: '35%',
+			cellTooltip: function(row, col) 
+			{
+				return 'SCGJ Certified: ' + row.entity.isCgscCertified;
+			}
+		},
 		{
 			name: 'resumePath',
 			displayName: 'Resume',

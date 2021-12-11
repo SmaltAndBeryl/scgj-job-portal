@@ -131,26 +131,25 @@
 				<p class="candidateDetailsText">{{candidateDetails.professionalExperience}}</p>
 			</div>
 		</div>
-		<!-- div class="row margin-0">
+	<div class="row margin-0">
 			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
-				<p class="candidateDetailsLabel">CGSC Certified:</p>
+				<p class="candidateDetailsLabel">SCGJ Certified:</p>
 			</div>
 			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
 				<p class="candidateDetailsText" ng-show="candidateDetails.isCgscCertified=='Y'">Yes</p>
 				<p class="candidateDetailsText" ng-show="candidateDetails.isCgscCertified=='N'">No</p>
 			</div>
-		</div>  -->	
+		</div>  
 		
-		<!-- 		<div class="row margin-0" ng-hide="candidateDetails.isCgscCertified==null || candidateDetails.isCgscCertified=='N'">
+			<div class="row margin-0" ng-hide="candidateDetails.isCgscCertified==null || candidateDetails.isCgscCertified=='N'">
 			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
 				<p class="candidateDetailsLabel">Certificate Number:</p>
 			</div>
 			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
 				<p class="candidateDetailsText" ng-disabled="candidateDetails.isCgscCertified=='Y'">{{candidateDetails.certificateNumber}}</p>
 			</div>
-		</div>  -->
-		
-		<!-- 
+		</div>  
+	
 				<div class="row margin-0" ng-hide="candidateDetails.isCgscCertified==null || candidateDetails.isCgscCertified=='N'">
 			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
 				<p class="candidateDetailsLabel">Training Partner:</p>
@@ -158,7 +157,7 @@
 			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
 				<p class="candidateDetailsText">{{candidateDetails.tpName}}</p>
 			</div>
-		</div>  -->
+		</div>  
 		<div class="row margin-0">
 			<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
 				<button class="btn downloadFileButton" ng-click="downloadResume();" ng-disabled="downloading">Download Resume</button>
@@ -260,7 +259,7 @@
 				</div>
 			</div>
 			
-			<!--
+			
 			<div class="row margin-0">
 				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
 					<p class="candidateDetailsLabel">CGSC Certified:</p>
@@ -272,9 +271,8 @@
 						<option value="N" ng-selected="profileDetails.isCgscCertified=='N'">No</option>
 					</select>
 				</div>	
-			</div> -->
+			</div>
 			
-			<!-- 
 			<div class="row margin-0" ng-show="profileDetails.isCgscCertified=='Y'">
 				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
 					<p class="candidateDetailsLabel">Certificate Number:</p>
@@ -283,8 +281,7 @@
 					<input placeholder="Enter CGSC Certificate Number" minLength="5" maxlength="50" pattern="[A-Za-z0-9-/ ]{5,50}" title="Certificate number can contain letters, numbers, (-) and (/) only, with length between 5-50 characters" class="updateProfileInputBox" ng-model="profileDetails.certificateNumber"  ng-disabled="disableUserAction"/>
 				</div>
 			</div>
-			 -->
-			<!-- 
+			 
 			<div class="row margin-0" ng-show="profileDetails.isCgscCertified=='Y'">
 				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
 					<p class="candidateDetailsLabel">Training Partner:</p>
@@ -292,7 +289,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
 					<input placeholder="Enter Training Partner Name" class="updateProfileInputBox" ng-model="profileDetails.trainingPartner" uib-typeahead="trainingPartner as trainingPartner.trainingPartnerName for trainingPartner in trainingPartners | filter:{trainingPartnerName:$viewValue} | limitTo:8" ng-disabled="disableUserAction">
 				</div>
-			</div> -->
+			</div> 
 			<div class="row margin-0">
 				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
 					<p class="candidateDetailsLabel">Gender:</p>

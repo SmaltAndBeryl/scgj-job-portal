@@ -51,13 +51,13 @@
 			<div class="row margin-0">
 				<div class="flexContainer">
 					<div id="candidateNameDiv">
-					<p class="jobPostCardTitle margin-top-1 margin-bottom-3" title="Candidate Name: {{candidateInfo.candidateName}}">{{candidateInfo.candidateName}}
-						<span class="applicationStatusText inReviewText" ng-show="candidateInfo.applicationStatus == 'In Review'">(In Review)</span>
-						<span class="applicationStatusText rejectedText" ng-show="candidateInfo.applicationStatus == 'Rejected'">(Rejected)</span>
-						<span class="applicationStatusText shortlistedText" ng-show="candidateInfo.applicationStatus == 'Shortlisted'">(Shortlisted)</span>
-						<span class="applicationStatusText hiredText" ng-show="candidateInfo.applicationStatus == 'Hired'">(Hired)</span>
-					</p>
-				</div>
+						<p class="jobPostCardTitle margin-top-1 margin-bottom-3" title="Candidate Name: {{candidateInfo.candidateName}}">{{candidateInfo.candidateName}}
+							<span class="applicationStatusText inReviewText" ng-show="candidateInfo.applicationStatus == 'In Review'">(In Review)</span>
+							<span class="applicationStatusText rejectedText" ng-show="candidateInfo.applicationStatus == 'Rejected'">(Rejected)</span>
+							<span class="applicationStatusText shortlistedText" ng-show="candidateInfo.applicationStatus == 'Shortlisted'">(Shortlisted)</span>
+							<span class="applicationStatusText hiredText" ng-show="candidateInfo.applicationStatus == 'Hired'">(Hired)</span>
+						</p>	
+					</div>
 					<div class="flexElement">
 						<p class="viewCandidateContentHeading">Job Role</p>
 						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.jobRole}}</p>
@@ -102,20 +102,20 @@
 						<p class="viewCandidateContentHeading">Address</p>
 						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.address}}</p>
 					</div>
-					<!-- <div class="flexElement">
-						<p class="viewCandidateContentHeading">CGSC Certified</p>
+					<div class="flexElement">
+						<p class="viewCandidateContentHeading">SCGJ Certified</p>
 						<p class="viewCandidateContentText jobPostCardGreyText hiredText" ng-show="candidateInfo.isCgscCertified =='Y' ">Yes</p>
 						<p class="viewCandidateContentText jobPostCardGreyText rejectedText" ng-show="candidateInfo.isCgscCertified =='N'">No</p>
 					</div>
 					<div class="flexElement">
-						<p class="viewCandidateContentHeading">CGSC Certificate Number</p>
+						<p class="viewCandidateContentHeading">SCGJ Certificate Number</p>
 						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.cgscCertificateNumber}}</p>
 					</div>
 					<div class="flexElement">
-						<p class="viewJobSectionContentHeading">Training Partner</p>
-						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="candidateInfo.isCgscCertified =='Y'">{{candidateInfo.trainingPartner}}</p>
-						<p class="viewJobSectionContentText jobPostCardGreyText" ng-show="candidateInfo.isCgscCertified =='N'">N/A</p>
-					</div> -->
+						<p class="viewCandidateContentHeading">Training Partner</p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.isCgscCertified =='Y'">{{candidateInfo.trainingPartner}}</p>
+						<p class="viewCandidateContentText jobPostCardGreyText" ng-show="candidateInfo.isCgscCertified =='N'">N/A</p>
+					</div>
 					<div class="flexElement">
 						<p class="viewCandidateContentHeading">Applied On</p>
 						<p class="viewCandidateContentText jobPostCardGreyText">{{candidateInfo.appliedOn}}</p>

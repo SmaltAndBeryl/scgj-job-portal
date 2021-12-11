@@ -77,14 +77,7 @@
 						</span>
 						<input class="standardInputBox datePickerIcon" ng-disabled="processingEditJobPostAction" placeholder="Select Application Last Date" id="applicationDatePicker" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="jobPostDetails.applicationDate" required/>
 					</div>
-					<!-- 
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<select class="standardInputBox" ng-model="jobPostDetails.cgscCertificatePreferred" ng-disabled="processingEditJobPostAction" required>
-							<option value="" disabled>CGSC Certificate Preference</option>
-							<option value="Y" ng-selected="jobPostDetails.cgscCertificatePreferred=='Y'">Yes</option>
-							<option value="N" ng-selected="jobPostDetails.cgscCertificatePreferred=='N'">No</option>
-						</select>
-					</div> -->
+
 					<div class="col-md-4 col-sm-4 col-xs-12" id="uploadDescriptionDiv">
 						<div>
 							<input class="standardInputBox" type="text" id="uploadJobDescription" placeholder="Upload Document">
@@ -97,6 +90,13 @@
 					</div>
 				</div>
 				<div class="row margin-0">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<select class="standardInputBox" ng-model="jobPostDetails.cgscCertificatePreferred" ng-disabled="processingEditJobPostAction" required>
+								<option value="" disabled>SCGJ Certificate Preference</option>
+								<option value="Y" ng-selected="jobPostDetails.cgscCertificatePreferred=='Y'">Yes</option>
+								<option value="N" ng-selected="jobPostDetails.cgscCertificatePreferred=='N'">No</option>
+							</select>
+						</div>
 					<div class="col-md-8 col-sm-8 col-xs-12">
 						<textarea class="standardInputBox" ng-disabled="processingEditJobPostAction" id="jobSummaryInput" rows="6" cols="2" type="text" minlength="3" maxlength="250" placeholder="Enter Job Summary" ng-model="jobPostDetails.jobSummary" required></textarea>
 					</div>

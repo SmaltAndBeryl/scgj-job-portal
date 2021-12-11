@@ -1150,12 +1150,12 @@ app.controller('mainController', function($rootScope, $scope,$http, $location, $
 		        	candidateRegistrationDetails.append('aadhaarNumber',$scope.candidate.aadhaarNumber);
 		        	candidateRegistrationDetails.append('address',$scope.candidate.address);
 					candidateRegistrationDetails.append("jobRoleId",$scope.candidate.jobRole);
-//		        	candidateRegistrationDetails.append('cgscCertifiedCandidate',$scope.candidate.cgscCertification);
-//		        	if($scope.candidate.cgscCertification==$scope.staticContentArray.trueFlag)
-//		        	{
-//		        		candidateRegistrationDetails.append('certificateNumber',$scope.candidate.certificateNumber);
-//			        	candidateRegistrationDetails.append('trainingPartnerId',$scope.candidate.trainingPartner.userId);
-//		        	}
+		        	candidateRegistrationDetails.append('cgscCertifiedCandidate',$scope.candidate.cgscCertification);
+		        	if($scope.candidate.cgscCertification==$scope.staticContentArray.trueFlag)
+		        	{
+		        		candidateRegistrationDetails.append('certificateNumber',$scope.candidate.certificateNumber);
+			        	candidateRegistrationDetails.append('trainingPartnerId',$scope.candidate.trainingPartner.userId);
+		        	}
 		        	
 		        	var candidateResume = document.getElementById('candidateResumeFile').files[0];
 		        	var fileName = document.getElementById('candidateResume').value;

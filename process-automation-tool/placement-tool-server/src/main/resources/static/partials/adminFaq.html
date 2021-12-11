@@ -126,7 +126,7 @@
 				<div class="questionSection">
 					<p class="questionText">How many candidates got hired for
 						<select class="faqInput" ng-model="faq2Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-							<option value="" disabled>Select Jobrole</option>
+							<option value="" disabled>Select Job Role</option>
 						</select>
 						 during
 						 <select class="faqInput" ng-model="faq2SelectedTime" ng-change="resetFaq2TimePeriod()" required>
@@ -175,7 +175,7 @@
 				<div class="questionSection">
 					<p class="questionText">How many candidates got hired for
 						<select class="faqInput" ng-model="faq3Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-							<option value="" disabled>Select Jobrole</option>
+							<option value="" disabled>Select Job Role</option>
 						</select>
 						 from
 						 <select class="faqInput" ng-model="faq3State" ng-options="state for state in statesList" required>
@@ -291,7 +291,7 @@
 				<div class="questionSection">
 					<p class="questionText">How many job listings were posted for
 						<select class="faqInput" ng-model="faq6Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-							<option value="" disabled>Select Jobrole</option>
+							<option value="" disabled>Select Job Role</option>
 						</select>
 					</p>
 				</div>
@@ -306,10 +306,10 @@
 		</div>
 		
 		<!-- FAQ Seven Section -->
-	<!-- <div class="faqPanel faqPanel row rowMargin-0">
+	<div class="faqPanel faqPanel row rowMargin-0">
 			<form class="faqQuestionFlexBox" ng-submit="countPlacedCGSCCertifiedCandidate('#glyphiconIcon7','#answerSeven');">
 				<div class="questionSection">
-					<p class="questionText">How many CGSC certified candidates were hired
+					<p class="questionText">How many SCGJ certified candidates were hired
 					during
 					<select class="faqInput" ng-model="faq7SelectedTime" ng-change="resetFaq7TimePeriod()" required>
 		                    <option value="" disabled selected>Select Time Period</option>
@@ -332,13 +332,13 @@
 					<button type = "submit" class="glyphicon glyphicon-plus showHideFaqIcon" id="glyphiconIcon7"></button>
 				</div>
 			</form>
-		</div>  -->
+		</div> 
 		<!-- FAQ Seven Answer Section -->
-	<!--	<div class="faqAnswerPanel hidePanel" id="answerSeven">
+	<div class="faqAnswerPanel hidePanel" id="answerSeven">
 			<p>{{faq7Answer}}</p>
-		</div> -->
+		</div> 
 		<!-- FAQ Error message section -->
-	<!--	<div class="row margin-0" ng-show="errorFaq7">
+		<div class="row margin-0" ng-show="errorFaq7">
 			<div class="alert alert-danger alert-dismissible errorMessageBox errorMessageBoxFaq">
 				<div class="row margin-0">
 					<div class="col-md-11 col-sm-10 col-xs-10 text-center">
@@ -349,7 +349,7 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div> 
 		
 		<!-- FAQ Eight Section -->
 		<div class="faqPanel faqPanel row rowMargin-0">
@@ -376,7 +376,7 @@
 					<input class="faqInput" placeholder="Enter Count" ng-model="faq9JobCount"  type="number"  min="0" max="5000000" oninput="this.value=parseInt(this.value)" required/> 
 					job listings for
 					<select class="faqInput" ng-model="faq9Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" ng-change="populateJobOccupation()" required>
-						<option value="" disabled>Select Jobrole</option>
+						<option value="" disabled>Select Job Role</option>
 					</select>
 					and 
 					<select class="faqInput" ng-model="faq9Occupation" ng-options="occupation as occupation.occupationName for occupation in occupationList" required>
@@ -444,7 +444,7 @@
 					</select>
 					for 
 					<select class="faqInput" ng-model="faq10Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-						<option value="" disabled>Select Jobrole</option>
+						<option value="" disabled>Select Job Role</option>
 					</select>					
 					during
 					<select class="faqInput" ng-model="faq10SelectedTime" ng-change="resetFaq10TimePeriod()" required>

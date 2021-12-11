@@ -20,7 +20,8 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js" type="text/javascript"></script>
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.8.0/ui-grid.js"></script>
-	  	<script type= "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>  
+	  <!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script> -->
+	  <script type= "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>  
 		  	
 	  	<!-- Controllers -->
 	    <script type="text/javascript" src="js/controllers/indexController.js"></script> 
@@ -94,10 +95,10 @@
 				<div id="landingPageSlider" class="carousel slide largeScreenCarousel" data-ride="carousel">
 				    <!-- Indicators -->
 				     <ol class="carousel-indicators bottomSpace">
-				    <!--  -->  <li data-target="#landingPageSlider" data-slide-to="0" class="active"></li>
-				      <li data-target="#landingPageSlider" data-slide-to="1"></li>
+					<!-- <li data-target="#landingPageSlider" data-slide-to="0" ></li> -->
+				      <li data-target="#landingPageSlider" data-slide-to="1" class="active"></li>
 				      <li data-target="#landingPageSlider" data-slide-to="2"></li>
-				      <!-- <li data-target="#landingPageSlider" data-slide-to="3"></li> -->
+				      <li data-target="#landingPageSlider" data-slide-to="3"></li>
 				    </ol>
 	
 				    <!-- Wrapper for slides -->
@@ -133,17 +134,17 @@
 				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="0" class="active"></li>
 				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="1"></li>
 				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="2"></li>
-				      <!-- <li data-target="#landingPageSliderSmallScreen" data-slide-to="3"></li> -->
+				      <li data-target="#landingPageSliderSmallScreen" data-slide-to="3"></li>
 				    </ol>
 	
 				    <!-- Wrapper for slides -->
 				    <div class="carousel-inner">
-				    	 <!-- <div class="item active">
+				    	 <div class="item active">
 					        <div class="carousel-content carouselSlide">
 						     	<img src="../images/introduction-image-mobile.jpg" class="carouselImage" alt="Introduction Image" >
 						     </div>				       
-					      </div> -->
-					    <div class="item active">
+					      </div>
+					    <div class="item">
 					        <div class="carousel-content carouselSlide">
 						     	<img src="../images/mobileCarouselImage1.jpg" class="carouselImage" alt="Slider Image Four" >
 						     </div>				       
@@ -317,7 +318,7 @@
 											<p class="viewJobSectionContentHeading">Preferences</p>
 										</div>
 										<div class="col-md-12 preferencesText">
-											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.cgscCertificatePreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>CGSC Certified Candidate</p>
+											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.cgscCertificatePreferred == 'Y'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>SCGJ Certified Candidate</p>
 											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'F'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Female</p>
 											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'M'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Male </p>
 											<p class="viewJobSectionContentText" ng-show="viewJobPostDetails.preferredGender == 'O'"><i class="fa fa-circle-o preferenceListIcon" aria-hidden="true"></i>Gender: Other</p>
@@ -610,43 +611,34 @@
 										</select>					
 										<span class="mandatoryFieldAsterisk">*</span>
 									</div>
-									
-									
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<select class="registrationInputBox cgscCertifiedDropdown" ng-model="candidate.cgscCertification" required>
+											<option value="" disabled selected>SCGJ Certified Candidate?</option>
+											<option value="Y">Yes - SCGJ Certified</option>
+											<option value="N">No - Not SCGJ Certified</option>
+										</select>					
+										<span class="mandatoryFieldAsterisk">*</span>
+										<!-- <i class="glyphicon glyphicon-info-sign informationGlyphicon" data-placement="bottom" data-toggle="modal"  data-target=".cgscCertificationModal" ></i> -->
+									</div>
+								</div>
+								<div class="row margin-0" ng-show="candidate.cgscCertification=='Y'">
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										<input placeholder="Enter Certificate Number" pattern="[A-Za-z0-9-/ ]{5,50}" title="Certificate number can contain letters, numbers, (-) and (/) only, with length between 5-50 characters" class="registrationInputBox" ng-model="candidate.certificateNumber" ng-required="candidate.cgscCertification=='Y'"/>
+										<span class="mandatoryFieldAsterisk">*</span>
+									</div>
+									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
+										
+										<input placeholder="Enter Training Partner Name" class="registrationInputBox" ng-model="candidate.trainingPartner" uib-typeahead="trainingPartner as trainingPartner.trainingPartnerName for trainingPartner in trainingPartners | filter:{trainingPartnerName:$viewValue} | limitTo:8" ng-required="candidate.cgscCertification=='Y'">
+										<span class="mandatoryFieldAsterisk">*</span>									
+									</div>
+								</div>
+								<div class="row margin-0">
 									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
 										<select class="registrationInputBox" ng-model="candidate.state" ng-options="state for state in statesList" required>
 											<option value="" disabled>Select State</option>
 										</select>
 										<span class="mandatoryFieldAsterisk">*</span>
 									</div>
-									
-									<!-- 	<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
-										<input placeholder="Enter Certificate Number" pattern="[A-Za-z0-9-/ ]{5,50}" title="Certificate number can contain letters, numbers, (-) and (/) only, with length between 5-50 characters" class="registrationInputBox" ng-model="candidate.certificateNumber" ng-required="candidate.cgscCertification=='Y'"/>
-										<span class="mandatoryFieldAsterisk">*</span>
-									</div>  -->
-									
-									<!-- <div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
-										<select class="registrationInputBox cgscCertifiedDropdown" ng-model="candidate.cgscCertification" required>
-											<option value="" disabled selected>CGSC Certified Candidate?</option>
-											<option value="Y">Yes - CGSC Certified</option>
-											<option value="N">No - Not CGSC Certified</option>
-										</select>					
-										<span class="mandatoryFieldAsterisk">*</span>
-										<i class="glyphicon glyphicon-info-sign informationGlyphicon" data-placement="bottom" data-toggle="modal"  data-target=".cgscCertificationModal" ></i>
-									</div>  -->
-									
-								</div>
-								<!-- 
-								<div class="row margin-0">
-								
-									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
-										
-										<input placeholder="Enter Training Partner Name" class="registrationInputBox" ng-model="candidate.trainingPartner" uib-typeahead="trainingPartner as trainingPartner.trainingPartnerName for trainingPartner in trainingPartners | filter:{trainingPartnerName:$viewValue} | limitTo:8" ng-required="candidate.cgscCertification=='Y'">
-										<span class="mandatoryFieldAsterisk">*</span>									
-									</div> 
-									
-								</div> -->
-								
-								<div class="row margin-0">									
 									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
 										<input placeholder="Enter Pincode" type="number" min="0" oninput="this.value=parseInt(this.value)" class="registrationInputBox" ng-model="candidate.pincode" required/>
 										<span class="mandatoryFieldAsterisk">*</span>
@@ -669,9 +661,7 @@
 									</div>
 								</div>							
 							</form>
-						
-						<!-- 
-							<div class="modal fade in cgscCertificationModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+							<!-- <div class="modal fade in cgscCertificationModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 								<div class="modal-dialog modal-lg " role="document">
 									<div class="modal-content cgscCertificationModalContent">
 
@@ -688,8 +678,8 @@
 
 									</div>
 								</div>
-							</div>
-									 -->
+							</div>  -->
+
 
 							<!-- Employer Registration Form -->
 

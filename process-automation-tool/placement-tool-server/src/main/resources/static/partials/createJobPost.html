@@ -52,11 +52,14 @@
 			</div>
 			
 			<div class="row margin-0">
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<select class="standardInputBox" ng-options="experience for experience in workExperienceList" ng-model="jobPostDetails.workExperience" ng-disabled="disableFormAction" required>
 						<option value="" disabled>Select Minimum Experience</option>
 					</select>		
 				</div>
+				
+				
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<span class="openDateIcon">
 						<img src="images/calendarIcon.png" alt="Calendar Icon" class="calendarIcon">
@@ -72,17 +75,18 @@
 					<button class="deleteDocumentIcon" ng-show="addJobDescription" type="button" ng-disabled="disableFormAction"  title="Delete Description Document" ng-click="deleteDescriptionDocument();"><i class="glyphicon glyphicon-trash"></i></button>
 				</div>
 		    	
-		    	<!-- 
-		    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<select class="standardInputBox" ng-model="jobPostDetails.cgscCertificatePreferred" ng-disabled="disableFormAction" required>
-						<option value="" disabled>CGSC Certificate Preference</option>
-						<option value="Y">Yes</option>
-						<option value ="N">No</option>
-					</select>		
-				</div> -->
 			</div>
 			
 			<div class="row margin-0 ">
+			
+			
+		    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<select class="standardInputBox" ng-model="jobPostDetails.cgscCertificatePreferred" ng-disabled="disableFormAction" required>
+						<option value="" disabled>SCGJ Certificate Preference</option>
+						<option value="Y">Yes</option>
+						<option value ="N">No</option>
+					</select>		
+				</div>
 				<div class="col-md-8 col-sm-8 col-xs-12">
 					<textarea class="standardInputBox" ng-disabled="disableFormAction" id="jobSummaryInput" rows="6" cols="2" type="text" minlength="3" maxlength="250" placeholder="Enter Job Summary" ng-model="jobPostDetails.jobSummary" required></textarea>
 				</div>

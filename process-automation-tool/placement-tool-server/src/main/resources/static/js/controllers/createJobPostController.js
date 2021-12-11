@@ -277,7 +277,7 @@ createJobPost.controller("createJobPostController",function($scope,$http,$timeou
 			jobPostData.append('occupation',$scope.jobPostDetails.occupation);
 			jobPostData.append('applicationDate', $scope.jobPostDetails.applicationDate);
 			jobPostData.append('jobSummary', $scope.jobPostDetails.jobSummary);
-//			jobPostData.append('cgscCertificatePreferred',$scope.jobPostDetails.cgscCertificatePreferred);
+			jobPostData.append('cgscCertificatePreferred',$scope.jobPostDetails.cgscCertificatePreferred);
 			if($scope.addJobDescription){
 				jobPostData.append('descriptionDocument', document.getElementById('uploadJobDescriptionFile').files[0]);
 			}
@@ -341,7 +341,7 @@ createJobPost.controller("createJobPostController",function($scope,$http,$timeou
 	        		$scope.success= true;
 	        		$scope.disableFormAction=false;
 	        		document.getElementById('createJobPostForm').reset();
-//					$scope.jobPostDetails.cgscCertificatePreferred="";
+					$scope.jobPostDetails.cgscCertificatePreferred="";
 					$scope.occupationList=[];
 	        		$scope.jobPostDetails.addAdditionalInfo=false;
 	        		$scope.addJobDescription = false;
