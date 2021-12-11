@@ -101,7 +101,7 @@ public class CreateJobPostDao extends AbstractTransactionalDao
 		params.put("walkInInterviewFlag", createJobPostdto.getIsWalkinInterview());
 		params.put("preferredGender", createJobPostdto.getPreferredGender());
 		params.put("armyBackgroundPreference", createJobPostdto.getArmyBackgroundPreferred());
-//		params.put("cgscCertificatePreference", createJobPostdto.getCgscCertificatePreferred());
+		params.put("cgscCertificatePreference", createJobPostdto.getCgscCertificatePreferred());
 		params.put("employerId", employerId);
 		params.put("jobStatusNotPublished", ReadApplicationConstants.getNotPublishedState());
 		params.put("activeFlagTrue", ReadApplicationConstants.getTrueFlag());

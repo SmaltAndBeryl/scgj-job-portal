@@ -94,9 +94,9 @@ public class CandidateRegistrationDao extends AbstractTransactionalDao
 		params.put("certificatePath", certificatesPath);
 		params.put("gender", registerCandidateDto.getGender());
 		params.put("defenceBackground", registerCandidateDto.getDefenceBackground());
-//		params.put("cgscCertificationStatus", registerCandidateDto.getCgscCertifiedCandidate());
-//		params.put("certificateNumber", registerCandidateDto.getCertificateNumber());
-//		params.put("trainingPartnerId", registerCandidateDto.getTrainingPartnerId());
+		params.put("cgscCertificationStatus", registerCandidateDto.getCgscCertifiedCandidate());
+		params.put("certificateNumber", registerCandidateDto.getCertificateNumber());
+		params.put("trainingPartnerId", registerCandidateDto.getTrainingPartnerId());
 		params.put("dateOfBirth",registerCandidateDto.getDob());
 		params.put("age",age);
 		params.put("guardianName",registerCandidateDto.getGuardianName());

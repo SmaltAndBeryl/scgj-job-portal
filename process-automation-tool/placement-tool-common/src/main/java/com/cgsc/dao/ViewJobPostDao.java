@@ -282,7 +282,7 @@ public class ViewJobPostDao extends AbstractTransactionalDao{
 			 String armyBackgroundPreferred = rs.getString("army_background_preference");
 			 String postedBy = rs.getString("posted_by");
 			 Date publishedAt = rs.getDate("published_at");
-//			 String cgscCertificatePreferred = rs.getString("cgsc_certificate_preference");
+			 String cgscCertificatePreferred = rs.getString("cgsc_certificate_preference");
 			 
 			 String interviewStartDateTimeFormatted=null,interviewEndDateTimeFormatted=null,applicationDateFormatted=null, publishedAtFormatted=null; 
 			 if(!(Objects.isNull(interviewStartDateTimeTs)))
@@ -296,7 +296,7 @@ public class ViewJobPostDao extends AbstractTransactionalDao{
 			 
 			return new ViewJobPostDto(id,jobId,jobTitle,totalVacancy,minSalary,maxSalary,state,district,occupation,minimumExperience,educationQualification,jobRole,applicationDateFormatted,jobSummary,
 					descriptionDocumentPath,leavePolicy,monthlyIncentives,workTimings,contactNumber,interviewStartDateTimeFormatted,interviewEndDateTimeFormatted,
-					isWalkinInterview,preferredGender,armyBackgroundPreferred,null,postedBy,publishedAtFormatted);
+					isWalkinInterview,preferredGender,armyBackgroundPreferred,cgscCertificatePreferred,postedBy,publishedAtFormatted);
 		}
 	}
 	
@@ -354,7 +354,7 @@ public class ViewJobPostDao extends AbstractTransactionalDao{
 			 String district = rs.getString("district");
 			 String state = rs.getString("state");
 			 String jobSummary=rs.getString("jobSummary");
-//			 String isCGSCCertified=rs.getString("isCGSCCertified");
+			 String isCGSCCertified=rs.getString("isCGSCCertified");
 			 String minimumExperience=rs.getString("minimumExperience");
 			 String educationQualification=rs.getString("educationQualification");
 			 int minSalary=rs.getInt("minSalary");
@@ -378,7 +378,7 @@ public class ViewJobPostDao extends AbstractTransactionalDao{
 				
 			 return new ViewPublishedJobPostDto(id,jobId,jobTitle,vacancy,applicationLastDate,descriptionDocumentPath,createdOn,publishedOn,jobStatus,updatedOn,
 						 jobRole,createdBy,approvalStatus,occupation,district,state,
-						 jobSummary,null,adminComments,educationQualification,
+						 jobSummary,isCGSCCertified,adminComments,educationQualification,
 						 minimumExperience,minSalary,maxSalary,leavePolicy,monthlyIncentives,
 						 workTimings,contactNumber,isWalkinInterview,preferredGender,
 						 armyBackgroundPreferred,interviewStartDateTime,interviewEndDateTime);

@@ -120,9 +120,9 @@ public class CandidateProfileDao extends AbstractTransactionalDao
 		params.put("professionalExperience", candidateProfileDto.getProfessionalExperience());
 		params.put("resumePath", resumePath);
 		params.put("certificatePath", certificatesPath);
-//		params.put("isCgscCertified", candidateProfileDto.getIsCgscCertified());
-//		params.put("certificateNumber", candidateProfileDto.getCertificateNumber());
-//		params.put("trainingPartnerId",candidateProfileDto.getTpId());
+		params.put("isCgscCertified", candidateProfileDto.getIsCgscCertified());
+		params.put("certificateNumber", candidateProfileDto.getCertificateNumber());
+		params.put("trainingPartnerId",candidateProfileDto.getTpId());
 		params.put("userId", candidateProfileDto.getUserId());
 		params.put("dateOfBirth",candidateProfileDto.getDob());
 		params.put("age",age);
@@ -213,10 +213,10 @@ public class CandidateProfileDao extends AbstractTransactionalDao
 			String professionalExperience = rs.getString("working_experience");
 			String resumePath = rs.getString("resume_path");
 			String certificatesPath = rs.getString("certificate_path");
-//			String isCgscCertified = rs.getString("is_cgsc_certified");
-//			String certificateNumber = rs.getString("certificate_number");
-//			Integer tpId = rs.getInt("tp_id");
-//			String tpName = rs.getString("tp_name");
+			String isCgscCertified = rs.getString("is_cgsc_certified");
+			String certificateNumber = rs.getString("certificate_number");
+			Integer tpId = rs.getInt("tp_id");
+			String tpName = rs.getString("tp_name");
 			String dob = rs.getString("dob");
 			String guardianName = rs.getString("guardian_name");
 			long aadhaarNumber = rs.getLong("aadhaar_number");
@@ -224,7 +224,7 @@ public class CandidateProfileDao extends AbstractTransactionalDao
 			String jobRole = rs.getString("job_role");
 			String address = rs.getString("address");
 			int age = rs.getInt("age");
-			return new CandidateProfileDto(userId, candidateName, mobileNumber, guardianMobileNumber, professionalExperience, educationQualification, gender, state, pincode, resumePath, certificatesPath, exArmyPersonnel, null, null, null, null,
+			return new CandidateProfileDto(userId, candidateName, mobileNumber, guardianMobileNumber, professionalExperience, educationQualification, gender, state, pincode, resumePath, certificatesPath, exArmyPersonnel, isCgscCertified, certificateNumber,tpName, tpId,
 					dob, guardianName, aadhaarNumber, jobRoleId, jobRole, address,age);
 		}
 	}

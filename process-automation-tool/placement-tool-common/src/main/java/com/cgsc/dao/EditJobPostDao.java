@@ -107,7 +107,7 @@ public class EditJobPostDao extends AbstractTransactionalDao
 		params.put("walkInInterviewFlag", editJobPostsDto.getIsWalkInInterview());
 		params.put("gender", editJobPostsDto.getPreferredGender());
 		params.put("armyBackgroundPreference", editJobPostsDto.getArmyBackgroundPreferred());
-//		params.put("cgscCertificatePreference", editJobPostsDto.getCgscCertificatePreferred());
+		params.put("cgscCertificatePreference", editJobPostsDto.getCgscCertificatePreferred());
 		params.put("occupation",editJobPostsDto.getOccupation());
 		Log.debug("Hashmap created and parameters inserted into hashmap for jobId {}",editJobPostsDto.getJobId());
 		try
@@ -206,14 +206,14 @@ public class EditJobPostDao extends AbstractTransactionalDao
 			String walkInInterviewFlag = rs.getString("walk_in_interview_flg");
 			String preferredGender = rs.getString("preferred_gender");
 			String armyBackgroundPreferred = rs.getString("army_background_preference");
-//			String cgscCertificatePreferred = rs.getString("cgsc_certificate_preference");
+			String cgscCertificatePreferred = rs.getString("cgsc_certificate_preference");
 			String occupation = rs.getString("occupation");
 			if(Objects.isNull(leavePolicy) && Objects.isNull(monthlyIncentives) && Objects.isNull(workTimings) && Objects.isNull(contactNumber) && Objects.isNull(interviewStartDateTime)
 					&& Objects.isNull(interviewEndDateTime) && Objects.isNull(walkInInterviewFlag) && Objects.isNull(preferredGender) && Objects.isNull(armyBackgroundPreferred))
 				{
 					additionalInformation = ReadApplicationConstants.getFalseFlag();
 				}
-			return new EditJobPostsDto(id, jobId, jobTitle, vacancy, minSalary, maxSalary, state, district, experienceRequired, qualificationRequired, jobRole, applicationDate, jobSummary, jobDescription, additionalInformation, leavePolicy, monthlyIncentives, workTimings, contactNumber, interviewStartDateTime, interviewEndDateTime, walkInInterviewFlag, preferredGender, armyBackgroundPreferred, null, occupation);
+			return new EditJobPostsDto(id, jobId, jobTitle, vacancy, minSalary, maxSalary, state, district, experienceRequired, qualificationRequired, jobRole, applicationDate, jobSummary, jobDescription, additionalInformation, leavePolicy, monthlyIncentives, workTimings, contactNumber, interviewStartDateTime, interviewEndDateTime, walkInInterviewFlag, preferredGender, armyBackgroundPreferred, cgscCertificatePreferred, occupation);
 			
 		}
 	}

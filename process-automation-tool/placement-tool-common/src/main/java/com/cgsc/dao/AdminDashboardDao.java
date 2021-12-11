@@ -257,8 +257,8 @@ public class AdminDashboardDao extends AbstractTransactionalDao{
 			int salaryOffered=rs.getInt("salary");
 			String jobDistrict = rs.getString("jobDistrict");
 			String jobState = rs.getString("jobState");
-//			String isCGSCCertified = rs.getString("is_cgsc_certified");
-			return new CandidatesPlacedDto(companyName,candidateName,mobileNumber,guardianName,dob,aadhaarNumber,null,jobRole,jobId, 
+			String isCGSCCertified = rs.getString("is_cgsc_certified");
+			return new CandidatesPlacedDto(companyName,candidateName,mobileNumber,guardianName,dob,aadhaarNumber,isCGSCCertified,jobRole,jobId, 
 					 applicationStatus, joiningDate, offerLetterPath,salaryOffered, jobDistrict, jobState);
 		}
 	}
