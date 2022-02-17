@@ -117,7 +117,7 @@
 		</div>
 		<div class="row margin-0">
 			<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
-				<p class="candidateDetailsLabel">Job Role:</p>
+				<p class="candidateDetailsLabel">Sector:</p>
 			</div>
 			<div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
 				<p class="candidateDetailsText">{{candidateDetails.jobRole}}</p>
@@ -250,11 +250,11 @@
 			</div>
 			<div class="row margin-0">
 				<div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
-					<p class="candidateDetailsLabel">Job Role:</p>
+					<p class="candidateDetailsLabel">Sector:</p>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
 					<select class="updateProfileInputBox" ng-model="profileDetails.jobRoleDropdown" ng-options="jobRoles.jobRoleId as jobRoles.jobRole for jobRoles in jobRolesListObject" ng-disabled="disableUserAction" required>
-						<option value="" disabled>Select Job Role</option>
+						<option value="" disabled>Select Sector</option>
 					</select>
 				</div>
 			</div>

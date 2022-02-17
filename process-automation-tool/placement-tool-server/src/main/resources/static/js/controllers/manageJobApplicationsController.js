@@ -58,7 +58,7 @@ manageJobApplications.controller("manageJobApplicationsController",function($sco
 		{
 			name: 'isCgscCertified',
 			displayName: "SCGJ Certified",
-			cellTemplate : '<div class="applicationStatusGridText text-center"><p title="CGSC Certified Candidate" class="hiredText" ng-show="row.entity.isCgscCertified ==\'Y\'">Yes</p><p title="Not CGSC Certified" class="rejectedText" ng-show="row.entity.isCgscCertified ==\'N\'">No</p></div>',
+			cellTemplate : '<div class="applicationStatusGridText text-center"><p title="SCGJ Certified Candidate" class="hiredText" ng-show="row.entity.isCgscCertified ==\'Y\'">Yes</p><p title="Not SCGJ Certified" class="rejectedText" ng-show="row.entity.isCgscCertified ==\'N\'">No</p></div>',
 			width: '10%',
 			cellTooltip: function(row, col) 
 			{

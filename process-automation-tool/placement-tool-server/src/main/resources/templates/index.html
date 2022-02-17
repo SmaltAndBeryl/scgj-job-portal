@@ -177,7 +177,7 @@
 						<div class="row margin-0">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 padding-0">
 								<select class="filterOptionInputBox" ng-options="role for role in jobRoleList" ng-disabled="viewJobPostSection" ng-model="filterOptions.jobRole" ng-change="populateJobOccupation();">
-									<option value="" disabled>Job Role</option>
+									<option value="" disabled>Sector</option>
 								</select>		
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6 padding-0">
@@ -253,7 +253,7 @@
 							</div>
 							<div class="row margin-0">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<p class="jobPostCardGreyText" title="Job Role: {{viewJobPostDetails.jobRole}}">{{viewJobPostDetails.jobRole}}</p>
+									<p class="jobPostCardGreyText" title="Sector: {{viewJobPostDetails.jobRole}}">{{viewJobPostDetails.jobRole}}</p>
 								</div>
 							</div>
 							<div class="row margin-0 viewJobSectionDescriptionFlexBox">
@@ -555,7 +555,7 @@
 								<div class="row margin-0">
 									<div class="col-md-6 col-sm-11 col-xs-11 padding-left-0">
 										<select class="registrationInputBox registrationInputBottomSpace" ng-model="candidate.jobRole" ng-options="jobRoles.jobRoleId as jobRoles.jobRole for jobRoles in jobRolesObject" required>
-											<option value="" disabled>Job Role</option>
+											<option value="" disabled>Sector</option>
 										</select>
 										<span class="mandatoryFieldAsterisk">*</span>
 									</div>
@@ -667,7 +667,7 @@
 
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											<h5 class="modal-title cgscCertificationEnglishContent" id="myModalLabel">Capital Goods Skill Council is a Sector Skill Council established to conduct assessment and certification to successful candidates in manufacturing job roles as per different Schemes like PMKVY, DDUGKY, NULM, etc.</h5>
+											<h5 class="modal-title cgscCertificationEnglishContent" id="myModalLabel">Capital Goods Skill Council is a Sector Skill Council established to conduct assessment and certification to successful candidates in manufacturing sectors as per different Schemes like PMKVY, DDUGKY, NULM, etc.</h5>
 										</div>
 
 										<div class="modal-body">

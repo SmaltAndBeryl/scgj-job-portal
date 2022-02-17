@@ -4,12 +4,12 @@
         <form id="notificationForm" ng-submit="sendNotification()">
             <div class="row margin-top-3">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-11">
-                    <label for="jobRole" class="notificationLabel">Job Role</label>
+                    <label for="jobRole" class="notificationLabel">Sector</label>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-6 col-xs-11">
                     <select id="jobRole" ng-model="notification.jobRoleId" class="registrationInputBox"
                             ng-options="jobRole.jobRoleId as jobRole.jobRole for jobRole in jobRolesObject" required>
-                        <option disabled selected value="">Select Job Role</option>
+                        <option disabled selected value="">Select Sector</option>
                     </select>
                 </div>
             </div>

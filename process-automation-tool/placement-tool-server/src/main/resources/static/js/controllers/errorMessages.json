@@ -35,7 +35,7 @@
   "aadhaarNumberNegativeError": "Please enter a valid 12 digit Aadhaar Number",
 "invalidGuardianNameInputError": "Please enter a valid guardian name",
 "invalidAddressLengthError" : "Please enter a valid address to continue",
-"invalidJobRoleError": "Please select a valid Job Role to continue",
+"invalidJobRoleError": "Please select a valid sector to continue",
 "invalidUrlError" : "Please enter a valid url as company website",
 "candidateRegistrationSuccess" : "Registration successful, please login using your registered mobile number",
 "invalidDobError": "Please enter valid date of birth, between ",
@@ -153,10 +153,10 @@
 "invalidJobPostApprovalStatusError":"The updated job post status is invalid",
 
 "notificationSuccessMessage": "Request to send messages to candidates has been initiated",
-"noCandidatesFoundError" : "No candidates were found for this job role",
-"notificationErrorMessage": "Request to send messages for this job role failed. Please try again later",
+"noCandidatesFoundError" : "No candidates were found for this sector",
+"notificationErrorMessage": "Request to send messages for this sector failed. Please try again later",
 "invalidMessageError": "Please enter a valid message of more than 3 characters",
-"invalidJobRoleMessage": "Please select a valid job role",
+"invalidJobRoleMessage": "Please select a valid sector",
 
 "faqEnterStartDate":"Please select start date",
 "faqEnterEndDate":"Please select end date",

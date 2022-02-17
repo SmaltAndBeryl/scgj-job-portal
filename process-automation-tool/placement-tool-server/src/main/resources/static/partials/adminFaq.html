@@ -126,7 +126,7 @@
 				<div class="questionSection">
 					<p class="questionText">How many candidates got hired for
 						<select class="faqInput" ng-model="faq2Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-							<option value="" disabled>Select Job Role</option>
+							<option value="" disabled>Select Sector</option>
 						</select>
 						 during
 						 <select class="faqInput" ng-model="faq2SelectedTime" ng-change="resetFaq2TimePeriod()" required>
@@ -175,7 +175,7 @@
 				<div class="questionSection">
 					<p class="questionText">How many candidates got hired for
 						<select class="faqInput" ng-model="faq3Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-							<option value="" disabled>Select Job Role</option>
+							<option value="" disabled>Select Sector</option>
 						</select>
 						 from
 						 <select class="faqInput" ng-model="faq3State" ng-options="state for state in statesList" required>
@@ -291,7 +291,7 @@
 				<div class="questionSection">
 					<p class="questionText">How many job listings were posted for
 						<select class="faqInput" ng-model="faq6Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-							<option value="" disabled>Select Job Role</option>
+							<option value="" disabled>Select Sector</option>
 						</select>
 					</p>
 				</div>
@@ -376,7 +376,7 @@
 					<input class="faqInput" placeholder="Enter Count" ng-model="faq9JobCount"  type="number"  min="0" max="5000000" oninput="this.value=parseInt(this.value)" required/> 
 					job listings for
 					<select class="faqInput" ng-model="faq9Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" ng-change="populateJobOccupation()" required>
-						<option value="" disabled>Select Job Role</option>
+						<option value="" disabled>Select Sector</option>
 					</select>
 					and 
 					<select class="faqInput" ng-model="faq9Occupation" ng-options="occupation as occupation.occupationName for occupation in occupationList" required>
@@ -444,7 +444,7 @@
 					</select>
 					for 
 					<select class="faqInput" ng-model="faq10Jobrole" ng-options="jobRole as jobRole.jobRole for jobRole in totalJobRolesList" required>
-						<option value="" disabled>Select Job Role</option>
+						<option value="" disabled>Select Sector</option>
 					</select>					
 					during
 					<select class="faqInput" ng-model="faq10SelectedTime" ng-change="resetFaq10TimePeriod()" required>
